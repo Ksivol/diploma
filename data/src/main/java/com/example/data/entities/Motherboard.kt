@@ -1,5 +1,9 @@
 package com.example.data.entities
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  * Класс [Motherboard]. Представляет собой модельку материнской платы
  * с параметрами:
@@ -9,10 +13,11 @@ package com.example.data.entities
  * @param size размер
  * @param socket сокет
  */
+@Entity(tableName = "motherboard")
 data class Motherboard(
-    val id: Int,
-    val name: String,
-    val price: String,
-    val size: Int,
-    val socket: String
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "price") val price: String,
+    @ColumnInfo(name = "size") val size: Int,
+    @ColumnInfo(name = "socket") val socket: String
 )

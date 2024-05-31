@@ -1,5 +1,9 @@
 package com.example.data.entities
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  * Класс [PSU]. Представляет собой модельку блока питания
  * с параметрами:
@@ -9,10 +13,11 @@ package com.example.data.entities
  * @param wattage мощность
  * @param lines ???
  */
+@Entity(tableName = "psu")
 data class PSU(
-    val id: Int,
-    val name: String,
-    val price: String,
-    val wattage: String,
-    val lines: String
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "price") val price: String,
+    @ColumnInfo(name = "wattage") val wattage: String,
+    @ColumnInfo(name = "lines") val lines: String
 )

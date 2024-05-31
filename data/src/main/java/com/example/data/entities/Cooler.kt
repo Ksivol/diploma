@@ -1,5 +1,9 @@
 package com.example.data.entities
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  * Класс [Cooler]. Представляет собой модельку кулера
  * с параметрами:
@@ -8,9 +12,10 @@ package com.example.data.entities
  * @param price цена
  * @param heatSink теплопроводность
  */
+@Entity(tableName = "cooler")
 data class Cooler(
-    val id: Int,
-    val name: String,
-    val price: String,
-    val heatSink: String
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "price") val price: String,
+    @ColumnInfo(name = "heatSink") val heatSink: String
 )

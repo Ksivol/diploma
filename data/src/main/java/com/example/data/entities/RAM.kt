@@ -1,5 +1,9 @@
 package com.example.data.entities
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  * Класс [RAM]. Представляет собой модельку оперативной памяти
  * с параметрами:
@@ -9,10 +13,11 @@ package com.example.data.entities
  * @param clockRate тактовая частота
  * @param type тип памяти
  */
+@Entity(tableName = "ram")
 data class RAM(
-    val id: Int,
-    val name: String,
-    val price: String,
-    val clockRate: String,
-    val type: String
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "price") val price: String,
+    @ColumnInfo(name = "clockRate") val clockRate: String,
+    @ColumnInfo(name = "type") val type: String
 )

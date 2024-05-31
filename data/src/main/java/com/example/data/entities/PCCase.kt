@@ -1,5 +1,9 @@
 package com.example.data.entities
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  * Класс [PCCase]. Представляет собой модельку корпуса компьютера
  * с параметрами:
@@ -8,9 +12,10 @@ package com.example.data.entities
  * @param price цена
  * @param size размер
  */
+@Entity(tableName = "pc_case")
 data class PCCase(
-    val id: Int,
-    val name: String,
-    val price: String,
-    val size: String
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "price") val price: String,
+    @ColumnInfo(name = "size") val size: String
 )
