@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
  * @param socket сокет
  */
 @Entity(tableName = "motherboard")
-data class Motherboard(
+internal data class Motherboard(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,

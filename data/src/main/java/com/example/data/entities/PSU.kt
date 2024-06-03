@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
  * @param lines ???
  */
 @Entity(tableName = "psu")
-data class PSU(
+internal data class PSU(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,

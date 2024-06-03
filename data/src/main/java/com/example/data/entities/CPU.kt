@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
  * @param wattage потребляемая мощность
  */
 @Entity(tableName = "cpu")
-data class CPU(
+internal data class CPU(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,

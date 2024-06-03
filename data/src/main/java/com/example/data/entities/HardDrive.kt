@@ -16,7 +16,7 @@ import androidx.room.PrimaryKey
  * @param overwrite кол-во перезаписей
  */
 @Entity(tableName = "hard_drive")
-data class HardDrive(
+internal data class HardDrive(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,

@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
  * @param type тип памяти
  */
 @Entity(tableName = "ram")
-data class RAM(
+internal data class RAM(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
