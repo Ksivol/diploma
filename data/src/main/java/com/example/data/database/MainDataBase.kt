@@ -12,8 +12,16 @@ import com.example.data.dao.PcCaseDAO
 import com.example.data.dao.PsuDAO
 import com.example.data.dao.RamDAO
 import com.example.data.dao.VideoCardDAO
+import com.example.data.entities.CPU
+import com.example.data.entities.Cooler
+import com.example.data.entities.HardDrive
+import com.example.data.entities.Motherboard
+import com.example.data.entities.PSU
+import com.example.data.entities.PcCase
+import com.example.data.entities.RAM
+import com.example.data.entities.VideoCard
 
-@Database(entities = [], version = 1)
+@Database(entities = [Cooler::class, CPU::class, HardDrive::class, Motherboard::class, PcCase::class, PSU::class, RAM::class, VideoCard::class], version = 1)
 abstract class MainDataBase : RoomDatabase() {
 
     abstract fun getCoolerDAO(): CoolerDAO
