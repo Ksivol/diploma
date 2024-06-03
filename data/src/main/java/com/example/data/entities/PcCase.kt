@@ -5,15 +5,15 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * Класс [PсCase]. Представляет собой модельку корпуса компьютера
+ * Класс [PcCase]. Представляет собой модельку корпуса компьютера
  * с параметрами:
  * @param id уникальный id
  * @param name имя модели
  * @param price цена
  * @param size размер
  */
-@Entity(tableName = "pc_case")
-internal data class PсCase(
+@Entity(tableName = "pc_cases")
+data class PcCase(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,

@@ -12,8 +12,8 @@ import androidx.room.PrimaryKey
  * @param price цена
  * @param heatSink теплопроводность
  */
-@Entity(tableName = "cooler")
-internal data class Cooler(
+@Entity(tableName = "coolers")
+data class Cooler(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
