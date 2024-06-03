@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Конфигуратор ПК"
 include(":app")
 include(":data")
+include(":domain")
