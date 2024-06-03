@@ -1,5 +1,9 @@
 package com.example.data.entities
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  * Класс [VideoCard]. Представляет собой модельку оперативной памяти
  * с параметрами:
@@ -11,12 +15,13 @@ package com.example.data.entities
  * @param wattage мощность
  * @param videoMemory видеопамять
  */
-internal data class VideoCard(
-    val id: Int,
-    val name: String,
-    val price: String,
-    val size: String,
-    val clockRate: String,
-    val wattage: String,
-    val videoMemory: String
+@Entity(tableName = "video_card")
+data class VideoCard(
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "price") val price: String,
+    @ColumnInfo(name = "size") val size: String,
+    @ColumnInfo(name = "clockRate") val clockRate: String,
+    @ColumnInfo(name = "wattage") val wattage: String,
+    @ColumnInfo(name = "videoMemory") val videoMemory: String
 )

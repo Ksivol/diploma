@@ -1,5 +1,9 @@
 package com.example.data.entities
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  * Класс [HardDrive]. Представляет собой модельку жесткого диска
  * с параметрами:
@@ -11,12 +15,13 @@ package com.example.data.entities
  * @param size размер жесткого диска?
  * @param overwrite кол-во перезаписей
  */
-internal data class HardDrive(
-    val id: Int,
-    val name: String,
-    val price: String,
-    val capacity: Int,
-    val type: Int,
-    val size: String,
-    val overwrite: Int
+@Entity(tableName = "hard_drive")
+data class HardDrive(
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "price") val price: String,
+    @ColumnInfo(name = "capacity") val capacity: Int,
+    @ColumnInfo(name = "type") val type: Int,
+    @ColumnInfo(name = "size") val size: String,
+    @ColumnInfo(name = "overwrite") val overwrite: Int
 )

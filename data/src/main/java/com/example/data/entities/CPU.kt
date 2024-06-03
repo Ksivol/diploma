@@ -1,5 +1,9 @@
 package com.example.data.entities
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  * Класс [CPU]. Представляет собой модельку ЦПУ
  * с параметрами:
@@ -10,11 +14,12 @@ package com.example.data.entities
  * @param clockRate тактовая частота
  * @param wattage потребляемая мощность
  */
-internal data class CPU(
-    val id: Int,
-    val name: String,
-    val price: String,
-    val socket: String,
-    val clockRate: String,
-    val wattage: String
+@Entity(tableName = "cpu")
+data class CPU(
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "price") val price: String,
+    @ColumnInfo(name = "socket") val socket: String,
+    @ColumnInfo(name = "clockRate") val clockRate: String,
+    @ColumnInfo(name = "wattage") val wattage: String
 )
