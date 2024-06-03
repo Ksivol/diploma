@@ -15,8 +15,8 @@ import androidx.room.PrimaryKey
  * @param wattage мощность
  * @param videoMemory видеопамять
  */
-@Entity(tableName = "video_card")
-internal data class VideoCard(
+@Entity(tableName = "video_cards")
+data class VideoCard(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,

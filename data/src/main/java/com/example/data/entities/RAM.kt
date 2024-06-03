@@ -13,8 +13,8 @@ import androidx.room.PrimaryKey
  * @param clockRate тактовая частота
  * @param type тип памяти
  */
-@Entity(tableName = "ram")
-internal data class RAM(
+@Entity(tableName = "rams")
+data class RAM(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,

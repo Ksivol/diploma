@@ -15,8 +15,8 @@ import androidx.room.PrimaryKey
  * @param size размер жесткого диска?
  * @param overwrite кол-во перезаписей
  */
-@Entity(tableName = "hard_drive")
-internal data class HardDrive(
+@Entity(tableName = "hard_drives")
+data class HardDrive(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,

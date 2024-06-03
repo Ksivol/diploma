@@ -13,8 +13,8 @@ import androidx.room.PrimaryKey
  * @param wattage мощность
  * @param lines ???
  */
-@Entity(tableName = "psu")
-internal data class PSU(
+@Entity(tableName = "psus")
+data class PSU(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
