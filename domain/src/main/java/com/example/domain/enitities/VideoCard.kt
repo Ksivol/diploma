@@ -1,6 +1,4 @@
 package com.example.domain.enitities
-import com.example.domain.enitities.Cooler
-typealias CoolerDomain = Cooler
 
 /**
  * Класс [VideoCard]. Представляет собой модельку оперативной памяти
