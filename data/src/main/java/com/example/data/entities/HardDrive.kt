@@ -11,7 +11,7 @@ package com.example.data.entities
  * @param size размер жесткого диска?
  * @param overwrite кол-во перезаписей
  */
-data class HardDrive(
+internal data class HardDrive(
     val id: Int,
     val name: String,
     val price: String,

@@ -9,7 +9,7 @@ package com.example.data.entities
  * @param wattage мощность
  * @param lines ???
  */
-data class PSU(
+internal data class PSU(
     val id: Int,
     val name: String,
     val price: String,

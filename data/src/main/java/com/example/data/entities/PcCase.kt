@@ -8,7 +8,7 @@ package com.example.data.entities
  * @param price цена
  * @param size размер
  */
-data class PcCase(
+internal data class PcCase(
     val id: Int,
     val name: String,
     val price: String,

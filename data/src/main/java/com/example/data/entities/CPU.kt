@@ -10,7 +10,7 @@ package com.example.data.entities
  * @param clockRate тактовая частота
  * @param wattage потребляемая мощность
  */
-data class CPU(
+internal data class CPU(
     val id: Int,
     val name: String,
     val price: String,

@@ -8,7 +8,7 @@ package com.example.data.entities
  * @param price цена
  * @param heatSink теплопроводность
  */
-data class Cooler(
+internal data class Cooler(
     val id: Int,
     val name: String,
     val price: String,

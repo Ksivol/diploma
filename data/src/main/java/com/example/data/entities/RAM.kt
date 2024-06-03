@@ -9,7 +9,7 @@ package com.example.data.entities
  * @param clockRate тактовая частота
  * @param type тип памяти
  */
-data class RAM(
+internal data class RAM(
     val id: Int,
     val name: String,
     val price: String,

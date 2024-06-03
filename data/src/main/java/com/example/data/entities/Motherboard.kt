@@ -9,7 +9,7 @@ package com.example.data.entities
  * @param size размер
  * @param socket сокет
  */
-data class Motherboard(
+internal data class Motherboard(
     val id: Int,
     val name: String,
     val price: String,

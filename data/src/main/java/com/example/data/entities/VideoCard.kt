@@ -11,7 +11,7 @@ package com.example.data.entities
  * @param wattage мощность
  * @param videoMemory видеопамять
  */
-data class VideoCard(
+internal data class VideoCard(
     val id: Int,
     val name: String,
     val price: String,
