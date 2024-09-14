@@ -5,19 +5,17 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * Класс [Motherboard]. Представляет собой модельку материнской платы
+ * Класс [CoolerEntity]. Представляет собой модельку кулера
  * с параметрами:
  * @param id уникальный id
  * @param name имя модели
  * @param price цена
- * @param size размер
- * @param socket сокет
+ * @param heatSink теплопроводность
  */
-@Entity(tableName = "motherboards")
-data class Motherboard(
+@Entity(tableName = "coolers")
+data class CoolerEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "size") val size: Int,
-    @ColumnInfo(name = "socket") val socket: String
+    @ColumnInfo(name = "heatSink") val heatSink: String,
 )

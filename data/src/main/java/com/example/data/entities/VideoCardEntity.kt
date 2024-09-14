@@ -5,19 +5,23 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * Класс [RAM]. Представляет собой модельку оперативной памяти
+ * Класс [VideoCardEntity]. Представляет собой модельку оперативной памяти
  * с параметрами:
  * @param id уникальный id
  * @param name имя модели
  * @param price цена
+ * @param size размер карты
  * @param clockRate тактовая частота
- * @param type тип памяти
+ * @param wattage мощность
+ * @param videoMemory видеопамять
  */
-@Entity(tableName = "rams")
-data class RAM(
+@Entity(tableName = "video_cards")
+data class VideoCardEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
+    @ColumnInfo(name = "size") val size: String,
     @ColumnInfo(name = "clockRate") val clockRate: String,
-    @ColumnInfo(name = "type") val type: String
+    @ColumnInfo(name = "wattage") val wattage: String,
+    @ColumnInfo(name = "videoMemory") val videoMemory: String,
 )

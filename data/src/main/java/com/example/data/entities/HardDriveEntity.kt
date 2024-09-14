@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * Класс [HardDrive]. Представляет собой модельку жесткого диска
+ * Класс [HardDriveEntity]. Представляет собой модельку жесткого диска
  * с параметрами:
  * @param id уникальный id
  * @param name имя модели
@@ -16,12 +16,12 @@ import androidx.room.PrimaryKey
  * @param overwrite кол-во перезаписей
  */
 @Entity(tableName = "hard_drives")
-data class HardDrive(
+data class HardDriveEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
     @ColumnInfo(name = "capacity") val capacity: Int,
     @ColumnInfo(name = "type") val type: Int,
     @ColumnInfo(name = "size") val size: String,
-    @ColumnInfo(name = "overwrite") val overwrite: Int
+    @ColumnInfo(name = "overwrite") val overwrite: Int,
 )

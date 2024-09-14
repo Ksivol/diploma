@@ -1,146 +1,146 @@
 package com.example.data
 
-typealias DataCooler = com.example.data.entities.Cooler
-typealias DomainCooler = com.example.domain.enitities.Cooler
-typealias DataCpu = com.example.data.entities.CPU
-typealias DomainCpu = com.example.domain.enitities.CPU
-typealias DataHardDrive = com.example.data.entities.HardDrive
-typealias DomainHardDrive = com.example.domain.enitities.HardDrive
-typealias DataMotherboard = com.example.data.entities.Motherboard
-typealias DomainMotherboard = com.example.domain.enitities.Motherboard
-typealias DataPcCase = com.example.data.entities.PcCase
-typealias DomainPcCase = com.example.domain.enitities.PcCase
-typealias DataPSU = com.example.data.entities.PSU
-typealias DomainPSU = com.example.domain.enitities.PSU
-typealias DataRAM = com.example.data.entities.RAM
-typealias DomainRAM = com.example.domain.enitities.RAM
-typealias DataVideoCard = com.example.data.entities.VideoCard
-typealias DomainVideoCard = com.example.domain.enitities.VideoCard
+import com.example.data.entities.CPUEntity
+import com.example.data.entities.CoolerEntity
+import com.example.data.entities.HardDriveEntity
+import com.example.data.entities.MotherboardEntity
+import com.example.data.entities.PSUEntity
+import com.example.data.entities.PcCaseEntity
+import com.example.data.entities.RAMEntity
+import com.example.data.entities.VideoCardEntity
+import com.example.domain.enitities.CPU
+import com.example.domain.enitities.Cooler
+import com.example.domain.enitities.HardDrive
+import com.example.domain.enitities.Motherboard
+import com.example.domain.enitities.PSU
+import com.example.domain.enitities.PcCase
+import com.example.domain.enitities.RAM
+import com.example.domain.enitities.VideoCard
 
 /**
- * Маппит [DataCooler] (моделька из Data слоя) к [DomainCooler] (моделька из Domain слоя)
- * @return [DomainCooler]
+ * Маппит [CoolerEntity] (моделька из Data слоя) к [Cooler] (моделька из Domain слоя)
+ * @return [Cooler]
  */
-fun DataCooler.toDomain(): DomainCooler {
-    return DomainCooler(id, name, price, heatSink)
+fun CoolerEntity.toDomain(): Cooler {
+    return Cooler(id, name, price, heatSink)
 }
 
 /**
- * Маппит [DomainCooler] (моделька из Domain слоя) к [DataCooler] (моделька из Data слоя)
- * @return [DataCooler]
+ * Маппит [Cooler] (моделька из Domain слоя) к [CoolerEntity] (моделька из Data слоя)
+ * @return [CoolerEntity]
  */
-fun DomainCooler.toData(): DataCooler {
-    return DataCooler(id, name, price, heatSink)
+fun Cooler.toData(): CoolerEntity {
+    return CoolerEntity(id, name, price, heatSink)
 }
 
 /**
- * Маппит [DataCpu] (моделька из Data слоя) к [DomainCpu] (моделька из Domain слоя)
- * @return [DataCpu]
+ * Маппит [CPUEntity] (моделька из Data слоя) к [CPU] (моделька из Domain слоя)
+ * @return [CPUEntity]
  */
-fun DataCpu.toDomain(): DomainCpu {
-    return DomainCpu(id, name, price, socket, clockRate, wattage)
+fun CPUEntity.toDomain(): CPU {
+    return CPU(id, name, price, socket, clockRate, wattage)
 }
 
 /**
- * Маппит [DomainCpu] (моделька из Domain слоя) к [DataCpu] (моделька из Data слоя)
- * @return [DataCpu]
+ * Маппит [CPU] (моделька из Domain слоя) к [CPUEntity] (моделька из Data слоя)
+ * @return [CPUEntity]
  */
-fun DomainCpu.toData(): DataCpu {
-    return DataCpu(id, name, price, socket, clockRate, wattage)
+fun CPU.toData(): CPUEntity {
+    return CPUEntity(id, name, price, socket, clockRate, wattage)
 }
 
 /**
- * Маппит [DataHardDrive] (моделька из Data слоя) к [DomainHardDrive] (моделька из Domain слоя)
- * @return [DomainHardDrive]
+ * Маппит [HardDriveEntity] (моделька из Data слоя) к [HardDrive] (моделька из Domain слоя)
+ * @return [HardDrive]
  */
-fun DataHardDrive.toDomain(): DomainHardDrive {
-    return DomainHardDrive(id, name, price, capacity, type, size, overwrite)
+fun HardDriveEntity.toDomain(): HardDrive {
+    return HardDrive(id, name, price, capacity, type, size, overwrite)
 }
 
 /**
- * Маппит [DomainHardDrive] (моделька из Domain слоя) к [DataHardDrive] (моделька из Data слоя)
- * @return [DataHardDrive]
+ * Маппит [HardDrive] (моделька из Domain слоя) к [HardDriveEntity] (моделька из Data слоя)
+ * @return [HardDriveEntity]
  */
-fun DomainHardDrive.toData(): DataHardDrive {
-    return DataHardDrive(id, name, price, capacity, type, size, overwrite)
+fun HardDrive.toData(): HardDriveEntity {
+    return HardDriveEntity(id, name, price, capacity, type, size, overwrite)
 }
 
 /**
- * Маппит [DataMotherboard] (моделька из Data слоя) к [DomainMotherboard] (моделька из Domain слоя)
- * @return [DomainMotherboard]
+ * Маппит [MotherboardEntity] (моделька из Data слоя) к [Motherboard] (моделька из Domain слоя)
+ * @return [Motherboard]
  */
-fun DataMotherboard.toDomain(): DomainMotherboard {
-    return DomainMotherboard(id, name, price, size, socket)
+fun MotherboardEntity.toDomain(): Motherboard {
+    return Motherboard(id, name, price, size, socket)
 }
 
 /**
- * Маппит [DomainMotherboard] (моделька из Domain слоя) к [DataMotherboard] (моделька из Data слоя)
- * @return [DataMotherboard]
+ * Маппит [Motherboard] (моделька из Domain слоя) к [MotherboardEntity] (моделька из Data слоя)
+ * @return [MotherboardEntity]
  */
-fun DomainMotherboard.toData(): DataMotherboard {
-    return DataMotherboard(id, name, price, size, socket)
+fun Motherboard.toData(): MotherboardEntity {
+    return MotherboardEntity(id, name, price, size, socket)
 }
 
 /**
- * Маппит [DataPcCase] (моделька из Data слоя) к [DomainPcCase] (моделька из Domain слоя)
- * @return [DomainPcCase]
+ * Маппит [PcCaseEntity] (моделька из Data слоя) к [PcCase] (моделька из Domain слоя)
+ * @return [PcCase]
  */
-fun DataPcCase.toDomain(): DomainPcCase {
-    return DomainPcCase(id, name, price, size)
+fun PcCaseEntity.toDomain(): PcCase {
+    return PcCase(id, name, price, size)
 }
 
 /**
- * Маппит [DomainPcCase] (моделька из Domain слоя) к [DataPcCase] (моделька из Data слоя)
- * @return [DataPcCase]
+ * Маппит [PcCase] (моделька из Domain слоя) к [PcCaseEntity] (моделька из Data слоя)
+ * @return [PcCaseEntity]
  */
-fun DomainPcCase.toData(): DataPcCase {
-    return DataPcCase(id, name, price, size)
+fun PcCase.toData(): PcCaseEntity {
+    return PcCaseEntity(id, name, price, size)
 }
 
 /**
- * Маппит [DataPSU] (моделька из Data слоя) к [DomainPSU] (моделька из Domain слоя)
- * @return [DomainPSU]
+ * Маппит [PSUEntity] (моделька из Data слоя) к [PSU] (моделька из Domain слоя)
+ * @return [PSU]
  */
-fun DataPSU.toDomain(): DomainPSU {
-    return DomainPSU(id, name, price, wattage, lines)
+fun PSUEntity.toDomain(): PSU {
+    return PSU(id, name, price, wattage, lines)
 }
 
 /**
- * Маппит [DomainPSU] (моделька из Domain слоя) к [DataPSU] (моделька из Data слоя)
- * @return [DataPSU]
+ * Маппит [PSU] (моделька из Domain слоя) к [PSUEntity] (моделька из Data слоя)
+ * @return [PSUEntity]
  */
-fun DomainPSU.toData(): DataPSU {
-    return DataPSU(id, name, price, wattage, lines)
+fun PSU.toData(): PSUEntity {
+    return PSUEntity(id, name, price, wattage, lines)
 }
 
 /**
- * Маппит [DataRAM] (моделька из Data слоя) к [DomainRAM] (моделька из Domain слоя)
- * @return [DomainRAM]
+ * Маппит [RAMEntity] (моделька из Data слоя) к [RAM] (моделька из Domain слоя)
+ * @return [RAM]
  */
-fun DataRAM.toDomain(): DomainRAM {
-    return DomainRAM(id, name, price, clockRate, type)
+fun RAMEntity.toDomain(): RAM {
+    return RAM(id, name, price, clockRate, type)
 }
 
 /**
- * Маппит [DomainRAM] (моделька из Domain слоя) к [DataRAM] (моделька из Data слоя)
- * @return [DataRAM]
+ * Маппит [RAM] (моделька из Domain слоя) к [RAMEntity] (моделька из Data слоя)
+ * @return [RAMEntity]
  */
-fun DomainRAM.toData(): DataRAM {
-    return DataRAM(id, name, price, clockRate, type)
+fun RAM.toData(): RAMEntity {
+    return RAMEntity(id, name, price, clockRate, type)
 }
 
 /**
- * Маппит [DataVideoCard] (моделька из Data слоя) к [DomainVideoCard] (моделька из Domain слоя)
- * @return [DomainVideoCard]
+ * Маппит [VideoCardEntity] (моделька из Data слоя) к [VideoCard] (моделька из Domain слоя)
+ * @return [VideoCard]
  */
-fun DataVideoCard.toDomain(): DomainVideoCard {
-    return DomainVideoCard(id, name, price, size, clockRate, wattage, videoMemory)
+fun VideoCardEntity.toDomain(): VideoCard {
+    return VideoCard(id, name, price, size, clockRate, wattage, videoMemory)
 }
 
 /**
- * Маппит [DomainVideoCard] (моделька из Domain слоя) к [DataVideoCard] (моделька из Data слоя)
- * @return [DataVideoCard]
+ * Маппит [VideoCard] (моделька из Domain слоя) к [VideoCardEntity] (моделька из Data слоя)
+ * @return [VideoCardEntity]
  */
-fun DomainVideoCard.toData() : DataVideoCard {
-    return DataVideoCard(id, name, price, size, clockRate, wattage, videoMemory)
+fun VideoCard.toData(): VideoCardEntity {
+    return VideoCardEntity(id, name, price, size, clockRate, wattage, videoMemory)
 }

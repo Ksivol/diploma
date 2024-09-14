@@ -5,21 +5,20 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.data.entities.VideoCard
+import com.example.data.entities.VideoCardEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface VideoCardDAO {
-
     @Query("SELECT * FROM video_cards")
-    fun getVideoCards(): Flow<List<VideoCard>>
+    fun getVideoCards(): Flow<List<VideoCardEntity>>
 
     @Insert
-    fun insertVideoCard(videoCard: VideoCard)
+    fun insertVideoCard(videoCard: VideoCardEntity)
 
     @Update
-    fun updateVideoCard(videoCard: VideoCard)
+    fun updateVideoCard(videoCard: VideoCardEntity)
 
     @Delete
-    fun deleteVideoCard(videoCard: VideoCard)
+    fun deleteVideoCard(videoCard: VideoCardEntity)
 }

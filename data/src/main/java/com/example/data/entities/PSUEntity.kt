@@ -5,17 +5,19 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * Класс [Cooler]. Представляет собой модельку кулера
+ * Класс [PSUEntity]. Представляет собой модельку блока питания
  * с параметрами:
  * @param id уникальный id
  * @param name имя модели
  * @param price цена
- * @param heatSink теплопроводность
+ * @param wattage мощность
+ * @param lines ???
  */
-@Entity(tableName = "coolers")
-data class Cooler(
+@Entity(tableName = "psus")
+data class PSUEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "heatSink") val heatSink: String
+    @ColumnInfo(name = "wattage") val wattage: String,
+    @ColumnInfo(name = "lines") val lines: String,
 )

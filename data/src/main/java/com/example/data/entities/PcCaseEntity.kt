@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * Класс [PcCase]. Представляет собой модельку корпуса компьютера
+ * Класс [PcCaseEntity]. Представляет собой модельку корпуса компьютера
  * с параметрами:
  * @param id уникальный id
  * @param name имя модели
@@ -13,9 +13,9 @@ import androidx.room.PrimaryKey
  * @param size размер
  */
 @Entity(tableName = "pc_cases")
-data class PcCase(
+data class PcCaseEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "size") val size: String
+    @ColumnInfo(name = "size") val size: String,
 )

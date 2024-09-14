@@ -5,21 +5,20 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.data.entities.PcCase
+import com.example.data.entities.PcCaseEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PcCaseDAO {
-
     @Query("SELECT * FROM pc_cases")
-    fun getPcCases(): Flow<List<PcCase>>
+    fun getPcCases(): Flow<List<PcCaseEntity>>
 
     @Insert
-    fun insertPcCase(pcCase: PcCase)
+    fun insertPcCase(pcCase: PcCaseEntity)
 
     @Update
-    fun updatePcCase(pcCase: PcCase)
+    fun updatePcCase(pcCase: PcCaseEntity)
 
     @Delete
-    fun deletePcCase(pcCase: PcCase)
+    fun deletePcCase(pcCase: PcCaseEntity)
 }

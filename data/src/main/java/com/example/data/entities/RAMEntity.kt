@@ -5,21 +5,19 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * Класс [CPU]. Представляет собой модельку ЦПУ
+ * Класс [RAMEntity]. Представляет собой модельку оперативной памяти
  * с параметрами:
  * @param id уникальный id
  * @param name имя модели
  * @param price цена
- * @param socket сокет
  * @param clockRate тактовая частота
- * @param wattage потребляемая мощность
+ * @param type тип памяти
  */
-@Entity(tableName = "cpus")
-data class CPU(
+@Entity(tableName = "rams")
+data class RAMEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "socket") val socket: String,
     @ColumnInfo(name = "clockRate") val clockRate: String,
-    @ColumnInfo(name = "wattage") val wattage: String
+    @ColumnInfo(name = "type") val type: String,
 )

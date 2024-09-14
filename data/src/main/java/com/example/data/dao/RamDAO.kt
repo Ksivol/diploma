@@ -5,21 +5,20 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.data.entities.RAM
+import com.example.data.entities.RAMEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RamDAO {
-
     @Query("SELECT * FROM rams")
-    fun getRams(): Flow<List<RAM>>
+    fun getRams(): Flow<List<RAMEntity>>
 
     @Insert
-    fun insertRam(ram: RAM)
+    fun insertRam(ram: RAMEntity)
 
     @Update
-    fun updateRam(ram: RAM)
+    fun updateRam(ram: RAMEntity)
 
     @Delete
-    fun deleteRam(ram: RAM)
+    fun deleteRam(ram: RAMEntity)
 }
