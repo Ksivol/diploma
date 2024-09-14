@@ -1,4 +1,4 @@
-package com.example.data
+package com.example.data.utils
 
 import com.example.data.entities.CPUEntity
 import com.example.data.entities.CoolerEntity
