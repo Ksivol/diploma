@@ -1,7 +1,8 @@
-package com.example.pcconfigurator
+package com.example.pcconfigurator.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pcconfigurator.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
