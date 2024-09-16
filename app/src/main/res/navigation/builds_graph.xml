@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/builds_graph"
+    app:startDestination="@id/buildsFragment">
+
+    <fragment
+        android:id="@+id/buildsFragment"
+        android:name="com.example.pcconfigurator.pcBuilds.BuildsFragment"
+        android:label="fragment_builds"
+        tools:layout="@layout/fragment_builds" />
+</navigation>
