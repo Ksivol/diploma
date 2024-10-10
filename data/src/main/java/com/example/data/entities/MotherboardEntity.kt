@@ -18,6 +18,6 @@ data class MotherboardEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "size") val size: Int,
+    @ColumnInfo(name = "size") val size: String,
     @ColumnInfo(name = "socket") val socket: String,
 )

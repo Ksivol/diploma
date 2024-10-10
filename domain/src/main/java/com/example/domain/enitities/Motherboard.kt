@@ -13,6 +13,6 @@ data class Motherboard(
     val id: Int,
     val name: String,
     val price: String,
-    val size: Int,
+    val size: String,
     val socket: String
 )
