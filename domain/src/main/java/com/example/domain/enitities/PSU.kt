@@ -7,12 +7,14 @@ package com.example.domain.enitities
  * @param name имя модели
  * @param price цена
  * @param wattage мощность
- * @param lines ???
+ * @param pin_CPU пины для процессора
+ * @param pin_PCI_E пины для видеокарты
  */
 data class PSU(
     val id: Int,
     val name: String,
     val price: String,
     val wattage: String,
-    val lines: String
+    val pin_CPU: String,
+    val pin_PCI_E: String,
 )

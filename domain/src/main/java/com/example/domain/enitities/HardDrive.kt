@@ -16,7 +16,7 @@ data class HardDrive(
     val name: String,
     val price: String,
     val capacity: Int,
-    val type: Int,
+    val type: String,
     val size: String,
     val overwrite: Int
 )
