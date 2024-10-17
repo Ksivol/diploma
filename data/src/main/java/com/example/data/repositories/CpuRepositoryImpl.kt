@@ -12,6 +12,10 @@ import kotlinx.coroutines.flow.map
 class CpuRepositoryImpl(private val cpuDAO: CpuDAO) : CpuRepository {
     override fun getCpus(): Flow<List<CPU>> = cpuDAO.getCpus().map { it.map(CPUEntity::toDomain) }
 
+    override fun getCpu(id: Int): CPU {
+        return cpuDAO.getCpu(id).toDomain()
+    }
+
     override fun insertCpu(cpu: CPU) {
         cpuDAO.insertCpu(cpu.toData())
     }
