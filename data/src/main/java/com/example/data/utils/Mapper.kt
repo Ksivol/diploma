@@ -1,11 +1,16 @@
 package com.example.data.utils
 
+import com.example.data.dao.CoolerDAO
+import com.example.data.dao.CpuDAO
+import com.example.data.dao.HardDriveDAO
+import com.example.data.dao.MotherboardDAO
 import com.example.data.entities.CPUEntity
 import com.example.data.entities.CoolerEntity
 import com.example.data.entities.HardDriveEntity
 import com.example.data.entities.MotherboardEntity
 import com.example.data.entities.PSUEntity
 import com.example.data.entities.PcCaseEntity
+import com.example.data.entities.PcEntity
 import com.example.data.entities.RAMEntity
 import com.example.data.entities.VideoCardEntity
 import com.example.domain.enitities.CPU
@@ -13,6 +18,7 @@ import com.example.domain.enitities.Cooler
 import com.example.domain.enitities.HardDrive
 import com.example.domain.enitities.Motherboard
 import com.example.domain.enitities.PSU
+import com.example.domain.enitities.Pc
 import com.example.domain.enitities.PcCase
 import com.example.domain.enitities.RAM
 import com.example.domain.enitities.VideoCard
@@ -22,7 +28,7 @@ import com.example.domain.enitities.VideoCard
  * @return [Cooler]
  */
 fun CoolerEntity.toDomain(): Cooler {
-    return Cooler(id, name, price, heatSink)
+    return Cooler(id, name, price, heatSink, size, socket)
 }
 
 /**
@@ -30,7 +36,7 @@ fun CoolerEntity.toDomain(): Cooler {
  * @return [CoolerEntity]
  */
 fun Cooler.toData(): CoolerEntity {
-    return CoolerEntity(id, name, price, heatSink)
+    return CoolerEntity(id, name, price, heatSink, size, socket)
 }
 
 /**
@@ -102,7 +108,7 @@ fun PcCase.toData(): PcCaseEntity {
  * @return [PSU]
  */
 fun PSUEntity.toDomain(): PSU {
-    return PSU(id, name, price, wattage, lines)
+    return PSU(id, name, price, wattage, pinCPU, pinPCIE)
 }
 
 /**
@@ -110,7 +116,7 @@ fun PSUEntity.toDomain(): PSU {
  * @return [PSUEntity]
  */
 fun PSU.toData(): PSUEntity {
-    return PSUEntity(id, name, price, wattage, lines)
+    return PSUEntity(id, name, price, wattage, pinCPU, pinPCIE)
 }
 
 /**
@@ -134,7 +140,7 @@ fun RAM.toData(): RAMEntity {
  * @return [VideoCard]
  */
 fun VideoCardEntity.toDomain(): VideoCard {
-    return VideoCard(id, name, price, size, clockRate, wattage, videoMemory)
+    return VideoCard(id, name, price, size, clockRate, wattage, videoMemory, typeVideoMemory)
 }
 
 /**
@@ -142,5 +148,36 @@ fun VideoCardEntity.toDomain(): VideoCard {
  * @return [VideoCardEntity]
  */
 fun VideoCard.toData(): VideoCardEntity {
-    return VideoCardEntity(id, name, price, size, clockRate, wattage, videoMemory)
+    return VideoCardEntity(id, name, price, size, clockRate, wattage, videoMemory, typeVideoMemory)
+}
+
+/**
+ * Маппит [PcEntity] (моделька из Data слоя) к [Pc] (моделька из Domain слоя)
+ * @return [Pc]
+ */
+fun PcEntity.toDomain(
+    cooler: Cooler, cpu: CPU, hardDrive: HardDrive, motherboard: Motherboard,
+    pcCase: PcCase, psu: PSU, ram: RAM, videoCard: VideoCard
+): Pc {
+    return Pc(id, name, price, cooler, cpu, hardDrive, motherboard, pcCase, psu, ram, videoCard)
+}
+
+/**
+ * Маппит [Pc] (моделька из Domain слоя) к [PcEntity] (моделька из Data слоя)
+ * @return [PcEntity]
+ */
+fun Pc.toData(): PcEntity {
+    return PcEntity(
+        id,
+        name,
+        price,
+        cooler.id,
+        cpu.id,
+        hardDrive.id,
+        motherboard.id,
+        pcCase.id,
+        psu.id,
+        ram.id,
+        videoCard.id
+    )
 }
