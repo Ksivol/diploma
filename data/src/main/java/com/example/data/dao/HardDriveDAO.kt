@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.example.data.entities.CPUEntity
 import com.example.data.entities.HardDriveEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -12,6 +13,9 @@ import kotlinx.coroutines.flow.Flow
 interface HardDriveDAO {
     @Query("SELECT * FROM hard_drives")
     fun getHardDrives(): Flow<List<HardDriveEntity>>
+
+    @Query("SELECT * FROM hard_drives WHERE id = :id")
+    fun getHardDrive(id : Int): HardDriveEntity
 
     @Insert
     fun insertHardDrive(hardDrive: HardDriveEntity)

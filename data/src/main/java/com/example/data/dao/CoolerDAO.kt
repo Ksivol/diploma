@@ -13,6 +13,9 @@ interface CoolerDAO {
     @Query("SELECT * FROM coolers")
     fun getCoolers(): Flow<List<CoolerEntity>>
 
+    @Query("SELECT * FROM coolers WHERE id = :id")
+    fun getCooler(id : Int): CoolerEntity
+
     @Insert
     fun insertCooler(cooler: CoolerEntity)
 

@@ -6,6 +6,8 @@ import kotlinx.coroutines.flow.Flow
 interface MotherboardRepository {
     fun getMotherboards(): Flow<List<Motherboard>>
 
+    fun getMotherboard(id: Int): Motherboard
+
     fun insertMotherboard(motherboard: Motherboard)
 
     fun updateMotherboard(motherboard: Motherboard)
