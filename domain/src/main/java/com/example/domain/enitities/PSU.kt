@@ -15,6 +15,6 @@ data class PSU(
     val name: String,
     val price: String,
     val wattage: String,
-    val pin_CPU: String,
-    val pin_PCI_E: String,
+    val pinCPU: String,
+    val pinPCIE: String,
 )

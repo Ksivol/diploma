@@ -20,6 +20,6 @@ data class PSUEntity(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
     @ColumnInfo(name = "wattage") val wattage: String,
-    @ColumnInfo(name = "pin_CPU") val pin_CPU: String,
-    @ColumnInfo(name = "pin_PCI_E") val pin_PCI_E: String,
+    @ColumnInfo(name = "pinCPU") val pinCPU: String,
+    @ColumnInfo(name = "pinPCIE") val pinPCIE: String,
 )

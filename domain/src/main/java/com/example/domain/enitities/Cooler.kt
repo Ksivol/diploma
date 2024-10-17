@@ -13,5 +13,6 @@ data class Cooler(
     val name: String,
     val price: String,
     val heatSink: String,
+    val size: String,
     val socket: String
 )
