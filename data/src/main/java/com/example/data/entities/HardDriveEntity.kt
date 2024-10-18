@@ -24,5 +24,5 @@ data class HardDriveEntity(
     @ColumnInfo(name = "type") val type: String,
     @ColumnInfo(name = "size") val size: String,
     @ColumnInfo(name = "overwrite") val overwrite: Int,
-    @ColumnInfo(name = "photo") val photo: Int,
+    @ColumnInfo(name = "photo") val photo: String,
 )
