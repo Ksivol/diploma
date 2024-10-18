@@ -9,6 +9,7 @@ package com.example.domain.enitities
  * @param wattage мощность
  * @param pin_CPU пины для процессора
  * @param pin_PCI_E пины для видеокарты
+ * @param photo фото
  */
 data class PSU(
     val id: Int,
@@ -17,4 +18,5 @@ data class PSU(
     val wattage: String,
     val pinCPU: String,
     val pinPCIE: String,
+    val photo: String,
 )

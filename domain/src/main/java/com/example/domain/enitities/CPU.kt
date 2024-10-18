@@ -9,6 +9,7 @@ package com.example.domain.enitities
  * @param socket сокет
  * @param clockRate тактовая частота
  * @param wattage потребляемая мощность
+ * @param photo фото
  */
 data class CPU(
     val id: Int,
@@ -16,5 +17,6 @@ data class CPU(
     val price: String,
     val socket: String,
     val clockRate: String,
-    val wattage: String
+    val wattage: String,
+    val photo: String,
 )

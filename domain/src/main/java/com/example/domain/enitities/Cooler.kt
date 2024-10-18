@@ -7,6 +7,7 @@ package com.example.domain.enitities
  * @param name имя модели
  * @param price цена
  * @param heatSink теплопроводность
+ * @param photo фото
  */
 data class Cooler(
     val id: Int,
@@ -14,5 +15,6 @@ data class Cooler(
     val price: String,
     val heatSink: String,
     val size: String,
-    val socket: String
+    val socket: String,
+    val photo: String
 )

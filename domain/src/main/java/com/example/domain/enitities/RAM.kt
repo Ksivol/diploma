@@ -8,11 +8,13 @@ package com.example.domain.enitities
  * @param price цена
  * @param clockRate тактовая частота
  * @param type тип памяти
+ * @param photo фото
  */
 data class RAM(
     val id: Int,
     val name: String,
     val price: String,
     val clockRate: String,
-    val type: String
+    val type: String,
+    val photo: String
 )
