@@ -13,6 +13,7 @@ import androidx.room.PrimaryKey
  * @param wattage мощность
  * @param pin_CPU пины для процессора
  * @param pin_PCI_E пины для видеокарты
+ * @param photo фото
  */
 @Entity(tableName = "psus")
 data class PSUEntity(
@@ -22,4 +23,5 @@ data class PSUEntity(
     @ColumnInfo(name = "wattage") val wattage: String,
     @ColumnInfo(name = "pinCPU") val pinCPU: String,
     @ColumnInfo(name = "pinPCIE") val pinPCIE: String,
+    @ColumnInfo(name = "photo") val photo: String,
 )

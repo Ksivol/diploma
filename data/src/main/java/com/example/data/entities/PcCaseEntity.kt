@@ -11,6 +11,7 @@ import androidx.room.PrimaryKey
  * @param name имя модели
  * @param price цена
  * @param size размер
+ * @param photo фото
  */
 @Entity(tableName = "pc_cases")
 data class PcCaseEntity(
@@ -18,4 +19,5 @@ data class PcCaseEntity(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
     @ColumnInfo(name = "size") val size: String,
+    @ColumnInfo(name = "photo") val photo: String,
 )

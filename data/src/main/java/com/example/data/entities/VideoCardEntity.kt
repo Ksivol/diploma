@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
  * @param clockRate тактовая частота
  * @param wattage мощность
  * @param videoMemory видеопамять
- * @param typeVideoMemory тип видеопамяти
+ * @param photo тип фото
  */
 @Entity(tableName = "video_cards")
 data class VideoCardEntity(
@@ -25,5 +25,5 @@ data class VideoCardEntity(
     @ColumnInfo(name = "clockRate") val clockRate: String,
     @ColumnInfo(name = "wattage") val wattage: String,
     @ColumnInfo(name = "videoMemory") val videoMemory: String,
-    @ColumnInfo(name = "typeVideoMemory") val typeVideoMemory: String,
+    @ColumnInfo(name = "photo") val photo: String,
 )

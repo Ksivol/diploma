@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
  * @param capacity объем памяти
  * @param type тип (SSD SATA, SSD M2, HDD)
  * @param size размер жесткого диска?
- * @param overwrite кол-во перезаписей
+ * @param photo фото
  */
 @Entity(tableName = "hard_drives")
 data class HardDriveEntity(
@@ -24,4 +24,5 @@ data class HardDriveEntity(
     @ColumnInfo(name = "type") val type: String,
     @ColumnInfo(name = "size") val size: String,
     @ColumnInfo(name = "overwrite") val overwrite: Int,
+    @ColumnInfo(name = "photo") val photo: Int,
 )

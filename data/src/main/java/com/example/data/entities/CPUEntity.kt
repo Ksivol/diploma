@@ -13,6 +13,7 @@ import androidx.room.PrimaryKey
  * @param socket сокет
  * @param clockRate тактовая частота
  * @param wattage потребляемая мощность
+ * @param photo фото
  */
 @Entity(tableName = "cpus")
 data class CPUEntity(
@@ -22,4 +23,5 @@ data class CPUEntity(
     @ColumnInfo(name = "socket") val socket: String,
     @ColumnInfo(name = "clockRate") val clockRate: String,
     @ColumnInfo(name = "wattage") val wattage: String,
+    @ColumnInfo(name = "photo") val photo: String,
 )
