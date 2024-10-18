@@ -28,7 +28,7 @@ import com.example.domain.enitities.VideoCard
  * @return [Cooler]
  */
 fun CoolerEntity.toDomain(): Cooler {
-    return Cooler(id, name, price, heatSink, size, socket)
+    return Cooler(id, name, price, heatSink, size, socket, photo)
 }
 
 /**
@@ -36,7 +36,7 @@ fun CoolerEntity.toDomain(): Cooler {
  * @return [CoolerEntity]
  */
 fun Cooler.toData(): CoolerEntity {
-    return CoolerEntity(id, name, price, heatSink, size, socket)
+    return CoolerEntity(id, name, price, heatSink, size, socket, photo)
 }
 
 /**
@@ -44,7 +44,7 @@ fun Cooler.toData(): CoolerEntity {
  * @return [CPUEntity]
  */
 fun CPUEntity.toDomain(): CPU {
-    return CPU(id, name, price, socket, clockRate, wattage)
+    return CPU(id, name, price, socket, clockRate, wattage, photo)
 }
 
 /**
@@ -52,7 +52,7 @@ fun CPUEntity.toDomain(): CPU {
  * @return [CPUEntity]
  */
 fun CPU.toData(): CPUEntity {
-    return CPUEntity(id, name, price, socket, clockRate, wattage)
+    return CPUEntity(id, name, price, socket, clockRate, wattage, photo)
 }
 
 /**
@@ -60,7 +60,7 @@ fun CPU.toData(): CPUEntity {
  * @return [HardDrive]
  */
 fun HardDriveEntity.toDomain(): HardDrive {
-    return HardDrive(id, name, price, capacity, type, size, overwrite)
+    return HardDrive(id, name, price, capacity, type, size, overwrite, photo)
 }
 
 /**
@@ -68,7 +68,7 @@ fun HardDriveEntity.toDomain(): HardDrive {
  * @return [HardDriveEntity]
  */
 fun HardDrive.toData(): HardDriveEntity {
-    return HardDriveEntity(id, name, price, capacity, type, size, overwrite)
+    return HardDriveEntity(id, name, price, capacity, type, size, overwrite, photo)
 }
 
 /**
@@ -76,7 +76,7 @@ fun HardDrive.toData(): HardDriveEntity {
  * @return [Motherboard]
  */
 fun MotherboardEntity.toDomain(): Motherboard {
-    return Motherboard(id, name, price, size, socket)
+    return Motherboard(id, name, price, size, socket, photo)
 }
 
 /**
@@ -84,7 +84,7 @@ fun MotherboardEntity.toDomain(): Motherboard {
  * @return [MotherboardEntity]
  */
 fun Motherboard.toData(): MotherboardEntity {
-    return MotherboardEntity(id, name, price, size, socket)
+    return MotherboardEntity(id, name, price, size, socket, photo)
 }
 
 /**
@@ -92,7 +92,7 @@ fun Motherboard.toData(): MotherboardEntity {
  * @return [PcCase]
  */
 fun PcCaseEntity.toDomain(): PcCase {
-    return PcCase(id, name, price, size)
+    return PcCase(id, name, price, size, photo)
 }
 
 /**
@@ -100,7 +100,7 @@ fun PcCaseEntity.toDomain(): PcCase {
  * @return [PcCaseEntity]
  */
 fun PcCase.toData(): PcCaseEntity {
-    return PcCaseEntity(id, name, price, size)
+    return PcCaseEntity(id, name, price, size, photo)
 }
 
 /**
@@ -108,7 +108,7 @@ fun PcCase.toData(): PcCaseEntity {
  * @return [PSU]
  */
 fun PSUEntity.toDomain(): PSU {
-    return PSU(id, name, price, wattage, pinCPU, pinPCIE)
+    return PSU(id, name, price, wattage, pinCPU, pinPCIE, photo)
 }
 
 /**
@@ -116,7 +116,7 @@ fun PSUEntity.toDomain(): PSU {
  * @return [PSUEntity]
  */
 fun PSU.toData(): PSUEntity {
-    return PSUEntity(id, name, price, wattage, pinCPU, pinPCIE)
+    return PSUEntity(id, name, price, wattage, pinCPU, pinPCIE, photo)
 }
 
 /**
@@ -124,7 +124,7 @@ fun PSU.toData(): PSUEntity {
  * @return [RAM]
  */
 fun RAMEntity.toDomain(): RAM {
-    return RAM(id, name, price, clockRate, type)
+    return RAM(id, name, price, clockRate, type, photo)
 }
 
 /**
@@ -132,7 +132,7 @@ fun RAMEntity.toDomain(): RAM {
  * @return [RAMEntity]
  */
 fun RAM.toData(): RAMEntity {
-    return RAMEntity(id, name, price, clockRate, type)
+    return RAMEntity(id, name, price, clockRate, type, photo)
 }
 
 /**
@@ -140,7 +140,7 @@ fun RAM.toData(): RAMEntity {
  * @return [VideoCard]
  */
 fun VideoCardEntity.toDomain(): VideoCard {
-    return VideoCard(id, name, price, size, clockRate, wattage, videoMemory, typeVideoMemory)
+    return VideoCard(id, name, price, size, clockRate, wattage, videoMemory, typeVideoMemory, photo)
 }
 
 /**
@@ -148,7 +148,7 @@ fun VideoCardEntity.toDomain(): VideoCard {
  * @return [VideoCardEntity]
  */
 fun VideoCard.toData(): VideoCardEntity {
-    return VideoCardEntity(id, name, price, size, clockRate, wattage, videoMemory, typeVideoMemory)
+    return VideoCardEntity(id, name, price, size, clockRate, wattage, videoMemory, typeVideoMemory, photo)
 }
 
 /**
