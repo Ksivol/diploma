@@ -46,16 +46,19 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.navigation.ui.ktx)
 
     // navigation
     implementation(libs.bundles.androidx.navigation)
+    implementation(libs.androidx.navigation.fragment)
 
     // viewbinding
     implementation(libs.viewbindingpropertydelegate.full)
 
     // glide
     implementation(libs.glide)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

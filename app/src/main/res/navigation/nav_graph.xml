@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/buildsContainerFragment">
+    app:startDestination="@id/builds">
 
     <fragment
-        android:id="@+id/buildsContainerFragment"
+        android:id="@+id/builds"
         android:name="com.example.pcconfigurator.pcBuilds.BuildsContainerFragment"
         android:label="BuildsContainerFragment"
         tools:layout="@layout/fragment_builds_container"/>

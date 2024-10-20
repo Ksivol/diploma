@@ -3,6 +3,8 @@ package com.example.pcconfigurator.main
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentMainContainerBinding
@@ -15,5 +17,6 @@ class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
+        binding.navigation.setupWithNavController(binding.mainContainer.getFragment<NavHostFragment>().navController)
     }
 }
