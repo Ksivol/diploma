@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.pcconfigurator.databinding.BuildItemBinding
 import com.example.pcconfigurator.models.Build
 
-class BuildsAdapter : ListAdapter<Build, BuildHolder>(BuildComporator()) {
+class BuildsAdapter : ListAdapter<Build, BuildHolder>(BuildComparator()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
@@ -43,7 +43,7 @@ class BuildHolder(private val binding: BuildItemBinding) : ViewHolder(binding.ro
         }
 }
 
-class BuildComporator : DiffUtil.ItemCallback<Build>() {
+class BuildComparator : DiffUtil.ItemCallback<Build>() {
     override fun areItemsTheSame(
         oldItem: Build,
         newItem: Build,
