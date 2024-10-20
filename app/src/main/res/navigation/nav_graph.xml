@@ -9,5 +9,24 @@
         android:id="@+id/builds"
         android:name="com.example.pcconfigurator.pcBuilds.BuildsContainerFragment"
         android:label="BuildsContainerFragment"
-        tools:layout="@layout/fragment_builds_container"/>
+        tools:layout="@layout/fragment_builds_container" />
+
+    <fragment
+        android:id="@+id/categories"
+        android:name="com.example.pcconfigurator.categories.CategoriesContainerFragment"
+        android:label="fragment_categories_container"
+        tools:layout="@layout/fragment_categories_container" />
+
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.example.pcconfigurator.favorites.FavoritesContainerFragment"
+        android:label="fragment_favorites_container"
+        tools:layout="@layout/fragment_favorites_container" />
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.pcconfigurator.profile.ProfileContainerFragment"
+        android:label="ProfileContainerFragment"
+        tools:layout="@layout/fragment_profile_container" />
+
 </navigation>
