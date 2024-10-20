@@ -13,6 +13,7 @@ import androidx.room.PrimaryKey
  * @param heatSink теплопроводность
  * @param size размер вертушков
  * @param socket подходящий сокет
+ * @param photo фото
  */
 @Entity(tableName = "coolers")
 data class CoolerEntity(
@@ -22,4 +23,5 @@ data class CoolerEntity(
     @ColumnInfo(name = "heatSink") val heatSink: String,
     @ColumnInfo(name = "size") val size: String,
     @ColumnInfo(name = "socket") val socket: String,
+    @ColumnInfo(name = "photo") val photo: String,
 )

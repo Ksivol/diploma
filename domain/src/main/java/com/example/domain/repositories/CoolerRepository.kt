@@ -6,6 +6,8 @@ import kotlinx.coroutines.flow.Flow
 interface CoolerRepository {
     fun getCoolers(): Flow<List<Cooler>>
 
+    fun getCooler(id: Int): Cooler
+
     fun insertCooler(cooler: Cooler)
 
     fun updateCooler(cooler: Cooler)

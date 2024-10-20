@@ -11,6 +11,7 @@ package com.example.domain.enitities
  * @param wattage мощность
  * @param videoMemory видеопамять
  * @param typeVideoMemory тип видеопамяти
+ * @param photo фото
  */
 data class VideoCard(
     val id: Int,
@@ -20,5 +21,6 @@ data class VideoCard(
     val clockRate: String,
     val wattage: String,
     val videoMemory: String,
-    val typeVideoMemory: String
+    val typeVideoMemory: String,
+    val photo: String
 )

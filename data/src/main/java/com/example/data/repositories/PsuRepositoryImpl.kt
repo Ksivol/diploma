@@ -12,6 +12,10 @@ import kotlinx.coroutines.flow.map
 class PsuRepositoryImpl(private val psuDAO: PsuDAO) : PsuRepository {
     override fun getPsus(): Flow<List<PSU>> = psuDAO.getPsus().map { it.map(PSUEntity::toDomain) }
 
+    override fun getPsu(id: Int): PSU {
+        return psuDAO.getPsu(id).toDomain()
+    }
+
     override fun insertPsu(psu: PSU) {
         psuDAO.insertPsu(psu.toData())
     }

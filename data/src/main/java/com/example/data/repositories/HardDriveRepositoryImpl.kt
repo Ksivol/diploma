@@ -12,6 +12,10 @@ import kotlinx.coroutines.flow.map
 class HardDriveRepositoryImpl(private val hardDriveDAO: HardDriveDAO) : HardDriveRepository {
     override fun getHardDrives(): Flow<List<HardDrive>> = hardDriveDAO.getHardDrives().map { it.map(HardDriveEntity::toDomain) }
 
+    override fun getHardDrive(id: Int): HardDrive {
+        return hardDriveDAO.getHardDrive(id).toDomain()
+    }
+
     override fun insertHardDrive(hardDrive: HardDrive) {
         hardDriveDAO.insertHardDrive(hardDrive.toData())
     }

@@ -14,6 +14,10 @@ class VideoCardRepositoryImpl(
 ) : VideoCardRepository {
     override fun getVideoCards(): Flow<List<VideoCard>> = videoCardDAO.getVideoCards().map { it.map(VideoCardEntity::toDomain) }
 
+    override fun getVideoCard(id: Int): VideoCard {
+        return videoCardDAO.getVideoCard(id).toDomain()
+    }
+
     override fun insertVideoCard(videoCard: VideoCard) {
         videoCardDAO.insertVideoCard(videoCard.toData())
     }

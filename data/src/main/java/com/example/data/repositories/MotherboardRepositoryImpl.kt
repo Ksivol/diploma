@@ -12,6 +12,10 @@ import kotlinx.coroutines.flow.map
 class MotherboardRepositoryImpl(private val motherboardDAO: MotherboardDAO) : MotherboardRepository {
     override fun getMotherboards(): Flow<List<Motherboard>> = motherboardDAO.getMotherboards().map { it.map(MotherboardEntity::toDomain) }
 
+    override fun getMotherboard(id: Int): Motherboard {
+        return motherboardDAO.getMotherboard(id).toDomain()
+    }
+
     override fun insertMotherboard(motherboard: Motherboard) {
         motherboardDAO.insertMotherboard(motherboard.toData())
     }

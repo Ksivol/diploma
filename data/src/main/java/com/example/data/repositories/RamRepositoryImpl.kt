@@ -12,6 +12,10 @@ import kotlinx.coroutines.flow.map
 class RamRepositoryImpl(private val ramDAO: RamDAO) : RamRepository {
     override fun getRams(): Flow<List<RAM>> = ramDAO.getRams().map { it.map(RAMEntity::toDomain) }
 
+    override fun getRam(id: Int): RAM {
+        return ramDAO.getRam(id).toDomain()
+    }
+
     override fun insertRam(ram: RAM) {
         ramDAO.insertRam(ram.toData())
     }

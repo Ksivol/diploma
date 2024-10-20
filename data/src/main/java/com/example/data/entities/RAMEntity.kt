@@ -12,6 +12,7 @@ import androidx.room.PrimaryKey
  * @param price цена
  * @param clockRate тактовая частота
  * @param type тип памяти
+ * @param photo фото
  */
 @Entity(tableName = "rams")
 data class RAMEntity(
@@ -20,4 +21,5 @@ data class RAMEntity(
     @ColumnInfo(name = "price") val price: String,
     @ColumnInfo(name = "clockRate") val clockRate: String,
     @ColumnInfo(name = "type") val type: String,
+    @ColumnInfo(name = "photo") val photo: String,
 )

@@ -12,6 +12,7 @@ import androidx.room.PrimaryKey
  * @param price цена
  * @param size размер
  * @param socket сокет
+ * @param photo фото
  */
 @Entity(tableName = "motherboards")
 data class MotherboardEntity(
@@ -20,4 +21,5 @@ data class MotherboardEntity(
     @ColumnInfo(name = "price") val price: String,
     @ColumnInfo(name = "size") val size: String,
     @ColumnInfo(name = "socket") val socket: String,
+    @ColumnInfo(name = "photo") val photo: String,
 )

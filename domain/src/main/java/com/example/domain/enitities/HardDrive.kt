@@ -10,6 +10,7 @@ package com.example.domain.enitities
  * @param type тип (SSD SATA, SSD M2, HDD)
  * @param size размер жесткого диска?
  * @param overwrite кол-во перезаписей
+ * @param photo фото
  */
 data class HardDrive(
     val id: Int,
@@ -18,5 +19,6 @@ data class HardDrive(
     val capacity: Int,
     val type: String,
     val size: String,
-    val overwrite: Int
+    val overwrite: Int,
+    val photo: String
 )

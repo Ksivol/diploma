@@ -6,6 +6,8 @@ import kotlinx.coroutines.flow.Flow
 interface HardDriveRepository {
     fun getHardDrives(): Flow<List<HardDrive>>
 
+    fun getHardDrive(id: Int): HardDrive
+
     fun insertHardDrive(hardDrive: HardDrive)
 
     fun updateHardDrive(hardDrive: HardDrive)
