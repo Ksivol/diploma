@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".categories.CategoriesFragment">
+    tools:context=".favorites.FavoritesFragment">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/categoriesTB"
+        android:id="@+id/favoritesTB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -26,14 +26,14 @@
             android:textSize="20sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categoriesTB" />
+        app:layout_constraintTop_toBottomOf="@id/favoritesTB"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
