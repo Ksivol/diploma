@@ -6,13 +6,17 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentBuildsBinding
 import com.example.pcconfigurator.di.inject
 import com.example.pcconfigurator.utils.BuildsAdapter
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class BuildsFragment : Fragment(R.layout.fragment_builds) {
@@ -57,7 +61,7 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
     ) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
-        // setData()
+        setData()
         onCreateBuildTouch()
     }
 
@@ -67,15 +71,15 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
             buildsRV.adapter = adapter
         }
 
-    /*private fun setData() {
+    private fun setData() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.builds.collect { pcList ->
-                    adapter.submitList(pcList.map { it.toPresentation() })
+                    adapter.submitList(pcList)
                 }
             }
         }
-    }*/
+    }
 
     private fun onCreateBuildTouch() {
         binding.createBuild.setOnClickListener {
