@@ -4,14 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.domain.enitities.CPU
-import com.example.domain.enitities.Cooler
-import com.example.domain.enitities.HardDrive
-import com.example.domain.enitities.Motherboard
-import com.example.domain.enitities.PSU
-import com.example.domain.enitities.PcCase
-import com.example.domain.enitities.RAM
-import com.example.domain.enitities.VideoCard
 
 /**
  * Класс [PC]. Представляет собой модельку кулера
@@ -28,29 +20,77 @@ import com.example.domain.enitities.VideoCard
  * @param ram: оперативная память
  * @param videoCard: видео карта
  */
-@Entity(tableName = "Pc", foreignKeys = [
-    ForeignKey(entity = Cooler::class, parentColumns = ["id"], childColumns = ["coolerID"]),
-    ForeignKey(entity = CPU::class, parentColumns = ["id"], childColumns = ["cpuID"]),
-    ForeignKey(entity = HardDrive::class, parentColumns = ["id"], childColumns = ["hardDriveID"]),
-    ForeignKey(entity = Motherboard::class, parentColumns = ["id"], childColumns = ["motherboardID"]),
-    ForeignKey(entity = PcCase::class, parentColumns = ["id"], childColumns = ["pcCaseID"]),
-    ForeignKey(entity = PSU::class, parentColumns = ["id"], childColumns = ["psuID"]),
-    ForeignKey(entity = RAM::class, parentColumns = ["id"], childColumns = ["ramID"]),
-    ForeignKey(entity = VideoCard::class, parentColumns = ["id"], childColumns = ["videoCardID"]),
-])
+@Entity(
+    tableName = "Pc",
+    foreignKeys = [
+        ForeignKey(
+            entity = CoolerEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["cooler"],
+            onUpdate = ForeignKey.NO_ACTION,
+            onDelete = ForeignKey.NO_ACTION,
+        ),
+        ForeignKey(
+            entity = CPUEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["cpu"],
+            onUpdate = ForeignKey.NO_ACTION,
+            onDelete = ForeignKey.NO_ACTION,
+        ),
+        ForeignKey(
+            entity = HardDriveEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["hardDrive"],
+            onUpdate = ForeignKey.NO_ACTION,
+            onDelete = ForeignKey.NO_ACTION,
+        ),
+        ForeignKey(
+            entity = MotherboardEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["motherboard"],
+            onUpdate = ForeignKey.NO_ACTION,
+            onDelete = ForeignKey.NO_ACTION,
+        ),
+        ForeignKey(
+            entity = PcCaseEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["pcCase"],
+            onUpdate = ForeignKey.NO_ACTION,
+            onDelete = ForeignKey.NO_ACTION,
+        ),
+        ForeignKey(
+            entity = PSUEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["psu"],
+            onUpdate = ForeignKey.NO_ACTION,
+            onDelete = ForeignKey.NO_ACTION,
+        ),
+        ForeignKey(
+            entity = RAMEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["ram"],
+            onUpdate = ForeignKey.NO_ACTION,
+            onDelete = ForeignKey.NO_ACTION,
+        ),
+        ForeignKey(
+            entity = VideoCardEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["videoCard"],
+            onUpdate = ForeignKey.NO_ACTION,
+            onDelete = ForeignKey.NO_ACTION,
+        ),
+    ],
+)
 data class PcEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "coolerID") val coolerID: Int,
-    @ColumnInfo(name = "cpuID") val cpuID: Int,
-    @ColumnInfo(name = "hardDriveID") val hardDriveID: Int,
-    @ColumnInfo(name = "motherboardID") val motherboardID: Int,
-    @ColumnInfo(name = "pcCaseID") val pcCaseID: Int,
-    @ColumnInfo(name = "psuID") val psuID: Int,
-    @ColumnInfo(name = "ramID") val ramID: Int,
-    @ColumnInfo(name = "videoCardID") val videoCardID: Int
+    @ColumnInfo(name = "cpu") val cpu: Int,
+    @ColumnInfo(name = "cooler") val cooler: Int?,
+    @ColumnInfo(name = "hardDrive") val hardDrive: Int?,
+    @ColumnInfo(name = "motherboard") val motherboard: Int?,
+    @ColumnInfo(name = "pcCase") val pcCase: Int?,
+    @ColumnInfo(name = "psu") val psu: Int?,
+    @ColumnInfo(name = "ram") val ram: Int?,
+    @ColumnInfo(name = "videoCard") val videoCard: Int?,
 )
-
-
-
