@@ -5,23 +5,26 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.bumptech.glide.Glide
 import com.example.pcconfigurator.databinding.BuildItemBinding
 import com.example.pcconfigurator.models.Build
 
-class BuildsAdapter : ListAdapter<Build, BuildHolder>(BuildComparator()) {
+class BuildsAdapter(
+    private val onEdit: () -> Unit,
+    private val onDelete: () -> Unit,
+) : ListAdapter<Build, BuildHolder>(BuildComparator()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): BuildHolder {
-        return BuildHolder(
+    ): BuildHolder =
+        BuildHolder(
             BuildItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false,
             ),
+            onEdit,
+            onDelete,
         )
-    }
 
     override fun onBindViewHolder(
         holder: BuildHolder,
@@ -31,15 +34,20 @@ class BuildsAdapter : ListAdapter<Build, BuildHolder>(BuildComparator()) {
     }
 }
 
-class BuildHolder(private val binding: BuildItemBinding) : ViewHolder(binding.root) {
+class BuildHolder(
+    private val binding: BuildItemBinding,
+    private val onEdit: () -> Unit,
+    private val onDelete: () -> Unit,
+) : ViewHolder(binding.root) {
     fun onBind(build: Build) =
         with(binding) {
-            Glide
-                .with(binding.root.context)
-                .load(build.image)
-                .centerCrop()
-                .into(buildItemIV)
             buildItemTV.text = build.title
+            editBuildCV.setOnClickListener {
+                onEdit.invoke()
+            }
+            deleteBuildCV.setOnClickListener {
+                onDelete.invoke()
+            }
         }
 }
 
