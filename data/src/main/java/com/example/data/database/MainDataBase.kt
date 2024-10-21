@@ -9,6 +9,7 @@ import com.example.data.dao.CpuDAO
 import com.example.data.dao.HardDriveDAO
 import com.example.data.dao.MotherboardDAO
 import com.example.data.dao.PcCaseDAO
+import com.example.data.dao.PcDAO
 import com.example.data.dao.PsuDAO
 import com.example.data.dao.RamDAO
 import com.example.data.dao.VideoCardDAO
@@ -18,12 +19,24 @@ import com.example.data.entities.HardDriveEntity
 import com.example.data.entities.MotherboardEntity
 import com.example.data.entities.PSUEntity
 import com.example.data.entities.PcCaseEntity
+import com.example.data.entities.PcEntity
 import com.example.data.entities.RAMEntity
 import com.example.data.entities.VideoCardEntity
 
 @Database(
-    entities = [CoolerEntity::class, CPUEntity::class, HardDriveEntity::class, MotherboardEntity::class, PcCaseEntity::class, PSUEntity::class, RAMEntity::class, VideoCardEntity::class],
+    entities = [
+        CoolerEntity::class,
+        CPUEntity::class,
+        HardDriveEntity::class,
+        MotherboardEntity::class,
+        PcCaseEntity::class,
+        PSUEntity::class,
+        RAMEntity::class,
+        VideoCardEntity::class,
+        PcEntity::class,
+    ],
     version = 1,
+    exportSchema = true,
 )
 abstract class MainDataBase : RoomDatabase() {
     abstract fun getCoolerDAO(): CoolerDAO
@@ -42,22 +55,23 @@ abstract class MainDataBase : RoomDatabase() {
 
     abstract fun getVideoCardDAO(): VideoCardDAO
 
+    abstract fun getPcDao(): PcDAO
+
     companion object {
         private var INSTANCE: MainDataBase? = null
 
-        fun getDatabase(context: Context): MainDataBase {
-            return INSTANCE ?: synchronized(this) {
+        fun getDatabase(context: Context): MainDataBase =
+            INSTANCE ?: synchronized(this) {
                 val instance =
-                    Room.databaseBuilder(
-                        context = context,
-                        klass = MainDataBase::class.java,
-                        "main_database",
-                    )
-                        .createFromAsset("database/db_test.db")
+                    Room
+                        .databaseBuilder(
+                            context = context,
+                            klass = MainDataBase::class.java,
+                            "main_database",
+                        ).createFromAsset("database/db_test_copy.db")
                         .build()
                 INSTANCE = instance
                 instance
             }
-        }
     }
 }

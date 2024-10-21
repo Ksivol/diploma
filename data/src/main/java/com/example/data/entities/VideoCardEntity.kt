@@ -26,6 +26,6 @@ data class VideoCardEntity(
     @ColumnInfo(name = "clockRate") val clockRate: String,
     @ColumnInfo(name = "wattage") val wattage: String,
     @ColumnInfo(name = "videoMemory") val videoMemory: String,
-    @ColumnInfo(name = "videoMemory") val typeVideoMemory: String,
+    @ColumnInfo(name = "typeVideoMemory") val typeVideoMemory: String,
     @ColumnInfo(name = "photo") val photo: String,
 )

@@ -1,6 +1,7 @@
 plugins {
     id("java-library")
     alias(libs.plugins.jetbrainsKotlinJvm)
+    alias(libs.plugins.kspPlugin)
 }
 
 java {
@@ -10,4 +11,8 @@ java {
 
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
+
+    // dagger2
+    implementation(libs.dagger)
+    ksp(libs.dagger.compiler)
 }
