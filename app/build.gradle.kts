@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kspPlugin)
 }
 
 android {
@@ -40,23 +41,26 @@ android {
 
 dependencies {
     implementation(project(":domain"))
+    implementation(project(":data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.ui.ktx)
 
     // navigation
     implementation(libs.bundles.androidx.navigation)
-    implementation(libs.androidx.navigation.fragment)
 
     // viewbinding
     implementation(libs.viewbindingpropertydelegate.full)
 
     // glide
     implementation(libs.glide)
+
+    // dagger2
+    implementation(libs.dagger)
+    ksp(libs.dagger.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
