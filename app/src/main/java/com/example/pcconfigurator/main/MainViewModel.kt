@@ -6,13 +6,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
-    private val innerTitle: MutableStateFlow<String> = MutableStateFlow("")
-    val title = innerTitle.asStateFlow()
+class MainViewModel
+    @Inject
+    constructor() : ViewModel() {
+        private val innerTitle: MutableStateFlow<String> = MutableStateFlow("")
+        val title = innerTitle.asStateFlow()
 
-    fun setTitle(string: String) =
-        viewModelScope.launch(Dispatchers.IO) {
-            innerTitle.emit(string)
-        }
-}
+        fun setTitle(string: String) =
+            viewModelScope.launch(Dispatchers.IO) {
+                innerTitle.emit(string)
+            }
+    }
