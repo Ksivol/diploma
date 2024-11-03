@@ -6,10 +6,11 @@ import com.example.domain.usecases.GetBuildsUseCase
 import com.example.pcconfigurator.models.Build
 import com.example.pcconfigurator.utils.toPresentation
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.shareIn
 import javax.inject.Inject
 
 class BuildsViewModel
@@ -17,20 +18,10 @@ class BuildsViewModel
     constructor(
         getBuildsUseCase: GetBuildsUseCase,
     ) : ViewModel() {
-        init {
-            viewModelScope.launch(Dispatchers.Default) {
-                getBuildsUseCase.execute().collect { pcList ->
-                    _builds.emit(pcList.map { it.toPresentation() })
-                }
-            }
-        }
-
-        private val _builds: MutableSharedFlow<List<Build>> =
-            MutableSharedFlow(
-                1,
-                0,
-                BufferOverflow.DROP_OLDEST,
-            )
-
-        val builds: SharedFlow<List<Build>> get() = _builds
+        val builds: SharedFlow<List<Build>> =
+            getBuildsUseCase
+                .execute()
+                .flowOn(Dispatchers.Default)
+                .map { list -> list.map { it.toPresentation() } }
+                .shareIn(viewModelScope, SharingStarted.Lazily, 1)
     }
