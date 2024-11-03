@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/buildsFragment"
-        android:name="com.example.pcconfigurator.pcBuilds.BuildsFragment"
+        android:name="com.example.pcconfigurator.features.pcBuilds.BuildsFragment"
         android:label="fragment_builds"
         tools:layout="@layout/fragment_builds" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.pcconfigurator.pcBuilds
+package com.example.pcconfigurator.features.pcBuilds
 
 import android.content.Context
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.example.pcconfigurator.favorites
+package com.example.pcconfigurator.features.favorites
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,6 @@ import com.example.pcconfigurator.databinding.FragmentFavoritesBinding
 import com.example.pcconfigurator.utils.FavoritesAdapter
 
 class FavoritesFragment : Fragment() {
-
     private val binding: FragmentFavoritesBinding by viewBinding(FragmentFavoritesBinding::bind)
 
     private val adapter: FavoritesAdapter by lazy {

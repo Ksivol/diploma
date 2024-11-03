@@ -1,4 +1,4 @@
-package com.example.pcconfigurator.pcBuilds
+package com.example.pcconfigurator.features.pcBuilds
 
 import androidx.fragment.app.Fragment
 import com.example.pcconfigurator.R

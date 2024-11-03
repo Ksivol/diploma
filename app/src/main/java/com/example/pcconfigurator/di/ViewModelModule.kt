@@ -2,7 +2,7 @@ package com.example.pcconfigurator.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.pcconfigurator.pcBuilds.BuildsViewModel
+import com.example.pcconfigurator.features.pcBuilds.BuildsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

@@ -1,4 +1,4 @@
-package com.example.pcconfigurator.pcBuilds
+package com.example.pcconfigurator.features.pcBuilds
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
