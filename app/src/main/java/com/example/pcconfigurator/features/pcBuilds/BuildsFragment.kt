@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +16,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentBuildsBinding
 import com.example.pcconfigurator.di.inject
+import com.example.pcconfigurator.main.MainViewModel
 import com.example.pcconfigurator.utils.BuildsAdapter
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,9 +24,9 @@ import javax.inject.Inject
 class BuildsFragment : Fragment(R.layout.fragment_builds) {
     private val binding: FragmentBuildsBinding by viewBinding(FragmentBuildsBinding::bind)
 
-    private val viewModel: BuildsViewModel by viewModels {
-        factory
-    }
+    private val mainViewModel: MainViewModel by activityViewModels { factory }
+
+    private val viewModel: BuildsViewModel by viewModels { factory }
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
@@ -60,6 +62,7 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
+        setTilte()
         initAdapter()
         setData()
         onCreateBuildTouch()
@@ -79,6 +82,10 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
                 }
             }
         }
+    }
+
+    private fun setTilte() {
+        mainViewModel.setTitle(requireContext().getString(R.string.builds))
     }
 
     private fun onCreateBuildTouch() {
