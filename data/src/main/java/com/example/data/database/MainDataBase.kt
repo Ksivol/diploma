@@ -68,7 +68,7 @@ abstract class MainDataBase : RoomDatabase() {
                             context = context,
                             klass = MainDataBase::class.java,
                             "main_database",
-                        ).createFromAsset("database/db_test_copy.db")
+                        ).createFromAsset("database/db_test.db")
                         .build()
                 INSTANCE = instance
                 instance
