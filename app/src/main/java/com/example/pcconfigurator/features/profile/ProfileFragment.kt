@@ -7,13 +7,13 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentProfileBinding
-import com.example.pcconfigurator.di.inject
+import com.example.pcconfigurator.di.appComponent
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private val binding: FragmentProfileBinding by viewBinding(FragmentProfileBinding::bind)
 
     override fun onAttach(context: Context) {
-        inject()
+        appComponent.inject(this)
         super.onAttach(context)
     }
 

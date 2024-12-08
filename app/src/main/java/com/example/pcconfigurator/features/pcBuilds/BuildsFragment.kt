@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentBuildsBinding
-import com.example.pcconfigurator.di.inject
+import com.example.pcconfigurator.di.appComponent
 import com.example.pcconfigurator.utils.BuildsAdapter
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -49,7 +49,7 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
     }
 
     override fun onAttach(context: Context) {
-        inject()
+        appComponent.inject(this)
         super.onAttach(context)
     }
 

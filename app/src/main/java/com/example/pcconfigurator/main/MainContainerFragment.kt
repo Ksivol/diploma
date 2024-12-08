@@ -12,13 +12,13 @@ import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentMainContainerBinding
-import com.example.pcconfigurator.di.inject
+import com.example.pcconfigurator.di.appComponent
 
 class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
     private val binding: FragmentMainContainerBinding by viewBinding(FragmentMainContainerBinding::bind)
 
     override fun onAttach(context: Context) {
-        inject()
+        appComponent.inject(this)
         super.onAttach(context)
     }
 

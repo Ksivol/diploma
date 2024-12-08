@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentCategoriesBinding
-import com.example.pcconfigurator.di.inject
+import com.example.pcconfigurator.di.appComponent
 import com.example.pcconfigurator.utils.CategoriesAdapter
 
 class CategoriesFragment : Fragment(R.layout.fragment_categories) {
@@ -18,7 +18,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     }
 
     override fun onAttach(context: Context) {
-        inject()
+        appComponent.inject(this)
         super.onAttach(context)
     }
 
