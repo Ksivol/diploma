@@ -5,11 +5,11 @@ import com.example.pcconfigurator.di.AppComponent
 import com.example.pcconfigurator.di.DaggerAppComponent
 
 class App : Application() {
-    lateinit var component: AppComponent
+    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
-        component = DaggerAppComponent
+        appComponent = DaggerAppComponent
             .builder()
             .getContext(this)
             .build()
