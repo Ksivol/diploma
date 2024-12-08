@@ -8,25 +8,25 @@
     <fragment
         android:id="@+id/builds"
         android:name="com.example.pcconfigurator.features.pcBuilds.BuildsContainerFragment"
-        android:label="BuildsContainerFragment"
+        android:label="@string/builds"
         tools:layout="@layout/fragment_builds_container" />
 
     <fragment
         android:id="@+id/categories"
         android:name="com.example.pcconfigurator.features.categories.CategoriesContainerFragment"
-        android:label="fragment_categories_container"
+        android:label="@string/categories"
         tools:layout="@layout/fragment_categories_container" />
 
     <fragment
         android:id="@+id/favorites"
         android:name="com.example.pcconfigurator.features.favorites.FavoritesContainerFragment"
-        android:label="fragment_favorites_container"
+        android:label="@string/favorites"
         tools:layout="@layout/fragment_favorites_container" />
 
     <fragment
         android:id="@+id/profile"
         android:name="com.example.pcconfigurator.features.profile.ProfileContainerFragment"
-        android:label="ProfileContainerFragment"
+        android:label="@string/profile"
         tools:layout="@layout/fragment_profile_container" />
 
 </navigation>
