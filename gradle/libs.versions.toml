@@ -11,11 +11,13 @@ kotlinxCoroutinesCore = "1.9.0"
 material = "1.12.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
+mockitoCore = "5.15.2"
 navigationFragmentKtx = "2.8.0"
 room = "2.6.1"
 ksp = "2.0.20-1.0.25"
 viewbindingpropertydelegateFull = "1.5.9"
 jetbrainsKotlinJvm = "2.0.20"
+junitJupiter = "5.8.1"
 
 [libraries]
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
@@ -32,7 +34,9 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
 viewbindingpropertydelegate-full = { module = "com.github.kirich1409:viewbindingpropertydelegate-full", version.ref = "viewbindingpropertydelegateFull" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
 
 [plugins]
 kspPlugin = { id = "com.google.devtools.ksp", version.ref = "ksp"}
