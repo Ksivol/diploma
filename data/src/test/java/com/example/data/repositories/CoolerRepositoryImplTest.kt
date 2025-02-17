@@ -2,12 +2,11 @@ package com.example.data.repositories
 
 import com.example.data.dao.CoolerDAO
 import com.example.data.entities.CoolerEntity
-import com.example.data.utils.toDomain
 import com.example.domain.enitities.Cooler
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 import org.mockito.Mockito.mock
