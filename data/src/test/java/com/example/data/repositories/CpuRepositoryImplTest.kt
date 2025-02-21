@@ -23,7 +23,7 @@ class CpuRepositoryImplTest {
         val cpuEntity3: CPUEntity =
             CPUEntity(3, "Name", "Price", "Socket", "ClockRate", "Wattage", "Photo")
         val listOfCPUEntity: List<CPUEntity> = listOf(cpuEntity1, cpuEntity2, cpuEntity3)
-        
+
         Mockito.`when`(cpuDAO.getCpus()).thenReturn(flowOf(listOfCPUEntity))
 
         val cpu1: CPU =
@@ -36,6 +36,20 @@ class CpuRepositoryImplTest {
         val expected: List<CPU> = listOf(cpu1, cpu2, cpu3)
 
         val actual: List<CPU> = cpuRepositoryImpl.getCpus().last()
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `should return CPU by id`() {
+        val id: Int = 1
+        val cpu: CPUEntity =
+            CPUEntity(1, "Name", "Price", "Socket", "ClockRate", "Wattage", "Photo")
+        val expected: CPU =
+            CPU(1, "Name", "Price", "Socket", "ClockRate", "Wattage", "Photo")
+
+        Mockito.`when`(cpuDAO.getCpu(id)).thenReturn(cpu)
+        val actual: CPU = cpuRepositoryImpl.getCpu(id)
 
         assertEquals(expected, actual)
     }
