@@ -1,9 +1,5 @@
 package com.example.data.utils
 
-import com.example.data.dao.CoolerDAO
-import com.example.data.dao.CpuDAO
-import com.example.data.dao.HardDriveDAO
-import com.example.data.dao.MotherboardDAO
 import com.example.data.entities.CPUEntity
 import com.example.data.entities.CoolerEntity
 import com.example.data.entities.HardDriveEntity
@@ -11,6 +7,7 @@ import com.example.data.entities.MotherboardEntity
 import com.example.data.entities.PSUEntity
 import com.example.data.entities.PcCaseEntity
 import com.example.data.entities.PcEntity
+import com.example.data.entities.PcWithData
 import com.example.data.entities.RAMEntity
 import com.example.data.entities.VideoCardEntity
 import com.example.domain.enitities.CPU
@@ -155,11 +152,9 @@ fun VideoCard.toData(): VideoCardEntity {
  * Маппит [PcEntity] (моделька из Data слоя) к [Pc] (моделька из Domain слоя)
  * @return [Pc]
  */
-fun PcEntity.toDomain(
-    cooler: Cooler, cpu: CPU, hardDrive: HardDrive, motherboard: Motherboard,
-    pcCase: PcCase, psu: PSU, ram: RAM, videoCard: VideoCard
+fun PcWithData.toDomain(
 ): Pc {
-    return Pc(id, name, price, cooler, cpu, hardDrive, motherboard, pcCase, psu, ram, videoCard)
+    return Pc(id, name, price, cooler.toDomain(), cpu.toDomain(), hardDrive.toDomain(), motherboard.toDomain(), pcCase.toDomain(), psu.toDomain(), ram.toDomain(), videoCard.toDomain())
 }
 
 /**
