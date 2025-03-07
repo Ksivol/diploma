@@ -5,4 +5,8 @@
     <string name="categories">Категории</string>
     <string name="favorites">Избранное</string>
     <string name="profile">Профиль</string>
+    <string name="make_a_build">Сделать сборку</string>
+
+    <!-- fragment_make_a_build -->
+    <string name="empty_component_list">Нет компонентов\nНажмите\n+\nчтобы добавить компонент</string>
 </resources>

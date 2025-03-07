@@ -1,4 +1,4 @@
-package com.example.pcconfigurator.features.profile
+package com.example.pcconfigurator.features.favoritesfeature.favorites
 
 import android.content.Context
 import android.os.Bundle
@@ -8,13 +8,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
-import com.example.pcconfigurator.databinding.FragmentProfileBinding
-import com.example.pcconfigurator.di.inject
+import com.example.pcconfigurator.databinding.FragmentFavoritesBinding
+import com.example.pcconfigurator.di.component
 import com.example.pcconfigurator.main.MainViewModel
+import com.example.pcconfigurator.utils.FavoritesAdapter
 import javax.inject.Inject
 
-class ProfileFragment : Fragment(R.layout.fragment_profile) {
-    private val binding: FragmentProfileBinding by viewBinding(FragmentProfileBinding::bind)
+class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
+    private val binding: FragmentFavoritesBinding by viewBinding(FragmentFavoritesBinding::bind)
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
@@ -23,8 +24,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         factory
     }
 
+    private val adapter: FavoritesAdapter by lazy {
+        FavoritesAdapter()
+    }
+
     override fun onAttach(context: Context) {
-        inject()
+        component.inject(this)
         super.onAttach(context)
     }
 
@@ -33,10 +38,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        setTilte()
+        setTitle()
     }
 
-    private fun setTilte() {
-        mainViewModel.setTitle(requireContext().getString(R.string.profile))
+    private fun setTitle() {
+        mainViewModel.setTitle(requireContext().getString(R.string.favorites))
     }
 }

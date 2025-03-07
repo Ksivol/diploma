@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -17,7 +16,7 @@ import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentMainContainerBinding
-import com.example.pcconfigurator.di.inject
+import com.example.pcconfigurator.di.component
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -32,7 +31,7 @@ class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
     }
 
     override fun onAttach(context: Context) {
-        inject()
+        component.inject(this)
         super.onAttach(context)
     }
 

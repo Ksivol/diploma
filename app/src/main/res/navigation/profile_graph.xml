@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.pcconfigurator.features.profile.ProfileFragment"
+        android:name="com.example.pcconfigurator.features.profilefeature.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

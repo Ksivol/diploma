@@ -1,4 +1,4 @@
-package com.example.pcconfigurator.features.favorites
+package com.example.pcconfigurator.features.favoritesfeature.container
 
 import androidx.fragment.app.Fragment
 import com.example.pcconfigurator.R

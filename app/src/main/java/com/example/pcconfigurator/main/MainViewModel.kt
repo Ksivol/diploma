@@ -8,14 +8,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel
-    @Inject
-    constructor() : ViewModel() {
-        private val innerTitle: MutableStateFlow<String> = MutableStateFlow("")
-        val title = innerTitle.asStateFlow()
+class MainViewModel @Inject constructor() : ViewModel() {
+    private val _title: MutableStateFlow<String> = MutableStateFlow("")
+    val title = _title.asStateFlow()
 
-        fun setTitle(string: String) =
-            viewModelScope.launch(Dispatchers.IO) {
-                innerTitle.emit(string)
-            }
-    }
+    fun setTitle(string: String) =
+        viewModelScope.launch(Dispatchers.IO) {
+            _title.emit(string)
+        }
+}

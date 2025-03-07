@@ -7,7 +7,16 @@
 
     <fragment
         android:id="@+id/buildsFragment"
-        android:name="com.example.pcconfigurator.features.pcBuilds.BuildsFragment"
+        android:name="com.example.pcconfigurator.features.pcbuildsfeature.builds.BuildsFragment"
         android:label="fragment_builds"
-        tools:layout="@layout/fragment_builds" />
+        tools:layout="@layout/fragment_builds" >
+        <action
+            android:id="@+id/action_buildsFragment_to_makeABuildFragment"
+            app:destination="@id/makeABuildFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/makeABuildFragment"
+        android:name="com.example.pcconfigurator.features.pcbuildsfeature.makeabuild.MakeABuildFragment"
+        android:label="fragment_make_a_build"
+        tools:layout="@layout/fragment_make_a_build" />
 </navigation>

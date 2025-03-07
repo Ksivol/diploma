@@ -1,4 +1,4 @@
-package com.example.pcconfigurator.features.pcBuilds
+package com.example.pcconfigurator.features.pcbuildsfeature.builds
 
 import android.content.Context
 import android.os.Bundle
@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentBuildsBinding
-import com.example.pcconfigurator.di.inject
+import com.example.pcconfigurator.di.component
 import com.example.pcconfigurator.main.MainViewModel
 import com.example.pcconfigurator.utils.BuildsAdapter
 import kotlinx.coroutines.launch
@@ -53,7 +53,7 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
     }
 
     override fun onAttach(context: Context) {
-        inject()
+        component.inject(this)
         super.onAttach(context)
     }
 
@@ -62,7 +62,7 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        setTilte()
+        setTitle()
         initAdapter()
         setData()
         onCreateBuildTouch()
@@ -84,7 +84,7 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
         }
     }
 
-    private fun setTilte() {
+    private fun setTitle() {
         mainViewModel.setTitle(requireContext().getString(R.string.builds))
     }
 

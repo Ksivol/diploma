@@ -1,4 +1,4 @@
-package com.example.pcconfigurator.features.categories
+package com.example.pcconfigurator.features.categoriesfeature.categories
 
 import android.content.Context
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentCategoriesBinding
-import com.example.pcconfigurator.di.inject
+import com.example.pcconfigurator.di.component
 import com.example.pcconfigurator.main.MainViewModel
 import com.example.pcconfigurator.utils.CategoriesAdapter
 import javax.inject.Inject
@@ -29,7 +29,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     }
 
     override fun onAttach(context: Context) {
-        inject()
+        component.inject(this)
         super.onAttach(context)
     }
 
@@ -38,10 +38,10 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        setTilte()
+        setTitle()
     }
 
-    private fun setTilte() {
+    private fun setTitle() {
         mainViewModel.setTitle(requireContext().getString(R.string.categories))
     }
 }

@@ -1,7 +1,8 @@
-package com.example.pcconfigurator.features.pcBuilds
+package com.example.pcconfigurator.features.pcbuildsfeature.builds
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.domain.enitities.Pc
 import com.example.domain.usecases.GetBuildsUseCase
 import com.example.pcconfigurator.models.Build
 import com.example.pcconfigurator.utils.toPresentation
@@ -13,15 +14,10 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.shareIn
 import javax.inject.Inject
 
-class BuildsViewModel
-    @Inject
-    constructor(
-        getBuildsUseCase: GetBuildsUseCase,
-    ) : ViewModel() {
-        val builds: SharedFlow<List<Build>> =
-            getBuildsUseCase
-                .execute()
-                .flowOn(Dispatchers.Default)
-                .map { list -> list.map { it.toPresentation() } }
-                .shareIn(viewModelScope, SharingStarted.Lazily, 1)
-    }
+class BuildsViewModel @Inject constructor(getBuildsUseCase: GetBuildsUseCase) : ViewModel() {
+    val builds: SharedFlow<List<Build>> = getBuildsUseCase
+        .execute()
+        .flowOn(Dispatchers.Default)
+        .map { it.map(Pc::toPresentation) }
+        .shareIn(viewModelScope, SharingStarted.Lazily, 1)
+}
