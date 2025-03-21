@@ -9,4 +9,5 @@
 
     <!-- fragment_make_a_build -->
     <string name="empty_component_list">Нет компонентов\nНажмите\n+\nчтобы добавить компонент</string>
+    <string name="component_name">Название</string>
 </resources>
