@@ -10,6 +10,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentMakeABuildBinding
 import com.example.pcconfigurator.di.component
+import com.example.pcconfigurator.features.pcbuildsfeature.utils.BuildComponentAdapter
 import com.example.pcconfigurator.main.MainViewModel
 import javax.inject.Inject
 
@@ -21,6 +22,8 @@ class MakeABuildFragment : Fragment(R.layout.fragment_make_a_build) {
     @Inject
     lateinit var factory: ViewModelProvider.Factory
 
+    private val adapter: BuildComponentAdapter = BuildComponentAdapter()
+
     override fun onAttach(context: Context) {
         component.inject(this)
         super.onAttach(context)
@@ -29,6 +32,11 @@ class MakeABuildFragment : Fragment(R.layout.fragment_make_a_build) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle()
+        initAdapter()
+    }
+
+    private fun initAdapter() {
+        binding.componentsRecyclerView.adapter = adapter
     }
 
     private fun setTitle() {
