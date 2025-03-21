@@ -7,4 +7,5 @@
     <color name="colorPrimaryDark">#FFD0BCFF</color>
 
     <color name="colorTextHint">#E2D8FF</color>
+    <color name="colorComponentBackground">#D8CEEF</color>
 </resources>
