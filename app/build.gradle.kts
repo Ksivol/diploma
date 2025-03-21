@@ -60,6 +60,7 @@ dependencies {
 
     // dagger2
     implementation(libs.dagger)
+    implementation(libs.androidx.navigation.ui.ktx)
     ksp(libs.dagger.compiler)
 
     testImplementation(libs.junit)
