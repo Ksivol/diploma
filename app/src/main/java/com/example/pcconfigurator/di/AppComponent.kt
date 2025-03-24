@@ -8,11 +8,14 @@ import com.example.pcconfigurator.features.favoritesfeature.favorites.FavoritesF
 import com.example.pcconfigurator.features.pcbuildsfeature.builds.BuildsFragment
 import com.example.pcconfigurator.features.pcbuildsfeature.makeabuild.MakeABuildFragment
 import com.example.pcconfigurator.features.profilefeature.profile.ProfileFragment
+import com.example.pcconfigurator.main.MainActivity
 import com.example.pcconfigurator.main.MainContainerFragment
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
-@Component(modules = [DataModule::class, RepositoryBindModule::class, ViewModelModule::class])
+@Singleton
+@Component(modules = [DataModule::class, RepositoryBindModule::class, ViewModelModule::class, MainModule::class])
 interface AppComponent {
     fun inject(buildsFragment: BuildsFragment)
 
@@ -25,6 +28,8 @@ interface AppComponent {
     fun inject(mainContainerFragment: MainContainerFragment)
 
     fun inject(makeABuildFragment: MakeABuildFragment)
+
+    fun inject(mainActivity: MainActivity)
 
     @Component.Builder
     interface Builder {
