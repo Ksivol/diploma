@@ -63,6 +63,9 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     ksp(libs.dagger.compiler)
 
+    //cicerone
+    implementation(libs.cicerone)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
