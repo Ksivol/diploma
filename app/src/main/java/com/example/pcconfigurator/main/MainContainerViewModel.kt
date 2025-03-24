@@ -1,7 +1,6 @@
 package com.example.pcconfigurator.main
 
 import androidx.lifecycle.ViewModel
-import com.example.pcconfigurator.features.pcbuildsfeature.builds.BuildsFragment
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import javax.inject.Inject

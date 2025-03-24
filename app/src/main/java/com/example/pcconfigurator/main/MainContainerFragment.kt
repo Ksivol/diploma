@@ -56,7 +56,6 @@ class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
         setupTitle()
         onBackPressed()
         onNavigationToBuildScreen()
-        fragmentNavigator.
     }
 
     override fun onResume() {

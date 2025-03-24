@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import com.example.pcconfigurator.main.App
-import com.example.pcconfigurator.main.MainActivity
 import dagger.MapKey
 import kotlin.reflect.KClass
 

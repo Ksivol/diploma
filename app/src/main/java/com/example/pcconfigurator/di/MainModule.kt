@@ -1,7 +1,6 @@
 package com.example.pcconfigurator.di
 
 import com.example.pcconfigurator.R
-import com.example.pcconfigurator.main.App
 import com.example.pcconfigurator.main.MainActivity
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Navigator
