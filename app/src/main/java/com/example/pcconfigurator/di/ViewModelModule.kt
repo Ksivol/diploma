@@ -3,6 +3,7 @@ package com.example.pcconfigurator.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.pcconfigurator.features.pcbuildsfeature.builds.BuildsViewModel
+import com.example.pcconfigurator.main.MainContainerViewModel
 import com.example.pcconfigurator.main.MainViewModel
 import dagger.Binds
 import dagger.Module
@@ -20,4 +21,8 @@ interface ViewModelModule {
     @Binds
     @[IntoMap ViewModelKey(MainViewModel::class)]
     fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
+
+    @Binds
+    @[IntoMap ViewModelKey(MainContainerViewModel::class)]
+    fun bindMainContainerViewModel(mainContainerViewModel: MainContainerViewModel): ViewModel
 }
