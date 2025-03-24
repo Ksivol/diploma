@@ -1,9 +1,11 @@
 package com.example.pcconfigurator.di
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import com.example.pcconfigurator.main.App
+import com.example.pcconfigurator.main.MainActivity
 import dagger.MapKey
 import kotlin.reflect.KClass
 
@@ -12,6 +14,9 @@ val Context.component: AppComponent
         is App -> component
         else -> this.applicationContext.component
     }
+
+val AppCompatActivity.component: AppComponent
+    get() = this.applicationContext.component
 
 val Fragment.component: AppComponent
     get() = requireContext().component
