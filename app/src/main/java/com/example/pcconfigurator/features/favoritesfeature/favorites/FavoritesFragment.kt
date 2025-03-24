@@ -12,6 +12,7 @@ import com.example.pcconfigurator.databinding.FragmentFavoritesBinding
 import com.example.pcconfigurator.di.component
 import com.example.pcconfigurator.main.MainViewModel
 import com.example.pcconfigurator.utils.FavoritesAdapter
+import com.github.terrakok.cicerone.androidx.FragmentScreen
 import javax.inject.Inject
 
 class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
@@ -43,5 +44,9 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
 
     private fun setTitle() {
         mainViewModel.setTitle(requireContext().getString(R.string.favorites))
+    }
+
+    companion object {
+        fun Screen(): FragmentScreen = FragmentScreen { FavoritesFragment() }
     }
 }
