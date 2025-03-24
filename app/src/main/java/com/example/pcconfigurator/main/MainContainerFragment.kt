@@ -3,20 +3,24 @@ package com.example.pcconfigurator.main
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.pcconfigurator.FragmentNavigator
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentMainContainerBinding
 import com.example.pcconfigurator.di.component
+import com.example.pcconfigurator.features.favoritesfeature.favorites.FavoritesFragment
+import com.example.pcconfigurator.features.pcbuildsfeature.builds.BuildsFragment
+import com.github.terrakok.cicerone.NavigatorHolder
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,8 +30,15 @@ class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
     @Inject
     lateinit var factory: ViewModelProvider.Factory
 
-    private val viewModel: MainViewModel by activityViewModels {
-        factory
+    @Inject
+    lateinit var navigatorHolder: NavigatorHolder
+
+    private val mainViewModel: MainViewModel by activityViewModels { factory }
+
+    private val mainContainerViewModel: MainContainerViewModel by viewModels { factory }
+
+    private val fragmentNavigator: FragmentNavigator by lazy {
+        FragmentNavigator(R.id.mainContainer, childFragmentManager, this::class.simpleName.toString())
     }
 
     override fun onAttach(context: Context) {
@@ -43,6 +54,19 @@ class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
         edgeToEdgeSettings()
         setupBottomMenu()
         setupTitle()
+        onBackPressed()
+        onNavigationToBuildScreen()
+        fragmentNavigator.
+    }
+
+    override fun onResume() {
+        super.onResume()
+        navigatorHolder.setNavigator(fragmentNavigator)
+    }
+
+    override fun onPause() {
+        navigatorHolder.removeNavigator()
+        super.onPause()
     }
 
     private fun setupTitle() {
@@ -63,12 +87,38 @@ class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
     }
 
     private fun setupBottomMenu() {
-        binding.navigation.setupWithNavController(binding.mainContainer.getFragment<NavHostFragment>().navController)
+        binding.navigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.builds -> {
+                    mainContainerViewModel.navigateTo(BuildsFragment.Screen())
+                    true
+                }
+                R.id.favorites -> {
+                    mainContainerViewModel.navigateTo(FavoritesFragment.Screen())
+                    true
+                }
+                R.id.profile -> {true }
+                R.id.categories -> {true}
+                else -> throw IllegalArgumentException("How did u do it?")
+            }
+
+        }
     }
 
     private suspend fun setTitle() {
-        viewModel.title.collect {
+        mainViewModel.title.collect {
             binding.title.text = it
+        }
+    }
+
+    private fun onNavigationToBuildScreen() {
+        mainContainerViewModel.navigateTo(BuildsFragment.Screen())
+    }
+
+    private fun onBackPressed() {
+        requireActivity().onBackPressedDispatcher.addCallback(this){
+            if (childFragmentManager.backStackEntryCount == 0) requireActivity().finish()
+            else mainContainerViewModel.back()
         }
     }
 }
