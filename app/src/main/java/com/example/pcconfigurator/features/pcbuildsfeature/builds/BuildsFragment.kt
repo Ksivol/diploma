@@ -18,6 +18,7 @@ import com.example.pcconfigurator.databinding.FragmentBuildsBinding
 import com.example.pcconfigurator.di.component
 import com.example.pcconfigurator.main.MainViewModel
 import com.example.pcconfigurator.utils.BuildsAdapter
+import com.github.terrakok.cicerone.androidx.FragmentScreen
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -90,13 +91,11 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
 
     private fun onCreateBuildTouch() {
         binding.createBuild.setOnClickListener {
-            Toast
-                .makeText(
-                    requireContext(),
-                    "Seems like we still can't add some pc build...\n " +
-                        "Maybe u should wait a little bit more? (please) :)",
-                    Toast.LENGTH_SHORT,
-                ).show()
+            viewModel.navigateToMakeABuild()
         }
+    }
+
+    companion object {
+        fun Screen() : FragmentScreen = FragmentScreen { BuildsFragment() }
     }
 }
