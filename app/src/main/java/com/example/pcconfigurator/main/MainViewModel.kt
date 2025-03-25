@@ -18,8 +18,4 @@ class MainViewModel @Inject constructor(private val router: Router) : ViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             _title.emit(string)
         }
-
-    fun navigateToMainContainer() {
-        router.navigateTo(FragmentScreen { MainContainerFragment() })
-    }
 }
