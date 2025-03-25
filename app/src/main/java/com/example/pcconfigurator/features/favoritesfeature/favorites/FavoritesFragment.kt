@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -46,7 +47,8 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
         mainViewModel.setTitle(requireContext().getString(R.string.favorites))
     }
 
-    companion object {
-        fun Screen(): FragmentScreen = FragmentScreen { FavoritesFragment() }
+    class Screen : FragmentScreen {
+        override fun createFragment(factory: FragmentFactory): Fragment =
+            FavoritesFragment()
     }
 }

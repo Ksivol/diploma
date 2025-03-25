@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -95,7 +96,7 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
         }
     }
 
-    companion object {
-        fun Screen() : FragmentScreen = FragmentScreen { BuildsFragment() }
-    }
+     class Screen(): FragmentScreen {
+         override fun createFragment(factory: FragmentFactory): Fragment = BuildsFragment()
+     }
 }
