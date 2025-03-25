@@ -2,6 +2,7 @@
 agp = "8.3.2"
 cicerone = "7.1"
 core = "1.6.1"
+fragmentKtx = "1.8.6"
 glide = "4.16.0"
 kotlin = "2.0.20"
 coreKtx = "1.13.1"
@@ -14,19 +15,16 @@ material = "1.12.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
 mockitoCore = "5.15.2"
-navigationFragmentKtx = "2.8.0"
 room = "2.6.1"
 ksp = "2.0.20-1.0.25"
 viewbindingpropertydelegateFull = "1.5.9"
 jetbrainsKotlinJvm = "2.0.20"
 junitJupiter = "5.8.1"
 dagger = "2.51.1"
-navigationUiKtx = "2.8.9"
 
 [libraries]
 androidx-core = { module = "androidx.test:core", version.ref = "core" }
-androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
-androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationFragmentKtx" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidx-room-ktx= { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,7 +44,6 @@ viewbindingpropertydelegate-full = { module = "com.github.kirich1409:viewbinding
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
-androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 
 [plugins]
 kspPlugin = { id = "com.google.devtools.ksp", version.ref = "ksp"}
@@ -54,7 +51,3 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
-
-[bundles]
-androidx_navigation = ["androidx-navigation-fragment-ktx", "androidx-navigation-ui"]
-

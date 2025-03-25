@@ -44,13 +44,11 @@ dependencies {
     implementation(project(":data"))
 
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-
-    // navigation
-    implementation(libs.bundles.androidx.navigation)
 
     // viewbinding
     implementation(libs.viewbindingpropertydelegate.full)
@@ -60,7 +58,6 @@ dependencies {
 
     // dagger2
     implementation(libs.dagger)
-    implementation(libs.androidx.navigation.ui.ktx)
     ksp(libs.dagger.compiler)
 
     //cicerone
