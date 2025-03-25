@@ -9,7 +9,7 @@ import dagger.MapKey
 import kotlin.reflect.KClass
 
 val Context.component: AppComponent
-    get() = when(this) {
+    get() = when (this) {
         is App -> component
         else -> this.applicationContext.component
     }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.pcconfigurator.databinding.CategoryItemBinding
 import com.example.pcconfigurator.models.Category
 
-class CategoriesAdapter : ListAdapter<Category, CategoryHolder>(CategoryComparator()){
+class CategoriesAdapter : ListAdapter<Category, CategoryHolder>(CategoryComparator()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
@@ -28,27 +28,24 @@ class CategoriesAdapter : ListAdapter<Category, CategoryHolder>(CategoryComparat
     ) {
         holder.onBind(getItem(position))
     }
-
 }
 
-class CategoryHolder(private val binding: CategoryItemBinding) : ViewHolder(binding.root){
+class CategoryHolder(private val binding: CategoryItemBinding) : ViewHolder(binding.root) {
     fun onBind(category: Category) =
         with(binding) {
             //categoryItemIV. = картинка
             categoryItemTV.text = category.title
         }
-
 }
 
-class CategoryComparator : DiffUtil.ItemCallback<Category>(){
+class CategoryComparator : DiffUtil.ItemCallback<Category>() {
     override fun areItemsTheSame(
         oldItem: Category,
         newItem: Category,
     ): Boolean = oldItem.id == newItem.id
+
     override fun areContentsTheSame(
         oldItem: Category,
         newItem: Category,
     ): Boolean = oldItem == newItem
-
-
 }

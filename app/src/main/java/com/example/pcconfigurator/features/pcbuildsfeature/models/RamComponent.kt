@@ -13,4 +13,4 @@ data class RamComponent(
     override val name: String,
     override val price: String,
     override val photo: String
-): PluggableComponent(id, name, price, photo)
+) : PluggableComponent(id, name, price, photo)
