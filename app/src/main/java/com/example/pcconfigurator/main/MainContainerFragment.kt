@@ -96,9 +96,9 @@ class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
                     mainContainerViewModel.navigateTo(FavoritesFragment.Screen())
                     true
                 }
-                R.id.profile -> {true }
-                R.id.categories -> {true}
-                else -> throw IllegalArgumentException("How did u do it?")
+                R.id.profile -> true
+                R.id.categories -> true
+                else -> false
             }
 
         }
@@ -115,9 +115,10 @@ class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
     }
 
     private fun onBackPressed() {
-        requireActivity().onBackPressedDispatcher.addCallback(this){
-            if (childFragmentManager.backStackEntryCount == 0) requireActivity().finish()
-            else mainContainerViewModel.back()
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            if (childFragmentManager.backStackEntryCount > 1) mainContainerViewModel.back()
+            else requireActivity().finish()
         }
     }
 }
+
