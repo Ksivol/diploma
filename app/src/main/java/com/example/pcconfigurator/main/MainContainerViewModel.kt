@@ -6,9 +6,8 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 import javax.inject.Inject
 
 class MainContainerViewModel @Inject constructor(private val router: Router) : ViewModel() {
-
     fun navigateTo(screen: FragmentScreen) {
-        router.replaceScreen(screen)
+        router.navigateTo(screen)
     }
 
     fun back() {
