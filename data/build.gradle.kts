@@ -31,7 +31,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 }
+
 
 dependencies {
     implementation(project(":domain"))
@@ -46,7 +50,8 @@ dependencies {
     implementation(libs.dagger)
     ksp(libs.dagger.compiler)
 
-    testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.mockito.core)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

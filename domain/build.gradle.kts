@@ -9,10 +9,17 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
+
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
 
     // dagger2
     implementation(libs.dagger)
     ksp(libs.dagger.compiler)
+
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.mockito.core)
 }

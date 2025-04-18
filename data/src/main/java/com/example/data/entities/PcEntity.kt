@@ -6,7 +6,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 /**
- * Класс [PC]. Представляет собой модельку кулера
+ * Класс [PcEntity]. Представляет собой модельку кулера
  * с параметрами:
  * @param id уникальный id
  * @param name имя модели
