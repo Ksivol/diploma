@@ -32,9 +32,9 @@ class PsuRepositoryImplTest {
             PSU(3, "Name", "Price", "Wattage", "PinPSU", "PinPCIE", "Photo")
         val expected: List<PSU> = listOf(psu1, psu2, psu3)
 
-        Mockito.`when`(psuDAO.getPsus()).thenReturn(flowOf(listOfPsuEntity))
+        Mockito.`when`(psuDAO.getPsuList()).thenReturn(flowOf(listOfPsuEntity))
 
-        val actual: List<PSU> = psuRepository.getPsus().last()
+        val actual: List<PSU> = psuRepository.getPsuList().last()
 
         assertEquals(expected, actual)
     }

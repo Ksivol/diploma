@@ -15,7 +15,7 @@ class PsuRepositoryImpl
     constructor(
         private val psuDAO: PsuDAO,
     ) : PsuRepository {
-        override fun getPsus(): Flow<List<PSU>> = psuDAO.getPsus().map { it.map(PSUEntity::toDomain) }
+        override fun getPsuList(): Flow<List<PSU>> = psuDAO.getPsuList().map { it.map(PSUEntity::toDomain) }
 
         override fun getPsu(id: Int): PSU = psuDAO.getPsu(id).toDomain()
 
