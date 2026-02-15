@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface HardDriveDAO {
-    @Query("SELECT * FROM hard_drives")
+    @Query("SELECT * FROM hard_drive")
     fun getHardDrives(): Flow<List<HardDriveEntity>>
 
-    @Query("SELECT * FROM hard_drives WHERE id = :id")
+    @Query("SELECT * FROM hard_drive WHERE id = :id")
     fun getHardDrive(id : Int): HardDriveEntity
 
     @Insert

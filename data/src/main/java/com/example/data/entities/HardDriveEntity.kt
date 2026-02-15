@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
  * @param size размер жесткого диска?
  * @param photo фото
  */
-@Entity(tableName = "hard_drives")
+@Entity(tableName = "hard_drive")
 data class HardDriveEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,

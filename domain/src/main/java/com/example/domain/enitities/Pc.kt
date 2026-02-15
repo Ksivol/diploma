@@ -22,14 +22,7 @@ data class Pc (
     val id: Int,
     val name: String,
     val price: String,
-    val cooler: Cooler,
-    val cpu: CPU,
-    val hardDrive: HardDrive,
-    val motherboard: Motherboard,
-    val pcCase: PcCase,
-    val psu: PSU,
-    val ram: RAM,
-    val videoCard: VideoCard
+    val photo: String
 )
 
 

@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface VideoCardDAO {
-    @Query("SELECT * FROM video_cards")
+    @Query("SELECT * FROM video_card")
     fun getVideoCards(): Flow<List<VideoCardEntity>>
 
-    @Query("SELECT * FROM video_cards WHERE id = :id")
+    @Query("SELECT * FROM video_card WHERE id = :id")
     fun getVideoCard(id : Int): VideoCardEntity
 
     @Insert

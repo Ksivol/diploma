@@ -121,7 +121,7 @@ fun PSU.toData(): PSUEntity {
  * @return [RAM]
  */
 fun RAMEntity.toDomain(): RAM {
-    return RAM(id, name, price, clockRate, type, photo)
+    return RAM(id, name, price, clockRate, type, quantity, photo)
 }
 
 /**
@@ -129,7 +129,7 @@ fun RAMEntity.toDomain(): RAM {
  * @return [RAMEntity]
  */
 fun RAM.toData(): RAMEntity {
-    return RAMEntity(id, name, price, clockRate, type, photo)
+    return RAMEntity(id, name, price, clockRate, type, quantity, photo)
 }
 
 /**
@@ -145,7 +145,17 @@ fun VideoCardEntity.toDomain(): VideoCard {
  * @return [VideoCardEntity]
  */
 fun VideoCard.toData(): VideoCardEntity {
-    return VideoCardEntity(id, name, price, size, clockRate, wattage, videoMemory, typeVideoMemory, photo)
+    return VideoCardEntity(
+        id,
+        name,
+        price,
+        size,
+        clockRate,
+        wattage,
+        videoMemory,
+        typeVideoMemory,
+        photo
+    )
 }
 
 /**
@@ -154,7 +164,12 @@ fun VideoCard.toData(): VideoCardEntity {
  */
 fun PcWithData.toDomain(
 ): Pc {
-    return Pc(id, name, price, cooler.toDomain(), cpu.toDomain(), hardDrive.toDomain(), motherboard.toDomain(), pcCase.toDomain(), psu.toDomain(), ram.toDomain(), videoCard.toDomain())
+    return Pc(
+        id,
+        name,
+        price,
+        photo
+    )
 }
 
 /**
@@ -166,13 +181,6 @@ fun Pc.toData(): PcEntity {
         id,
         name,
         price,
-        cooler.id,
-        cpu.id,
-        hardDrive.id,
-        motherboard.id,
-        pcCase.id,
-        psu.id,
-        ram.id,
-        videoCard.id
+        photo
     )
 }

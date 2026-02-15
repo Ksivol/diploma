@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CpuDAO {
-    @Query("SELECT * FROM cpus")
+    @Query("SELECT * FROM cpu")
     fun getCpus(): Flow<List<CPUEntity>>
 
-    @Query("SELECT * FROM cpus WHERE id = :id")
+    @Query("SELECT * FROM cpu WHERE id = :id")
     fun getCpu(id : Int): CPUEntity
 
     @Insert

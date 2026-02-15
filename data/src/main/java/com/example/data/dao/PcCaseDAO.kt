@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PcCaseDAO {
-    @Query("SELECT * FROM pc_cases")
+    @Query("SELECT * FROM pc_case")
     fun getPcCases(): Flow<List<PcCaseEntity>>
 
-    @Query("SELECT * FROM pc_cases WHERE id = :id")
+    @Query("SELECT * FROM pc_case WHERE id = :id")
     fun getPcCase(id : Int): PcCaseEntity
 
     @Insert

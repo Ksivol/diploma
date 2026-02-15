@@ -16,5 +16,6 @@ data class RAM(
     val price: String,
     val clockRate: String,
     val type: String,
+    val quantity: String,
     val photo: String
 )

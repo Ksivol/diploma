@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
  * @param socket подходящий сокет
  * @param photo фото
  */
-@Entity(tableName = "coolers")
+@Entity(tableName = "cooler")
 data class CoolerEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,

@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PsuDAO {
-    @Query("SELECT * FROM psus")
+    @Query("SELECT * FROM psu")
     fun getPsus(): Flow<List<PSUEntity>>
 
-    @Query("SELECT * FROM psus WHERE id = :id")
+    @Query("SELECT * FROM psu WHERE id = :id")
     fun getPsu(id : Int): PSUEntity
 
     @Insert

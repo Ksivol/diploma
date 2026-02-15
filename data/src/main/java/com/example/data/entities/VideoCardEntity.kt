@@ -17,7 +17,7 @@ import androidx.room.PrimaryKey
  * @param typeVideoMemory видеопамять
  * @param photo тип фото
  */
-@Entity(tableName = "video_cards")
+@Entity(tableName = "video_card")
 data class VideoCardEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
