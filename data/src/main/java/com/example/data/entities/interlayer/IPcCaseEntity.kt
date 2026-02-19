@@ -39,7 +39,7 @@ import com.example.data.entities.PcEntity
 data class IPcCaseEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "pc_id") val pcId: Int,
-    @ColumnInfo(name = "case_id") val caseId: String,
-    @ColumnInfo(name = "quantity") val quantity: String,
+    @ColumnInfo(name = "case_id") val caseId: Int,
+    @ColumnInfo(name = "quantity") val quantity: Int,
 
     )

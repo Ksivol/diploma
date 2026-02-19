@@ -38,7 +38,7 @@ import com.example.data.entities.PcEntity
 data class ICPUEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "pc_id") val pcId: Int,
-    @ColumnInfo(name = "cpu_id") val cpuId: String,
-    @ColumnInfo(name = "quantity") val quantity: String,
+    @ColumnInfo(name = "cpu_id") val cpuId: Int,
+    @ColumnInfo(name = "quantity") val quantity: Int,
 
     )

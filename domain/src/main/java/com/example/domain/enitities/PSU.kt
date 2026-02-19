@@ -1,5 +1,7 @@
 package com.example.domain.enitities
 
+import java.math.BigDecimal
+
 /**
  * Класс [PSU]. Представляет собой модельку блока питания
  * с параметрами:
@@ -14,7 +16,7 @@ package com.example.domain.enitities
 data class PSU(
     val id: Int,
     val name: String,
-    val price: String,
+    val price: BigDecimal,
     val wattage: String,
     val pinCPU: String,
     val pinPCIE: String,

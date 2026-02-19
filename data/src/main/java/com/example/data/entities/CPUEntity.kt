@@ -3,6 +3,7 @@ package com.example.data.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.math.BigDecimal
 
 /**
  * Класс [CPUEntity]. Представляет собой модельку ЦПУ
@@ -22,6 +23,6 @@ data class CPUEntity(
     @ColumnInfo(name = "price") val price: String,
     @ColumnInfo(name = "socket") val socket: String,
     @ColumnInfo(name = "clockRate") val clockRate: String,
-    @ColumnInfo(name = "wattage") val wattage: String,
+    @ColumnInfo(name = "wattage") val wattage: Int,
     @ColumnInfo(name = "photo") val photo: String,
 )

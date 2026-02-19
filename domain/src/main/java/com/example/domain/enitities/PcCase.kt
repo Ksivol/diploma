@@ -1,5 +1,7 @@
 package com.example.domain.enitities
 
+import java.math.BigDecimal
+
 /**
  * Класс [PcCase]. Представляет собой модельку корпуса компьютера
  * с параметрами:
@@ -11,7 +13,7 @@ package com.example.domain.enitities
 data class PcCase(
     val id: Int,
     val name: String,
-    val price: String,
+    val price: BigDecimal,
     val size: String,
     val photo: String,
 )

@@ -40,7 +40,7 @@ import com.example.data.entities.VideoCardEntity
 data class IVideoCardEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "pc_id") val pcId: Int,
-    @ColumnInfo(name = "video_card_id") val videoCardId: String,
-    @ColumnInfo(name = "quantity") val quantity: String,
+    @ColumnInfo(name = "video_card_id") val videoCardId: Int,
+    @ColumnInfo(name = "quantity") val quantity: Int,
 
     )

@@ -20,8 +20,8 @@ data class CoolerEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "heatSink") val heatSink: String,
-    @ColumnInfo(name = "size") val size: String,
+    @ColumnInfo(name = "heatSink") val heatSink: Int,
+    @ColumnInfo(name = "size") val size: Int,
     @ColumnInfo(name = "socket") val socket: String,
     @ColumnInfo(name = "photo") val photo: String,
 )

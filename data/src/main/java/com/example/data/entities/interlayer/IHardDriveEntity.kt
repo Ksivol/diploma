@@ -39,7 +39,7 @@ import com.example.data.entities.PcEntity
 data class IHardDriveEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "pc_id") val pcId: Int,
-    @ColumnInfo(name = "hard_drive_id") val hardDriveId: String,
-    @ColumnInfo(name = "quantity") val quantity: String,
+    @ColumnInfo(name = "hard_drive_id") val hardDriveId: Int,
+    @ColumnInfo(name = "quantity") val quantity: Int,
 
     )

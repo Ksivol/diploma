@@ -1,5 +1,7 @@
 package com.example.domain.enitities
 
+import java.math.BigDecimal
+
 
 /**
  * Класс [Pc]. Представляет собой модельку кулера
@@ -21,7 +23,7 @@ package com.example.domain.enitities
 data class Pc (
     val id: Int,
     val name: String,
-    val price: String,
+    val price: BigDecimal,
     val photo: String
 )
 

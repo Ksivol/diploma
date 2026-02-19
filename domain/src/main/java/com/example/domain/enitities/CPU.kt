@@ -1,5 +1,7 @@
 package com.example.domain.enitities
 
+import java.math.BigDecimal
+
 /**
  * Класс [CPU]. Представляет собой модельку ЦПУ
  * с параметрами:
@@ -14,9 +16,9 @@ package com.example.domain.enitities
 data class CPU(
     val id: Int,
     val name: String,
-    val price: String,
+    val price: BigDecimal,
     val socket: String,
     val clockRate: String,
-    val wattage: String,
+    val wattage: Int,
     val photo: String,
 )

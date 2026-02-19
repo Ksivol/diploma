@@ -39,7 +39,7 @@ import com.example.data.entities.PcEntity
 data class IMotherboardEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "pc_id") val pcId: Int,
-    @ColumnInfo(name = "motherboard_id") val motherboardId: String,
-    @ColumnInfo(name = "quantity") val quantity: String,
+    @ColumnInfo(name = "motherboard_id") val motherboardId: Int,
+    @ColumnInfo(name = "quantity") val quantity: Int,
 
     )

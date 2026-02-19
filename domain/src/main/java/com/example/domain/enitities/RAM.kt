@@ -1,5 +1,7 @@
 package com.example.domain.enitities
 
+import java.math.BigDecimal
+
 /**
  * Класс [RAM]. Представляет собой модельку оперативной памяти
  * с параметрами:
@@ -13,8 +15,8 @@ package com.example.domain.enitities
 data class RAM(
     val id: Int,
     val name: String,
-    val price: String,
-    val clockRate: String,
+    val price: BigDecimal,
+    val clockRate: Int,
     val type: String,
     val quantity: String,
     val photo: String

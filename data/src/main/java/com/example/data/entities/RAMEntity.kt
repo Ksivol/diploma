@@ -20,7 +20,7 @@ data class RAMEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "clockRate") val clockRate: String,
+    @ColumnInfo(name = "clockRate") val clockRate: Int,
     @ColumnInfo(name = "type") val type: String,
     @ColumnInfo(name = "quantity") val quantity: String,
     @ColumnInfo(name = "photo") val photo: String,

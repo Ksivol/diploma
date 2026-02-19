@@ -39,7 +39,7 @@ import com.example.data.entities.RAMEntity
 data class IRAMEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "pc_id") val pcId: Int,
-    @ColumnInfo(name = "ram_id") val ramId: String,
-    @ColumnInfo(name = "quantity") val quantity: String,
+    @ColumnInfo(name = "ram_id") val ramId: Int,
+    @ColumnInfo(name = "quantity") val quantity: Int,
 
     )
