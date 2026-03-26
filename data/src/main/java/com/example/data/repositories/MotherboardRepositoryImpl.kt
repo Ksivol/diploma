@@ -4,7 +4,7 @@ import com.example.data.dao.MotherboardDAO
 import com.example.data.entities.MotherboardEntity
 import com.example.data.utils.toData
 import com.example.data.utils.toDomain
-import com.example.domain.enitities.Motherboard
+import com.example.domain.entities.Motherboard
 import com.example.domain.repositories.MotherboardRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

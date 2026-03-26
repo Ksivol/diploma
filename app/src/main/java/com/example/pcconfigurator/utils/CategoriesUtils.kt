@@ -18,7 +18,7 @@ class CategoriesAdapter : ListAdapter<Category, CategoryHolder>(CategoryComparat
 
 class CategoryHolder(private val binding: CategoryItemBinding) : ViewHolder(binding.root) {
     fun onBind(category: Category) = with(binding) {
-        //categoryItemIV. = картинка
+        categoryItemIV.setImageResource(category.image)
         categoryItemTV.text = category.title
     }
 }

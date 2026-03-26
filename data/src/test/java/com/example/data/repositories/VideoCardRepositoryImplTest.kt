@@ -2,11 +2,10 @@ package com.example.data.repositories
 
 import com.example.data.dao.VideoCardDAO
 import com.example.data.entities.VideoCardEntity
-import com.example.domain.enitities.VideoCard
+import com.example.domain.entities.VideoCard
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito

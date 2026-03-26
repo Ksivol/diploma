@@ -2,7 +2,7 @@ package com.example.data.repositories
 
 import com.example.data.dao.CoolerDAO
 import com.example.data.entities.CoolerEntity
-import com.example.domain.enitities.Cooler
+import com.example.domain.entities.Cooler
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking

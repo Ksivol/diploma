@@ -2,7 +2,7 @@ package com.example.data.repositories
 
 import com.example.data.dao.PcCaseDAO
 import com.example.data.entities.PcCaseEntity
-import com.example.domain.enitities.PcCase
+import com.example.domain.entities.PcCase
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking

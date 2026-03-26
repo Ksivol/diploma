@@ -4,7 +4,7 @@ import com.example.data.dao.RamDAO
 import com.example.data.entities.RAMEntity
 import com.example.data.utils.toData
 import com.example.data.utils.toDomain
-import com.example.domain.enitities.RAM
+import com.example.domain.entities.RAM
 import com.example.domain.repositories.RamRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

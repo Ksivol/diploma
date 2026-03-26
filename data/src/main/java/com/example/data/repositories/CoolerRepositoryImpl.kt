@@ -4,7 +4,7 @@ import com.example.data.dao.CoolerDAO
 import com.example.data.entities.CoolerEntity
 import com.example.data.utils.toData
 import com.example.data.utils.toDomain
-import com.example.domain.enitities.Cooler
+import com.example.domain.entities.Cooler
 import com.example.domain.repositories.CoolerRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

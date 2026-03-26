@@ -2,7 +2,7 @@ package com.example.data.repositories
 
 import com.example.data.dao.PsuDAO
 import com.example.data.entities.PSUEntity
-import com.example.domain.enitities.PSU
+import com.example.domain.entities.PSU
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking

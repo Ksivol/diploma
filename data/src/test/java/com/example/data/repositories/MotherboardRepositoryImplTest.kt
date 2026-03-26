@@ -2,7 +2,7 @@ package com.example.data.repositories
 
 import com.example.data.dao.MotherboardDAO
 import com.example.data.entities.MotherboardEntity
-import com.example.domain.enitities.Motherboard
+import com.example.domain.entities.Motherboard
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking

@@ -4,7 +4,7 @@ import com.example.data.dao.PsuDAO
 import com.example.data.entities.PSUEntity
 import com.example.data.utils.toData
 import com.example.data.utils.toDomain
-import com.example.domain.enitities.PSU
+import com.example.domain.entities.PSU
 import com.example.domain.repositories.PsuRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

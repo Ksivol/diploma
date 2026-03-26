@@ -1,14 +1,14 @@
 package com.example.domain.usecases
 
-import com.example.domain.enitities.CPU
-import com.example.domain.enitities.Cooler
-import com.example.domain.enitities.HardDrive
-import com.example.domain.enitities.Motherboard
-import com.example.domain.enitities.PSU
-import com.example.domain.enitities.Pc
-import com.example.domain.enitities.PcCase
-import com.example.domain.enitities.RAM
-import com.example.domain.enitities.VideoCard
+import com.example.domain.entities.CPU
+import com.example.domain.entities.Cooler
+import com.example.domain.entities.HardDrive
+import com.example.domain.entities.Motherboard
+import com.example.domain.entities.PSU
+import com.example.domain.entities.Pc
+import com.example.domain.entities.PcCase
+import com.example.domain.entities.RAM
+import com.example.domain.entities.VideoCard
 import com.example.domain.repositories.PcRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

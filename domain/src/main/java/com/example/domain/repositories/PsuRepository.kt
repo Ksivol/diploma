@@ -1,7 +1,6 @@
 package com.example.domain.repositories
 
-import com.example.domain.enitities.PSU
-import com.example.domain.enitities.Pc
+import com.example.domain.entities.PSU
 import kotlinx.coroutines.flow.Flow
 
 interface PsuRepository {

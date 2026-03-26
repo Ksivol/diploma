@@ -1,7 +1,6 @@
 package com.example.domain.repositories
 
-import com.example.domain.enitities.RAM
-import com.example.domain.enitities.VideoCard
+import com.example.domain.entities.VideoCard
 import kotlinx.coroutines.flow.Flow
 
 interface VideoCardRepository {

@@ -1,6 +1,6 @@
 package com.example.domain.repositories
 
-import com.example.domain.enitities.HardDrive
+import com.example.domain.entities.HardDrive
 import kotlinx.coroutines.flow.Flow
 
 interface HardDriveRepository {

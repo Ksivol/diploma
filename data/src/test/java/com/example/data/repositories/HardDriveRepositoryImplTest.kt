@@ -2,7 +2,7 @@ package com.example.data.repositories
 
 import com.example.data.dao.HardDriveDAO
 import com.example.data.entities.HardDriveEntity
-import com.example.domain.enitities.HardDrive
+import com.example.domain.entities.HardDrive
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking

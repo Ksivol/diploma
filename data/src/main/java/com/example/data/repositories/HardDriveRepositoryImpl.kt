@@ -4,7 +4,7 @@ import com.example.data.dao.HardDriveDAO
 import com.example.data.entities.HardDriveEntity
 import com.example.data.utils.toData
 import com.example.data.utils.toDomain
-import com.example.domain.enitities.HardDrive
+import com.example.domain.entities.HardDrive
 import com.example.domain.repositories.HardDriveRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
