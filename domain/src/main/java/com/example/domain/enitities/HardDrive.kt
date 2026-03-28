@@ -1,5 +1,7 @@
 package com.example.domain.enitities
 
+import java.math.BigDecimal
+
 /**
  * Класс [HardDrive]. Представляет собой модельку жесткого диска
  * с параметрами:
@@ -15,10 +17,9 @@ package com.example.domain.enitities
 data class HardDrive(
     val id: Int,
     val name: String,
-    val price: String,
-    val capacity: Int,
+    val price: BigDecimal,
+    val capacity: String,
     val type: String,
-    val size: String,
-    val overwrite: Int,
+    val overwrite: String,
     val photo: String
 )

@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
  * @param pin_PCI_E пины для видеокарты
  * @param photo фото
  */
-@Entity(tableName = "psus")
+@Entity(tableName = "psu")
 data class PSUEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,

@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MotherboardDAO {
-    @Query("SELECT * FROM motherboards")
+    @Query("SELECT * FROM motherboard")
     fun getMotherboards(): Flow<List<MotherboardEntity>>
 
-    @Query("SELECT * FROM motherboards WHERE id = :id")
+    @Query("SELECT * FROM motherboard WHERE id = :id")
     fun getMotherboard(id : Int): MotherboardEntity
 
     @Insert

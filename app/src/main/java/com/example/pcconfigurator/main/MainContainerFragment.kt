@@ -6,6 +6,7 @@ import android.view.View
 import androidx.activity.addCallback
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -114,4 +115,3 @@ class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
         }
     }
 }
-

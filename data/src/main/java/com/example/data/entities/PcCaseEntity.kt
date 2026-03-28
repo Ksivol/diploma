@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
  * @param size размер
  * @param photo фото
  */
-@Entity(tableName = "pc_cases")
+@Entity(tableName = "pc_case")
 data class PcCaseEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,

@@ -22,17 +22,33 @@ import com.example.data.entities.PcCaseEntity
 import com.example.data.entities.PcEntity
 import com.example.data.entities.RAMEntity
 import com.example.data.entities.VideoCardEntity
+import com.example.data.entities.interlayer.ICPUEntity
+import com.example.data.entities.interlayer.ICoolerEntity
+import com.example.data.entities.interlayer.IHardDriveEntity
+import com.example.data.entities.interlayer.IMotherboardEntity
+import com.example.data.entities.interlayer.IPSUEntity
+import com.example.data.entities.interlayer.IPcCaseEntity
+import com.example.data.entities.interlayer.IRAMEntity
+import com.example.data.entities.interlayer.IVideoCardEntity
 
 @Database(
     entities = [
         CoolerEntity::class,
+        ICoolerEntity::class,
         CPUEntity::class,
+        ICPUEntity::class,
         HardDriveEntity::class,
+        IHardDriveEntity::class,
         MotherboardEntity::class,
+        IMotherboardEntity::class,
         PcCaseEntity::class,
+        IPcCaseEntity::class,
         PSUEntity::class,
+        IPSUEntity::class,
         RAMEntity::class,
+        IRAMEntity::class,
         VideoCardEntity::class,
+        IVideoCardEntity::class,
         PcEntity::class,
     ],
     version = 1,

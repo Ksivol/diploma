@@ -17,14 +17,14 @@ import androidx.room.PrimaryKey
  * @param typeVideoMemory видеопамять
  * @param photo тип фото
  */
-@Entity(tableName = "video_cards")
+@Entity(tableName = "video_card")
 data class VideoCardEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "size") val size: String,
-    @ColumnInfo(name = "clockRate") val clockRate: String,
-    @ColumnInfo(name = "wattage") val wattage: String,
+    @ColumnInfo(name = "size") val size: Int,
+    @ColumnInfo(name = "clockRate") val clockRate: Int,
+    @ColumnInfo(name = "wattage") val wattage: Int,
     @ColumnInfo(name = "videoMemory") val videoMemory: String,
     @ColumnInfo(name = "typeVideoMemory") val typeVideoMemory: String,
     @ColumnInfo(name = "photo") val photo: String,

@@ -1,5 +1,7 @@
 package com.example.domain.enitities
 
+import java.math.BigDecimal
+
 /**
  * Класс [VideoCard]. Представляет собой модельку оперативной памяти
  * с параметрами:
@@ -16,10 +18,10 @@ package com.example.domain.enitities
 data class VideoCard(
     val id: Int,
     val name: String,
-    val price: String,
-    val size: String,
-    val clockRate: String,
-    val wattage: String,
+    val price: BigDecimal,
+    val size: Int,
+    val clockRate: Int,
+    val wattage: Int,
     val videoMemory: String,
     val typeVideoMemory: String,
     val photo: String

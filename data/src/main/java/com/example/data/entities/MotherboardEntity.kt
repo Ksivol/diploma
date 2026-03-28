@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
  * @param socket сокет
  * @param photo фото
  */
-@Entity(tableName = "motherboards")
+@Entity(tableName = "motherboard")
 data class MotherboardEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,

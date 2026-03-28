@@ -12,45 +12,139 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PcDAO {
-    @Query("""SELECT Pc.id, Pc.name, Pc.price,
-            cpus.id as cpu_id, cpus.name as cpu_name, cpus.price as cpu_price, cpus.socket as cpu_socket, cpus.clockRate as cpu_clockRate, cpus.wattage as cpu_wattage, cpus.photo as cpu_photo, 
-            coolers.id as clr_id, coolers.name as clr_name, coolers.price as clr_price, coolers.heatSink as clr_heatSink, coolers.size as clr_size, coolers.socket as clr_socket, coolers.photo as clr_photo, 
-            hard_drives.id as hd_id, hard_drives.name as hd_name, hard_drives.price as hd_price, hard_drives.capacity as hd_capacity, hard_drives.type as hd_type, hard_drives.size as hd_size, hard_drives.overwrite as hd_overwrite, hard_drives.photo as hd_photo, 
-            motherboards.id as mthb_id, motherboards.name as mthb_name, motherboards.price as mthb_price, motherboards.size as mthb_size, motherboards.socket as mthb_socket, motherboards.photo as mthb_photo, 
-            pc_cases.id as pcc_id, pc_cases.name as pcc_name, pc_cases.price as pcc_price, pc_cases.size as pcc_size, pc_cases.photo as pcc_photo, 
-            psus.id as psu_id, psus.name as psu_name, psus.price as psu_price, psus.wattage as psu_wattage, psus.pinCPU as psu_pinCPU, psus.pinPCIE as psu_pinPCIE, psus.photo as psu_photo, 
-            rams.id as ram_id, rams.name as ram_name, rams.price as ram_price, rams.clockRate as ram_clockRate, rams.type as ram_type, rams.photo as ram_photo, 
-            video_cards.id as vdcrd_id, video_cards.name as vdcrd_name, video_cards.price as vdcrd_price, video_cards.size as vdcrd_size, video_cards.clockRate as vdcrd_clockRate, video_cards.wattage as vdcrd_wattage, video_cards.videoMemory as vdcrd_videoMemory, video_cards.typeVideoMemory as vdcrd_typeVideoMemory, video_cards.photo as vdcrd_photo 
-            FROM Pc 
-            JOIN cpus On  Pc.cpu = cpus.id  
-            JOIN coolers On Pc.cooler = coolers.id 
-            JOIN hard_drives On Pc.hardDrive = hard_drives.id 
-            JOIN motherboards ON Pc.motherboard = motherboards.id 
-            JOIN pc_cases ON Pc.pcCase = pc_cases.id 
-            JOIN psus ON Pc.psu = psus.id 
-            JOIN rams ON Pc.ram = rams.id 
-            JOIN video_cards ON Pc.videoCard = video_cards.id""")
+    @Query("""SELECT 
+    pc.id,
+    pc.name,
+    pc.price,
+    pc.photo,
+    -- Кулеры: ID, названия, количества
+    GROUP_CONCAT(DISTINCT cooler.id) AS clr_id,
+    GROUP_CONCAT(DISTINCT cooler.name) AS clr_name,
+    GROUP_CONCAT(DISTINCT q_cooler.quantity) AS clr_quantity,
+    -- Оперативная память: ID, названия, количества
+    GROUP_CONCAT(DISTINCT ram.id) AS ram_id,
+    GROUP_CONCAT(DISTINCT ram.name) AS ram_name,
+    GROUP_CONCAT(DISTINCT q_ram.quantity) AS ram_quantity,
+	-- Материнская память : ID, названия, количества
+    GROUP_CONCAT(DISTINCT motherboard.id) AS mthb_id,
+    GROUP_CONCAT(DISTINCT motherboard.name) AS mthb_name,
+    GROUP_CONCAT(DISTINCT q_motherboard.quantity) AS mthb_quantity,
+	-- Видео карта: ID, названия, количества
+    GROUP_CONCAT(DISTINCT video_card.id) AS vdcrd_id,
+    GROUP_CONCAT(DISTINCT video_card.name) AS vdcrd_name,
+    GROUP_CONCAT(DISTINCT q_video_card.quantity) AS vdcrd_quantity,
+	-- Жёсткий диск: ID, названия, количества
+    GROUP_CONCAT(DISTINCT hard_drive.id) AS hd_id,
+    GROUP_CONCAT(DISTINCT hard_drive.name) AS hd_name,
+    GROUP_CONCAT(DISTINCT q_hard_drive.quantity) AS hd_quantity,
+	-- Корпус: ID, названия, количества
+    GROUP_CONCAT(DISTINCT pc_case.id) AS pcc_id,
+    GROUP_CONCAT(DISTINCT pc_case.name) AS pcc_name,
+    GROUP_CONCAT(DISTINCT q_case.quantity) AS pcc_quantity,
+		-- Процессор: ID, названия, количества
+    GROUP_CONCAT(DISTINCT cpu.id) AS cpu_id,
+    GROUP_CONCAT(DISTINCT cpu.name) AS cpu_name,
+    GROUP_CONCAT(DISTINCT q_cpu.quantity) AS cpu_quantity,
+	-- Блок питания: ID, названия, количества
+    GROUP_CONCAT(DISTINCT psu.id) AS psu_id,
+    GROUP_CONCAT(DISTINCT psu.name) AS psu_name,
+    GROUP_CONCAT(DISTINCT q_psu.quantity) AS psu_quantity
+
+FROM pc
+
+LEFT JOIN q_cooler ON pc.id = q_cooler.pc_id
+LEFT JOIN cooler ON q_cooler.cooler_id = cooler.id
+
+LEFT JOIN q_ram ON pc.id = q_ram.pc_id
+LEFT JOIN ram ON q_ram.ram_id = ram.id
+
+LEFT JOIN q_motherboard ON pc.id = q_motherboard.pc_id
+LEFT JOIN motherboard ON q_motherboard.motherboard_id = motherboard.id
+
+LEFT JOIN q_video_card ON pc.id = q_video_card.pc_id
+LEFT JOIN video_card ON q_video_card.video_card_id = video_card.id
+
+LEFT JOIN q_hard_drive ON pc.id = q_hard_drive.pc_id
+LEFT JOIN hard_drive ON q_hard_drive.hard_drive_id = hard_drive.id
+
+LEFT JOIN q_case ON pc.id = q_case.pc_id
+LEFT JOIN pc_case ON q_case.case_id = pc_case.id
+
+LEFT JOIN q_cpu ON pc.id = q_cpu.pc_id
+LEFT JOIN cpu ON q_cpu.cpu_id = cpu.id
+
+LEFT JOIN q_psu ON pc.id = q_psu.pc_id
+LEFT JOIN psu ON q_psu.psu_id = psu.id
+
+GROUP BY pc.id, pc.name, pc.price, pc.photo;""")
     fun getPc(): Flow<List<PcWithData>>
 
-    @Query("""SELECT Pc.id, Pc.name, Pc.price,
-            cpus.id as cpu_id, cpus.name as cpu_name, cpus.price as cpu_price, cpus.socket as cpu_socket, cpus.clockRate as cpu_clockRate, cpus.wattage as cpu_wattage, cpus.photo as cpu_photo, 
-            coolers.id as clr_id, coolers.name as clr_name, coolers.price as clr_price, coolers.heatSink as clr_heatSink, coolers.size as clr_size, coolers.socket as clr_socket, coolers.photo as clr_photo, 
-            hard_drives.id as hd_id, hard_drives.name as hd_name, hard_drives.price as hd_price, hard_drives.capacity as hd_capacity, hard_drives.type as hd_type, hard_drives.size as hd_size, hard_drives.overwrite as hd_overwrite, hard_drives.photo as hd_photo, 
-            motherboards.id as mthb_id, motherboards.name as mthb_name, motherboards.price as mthb_price, motherboards.size as mthb_size, motherboards.socket as mthb_socket, motherboards.photo as mthb_photo, 
-            pc_cases.id as pcc_id, pc_cases.name as pcc_name, pc_cases.price as pcc_price, pc_cases.size as pcc_size, pc_cases.photo as pcc_photo, 
-            psus.id as psu_id, psus.name as psu_name, psus.price as psu_price, psus.wattage as psu_wattage, psus.pinCPU as psu_pinCPU, psus.pinPCIE as psu_pinPCIE, psus.photo as psu_photo, 
-            rams.id as ram_id, rams.name as ram_name, rams.price as ram_price, rams.clockRate as ram_clockRate, rams.type as ram_type, rams.photo as ram_photo, 
-            video_cards.id as vdcrd_id, video_cards.name as vdcrd_name, video_cards.price as vdcrd_price, video_cards.size as vdcrd_size, video_cards.clockRate as vdcrd_clockRate, video_cards.wattage as vdcrd_wattage, video_cards.videoMemory as vdcrd_videoMemory, video_cards.typeVideoMemory as vdcrd_typeVideoMemory, video_cards.photo as vdcrd_photo 
-            FROM Pc 
-            JOIN cpus On  Pc.cpu = cpus.id  
-            JOIN coolers On Pc.cooler = coolers.id 
-            JOIN hard_drives On Pc.hardDrive = hard_drives.id 
-            JOIN motherboards ON Pc.motherboard = motherboards.id 
-            JOIN pc_cases ON Pc.pcCase = pc_cases.id 
-            JOIN psus ON Pc.psu = psus.id 
-            JOIN rams ON Pc.ram = rams.id 
-            JOIN video_cards ON Pc.videoCard = video_cards.id
-            WHERE Pc.id = :id""")
+    @Query("""SELECT 
+    pc.id,
+    pc.name,
+    pc.price,
+    pc.photo,
+    -- Кулеры: ID, названия, количества
+    GROUP_CONCAT(DISTINCT cooler.id) AS clr_id,
+    GROUP_CONCAT(DISTINCT cooler.name) AS clr_name,
+    GROUP_CONCAT(DISTINCT q_cooler.quantity) AS clr_quantity,
+    -- Оперативная память: ID, названия, количества
+    GROUP_CONCAT(DISTINCT ram.id) AS ram_id,
+    GROUP_CONCAT(DISTINCT ram.name) AS ram_name,
+    GROUP_CONCAT(DISTINCT q_ram.quantity) AS ram_quantity,
+	-- Материнская память : ID, названия, количества
+    GROUP_CONCAT(DISTINCT motherboard.id) AS mthb_id,
+    GROUP_CONCAT(DISTINCT motherboard.name) AS mthb_name,
+    GROUP_CONCAT(DISTINCT q_motherboard.quantity) AS mthb_quantity,
+	-- Видео карта: ID, названия, количества
+    GROUP_CONCAT(DISTINCT video_card.id) AS vdcrd_id,
+    GROUP_CONCAT(DISTINCT video_card.name) AS vdcrd_name,
+    GROUP_CONCAT(DISTINCT q_video_card.quantity) AS vdcrd_quantity,
+	-- Жёсткий диск: ID, названия, количества
+    GROUP_CONCAT(DISTINCT hard_drive.id) AS hd_id,
+    GROUP_CONCAT(DISTINCT hard_drive.name) AS hd_name,
+    GROUP_CONCAT(DISTINCT q_hard_drive.quantity) AS hd_quantity,
+	-- Корпус: ID, названия, количества
+    GROUP_CONCAT(DISTINCT pc_case.id) AS pcc_id,
+    GROUP_CONCAT(DISTINCT pc_case.name) AS pcc_name,
+    GROUP_CONCAT(DISTINCT q_case.quantity) AS pcc_quantity,
+		-- Процессор: ID, названия, количества
+    GROUP_CONCAT(DISTINCT cpu.id) AS cpu_id,
+    GROUP_CONCAT(DISTINCT cpu.name) AS cpu_name,
+    GROUP_CONCAT(DISTINCT q_cpu.quantity) AS cpu_quantity,
+	-- Блок питания: ID, названия, количества
+    GROUP_CONCAT(DISTINCT psu.id) AS psu_id,
+    GROUP_CONCAT(DISTINCT psu.name) AS psu_name,
+    GROUP_CONCAT(DISTINCT q_psu.quantity) AS psu_quantity
+
+FROM pc
+
+LEFT JOIN q_cooler ON pc.id = q_cooler.pc_id
+LEFT JOIN cooler ON q_cooler.cooler_id = cooler.id
+
+LEFT JOIN q_ram ON pc.id = q_ram.pc_id
+LEFT JOIN ram ON q_ram.ram_id = ram.id
+
+LEFT JOIN q_motherboard ON pc.id = q_motherboard.pc_id
+LEFT JOIN motherboard ON q_motherboard.motherboard_id = motherboard.id
+
+LEFT JOIN q_video_card ON pc.id = q_video_card.pc_id
+LEFT JOIN video_card ON q_video_card.video_card_id = video_card.id
+
+LEFT JOIN q_hard_drive ON pc.id = q_hard_drive.pc_id
+LEFT JOIN hard_drive ON q_hard_drive.hard_drive_id = hard_drive.id
+
+LEFT JOIN q_case ON pc.id = q_case.pc_id
+LEFT JOIN pc_case ON q_case.case_id = pc_case.id
+
+LEFT JOIN q_cpu ON pc.id = q_cpu.pc_id
+LEFT JOIN cpu ON q_cpu.cpu_id = cpu.id
+
+LEFT JOIN q_psu ON pc.id = q_psu.pc_id
+LEFT JOIN psu ON q_psu.psu_id = psu.id
+WHERE Pc.id = :id
+GROUP BY pc.id, pc.name, pc.price, pc.photo;
+            """)
     fun getPc(id : Int): PcWithData
 
     @Insert

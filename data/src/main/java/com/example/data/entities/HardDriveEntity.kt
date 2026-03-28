@@ -15,14 +15,13 @@ import androidx.room.PrimaryKey
  * @param size размер жесткого диска?
  * @param photo фото
  */
-@Entity(tableName = "hard_drives")
+@Entity(tableName = "hard_drive")
 data class HardDriveEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "capacity") val capacity: Int,
+    @ColumnInfo(name = "capacity") val capacity: String,
     @ColumnInfo(name = "type") val type: String,
-    @ColumnInfo(name = "size") val size: String,
-    @ColumnInfo(name = "overwrite") val overwrite: Int,
+    @ColumnInfo(name = "overwrite") val overwrite: String,
     @ColumnInfo(name = "photo") val photo: String,
 )

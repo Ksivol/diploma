@@ -1,7 +1,9 @@
 package com.example.pcconfigurator.main
 
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Bundle
+import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         component.inject(this)
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        enableEdgeToEdge(SystemBarStyle.auto(Color.WHITE, Color.WHITE) { true })
         setContentView(R.layout.activity_main)
         window.statusBarColor =
             if (isDarkTheme) getColor(R.color.colorPrimaryDark) else getColor(R.color.colorPrimaryLight)

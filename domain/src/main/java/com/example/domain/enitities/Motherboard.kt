@@ -1,5 +1,7 @@
 package com.example.domain.enitities
 
+import java.math.BigDecimal
+
 /**
  * Класс [Motherboard]. Представляет собой модельку материнской платы
  * с параметрами:
@@ -13,7 +15,7 @@ package com.example.domain.enitities
 data class Motherboard(
     val id: Int,
     val name: String,
-    val price: String,
+    val price: BigDecimal,
     val size: String,
     val socket: String,
     val photo: String

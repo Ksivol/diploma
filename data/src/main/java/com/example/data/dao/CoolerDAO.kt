@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CoolerDAO {
-    @Query("SELECT * FROM coolers")
+    @Query("SELECT * FROM cooler")
     fun getCoolers(): Flow<List<CoolerEntity>>
 
-    @Query("SELECT * FROM coolers WHERE id = :id")
+    @Query("SELECT * FROM cooler WHERE id = :id")
     fun getCooler(id : Int): CoolerEntity
 
     @Insert

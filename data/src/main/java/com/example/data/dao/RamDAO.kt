@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RamDAO {
-    @Query("SELECT * FROM rams")
+    @Query("SELECT * FROM ram")
     fun getRams(): Flow<List<RAMEntity>>
 
-    @Query("SELECT * FROM rams WHERE id = :id")
+    @Query("SELECT * FROM ram WHERE id = :id")
     fun getRam(id : Int): RAMEntity
 
     @Insert

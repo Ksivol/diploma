@@ -1,4 +1,4 @@
-package com.example.pcconfigurator.features.profilefeature.profile
+package com.example.pcconfigurator.features.profile
 
 import android.content.Context
 import android.os.Bundle
