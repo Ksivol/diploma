@@ -7,7 +7,7 @@ import com.example.pcconfigurator.features.categoriesfeature.categories.Categori
 import com.example.pcconfigurator.features.favoritesfeature.favorites.FavoritesFragment
 import com.example.pcconfigurator.features.pcbuildsfeature.builds.BuildsFragment
 import com.example.pcconfigurator.features.pcbuildsfeature.makeabuild.MakeABuildFragment
-import com.example.pcconfigurator.features.profilefeature.profile.ProfileFragment
+import com.example.pcconfigurator.features.profile.ProfileFragment
 import com.example.pcconfigurator.main.MainActivity
 import com.example.pcconfigurator.main.MainContainerFragment
 import dagger.BindsInstance

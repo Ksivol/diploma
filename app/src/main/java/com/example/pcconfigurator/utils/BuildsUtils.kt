@@ -6,14 +6,20 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.pcconfigurator.databinding.BuildItemBinding
-import com.example.pcconfigurator.models.Build
+import com.example.pcconfigurator.features.pcbuildsfeature.models.Build
 
 class BuildsAdapter(
     private val onEdit: () -> Unit,
     private val onDelete: () -> Unit
 ) : ListAdapter<Build, BuildHolder>(BuildComparator()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BuildHolder =
-        BuildHolder(BuildItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)).apply {
+        BuildHolder(
+            BuildItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        ).apply {
             binding.editBuildCV.setOnClickListener { onEdit() }
             binding.deleteBuildCV.setOnClickListener { onDelete() }
         }
