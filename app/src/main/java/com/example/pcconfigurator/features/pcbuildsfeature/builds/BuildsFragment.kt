@@ -5,33 +5,29 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentFactory
+import androidx.fragment.app.FragmentHostCallback
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentBuildsBinding
 import com.example.pcconfigurator.di.component
+import com.example.pcconfigurator.features.pcbuildsfeature.utils.BuildsAdapter
 import com.example.pcconfigurator.main.MainViewModel
-import com.example.pcconfigurator.utils.BuildsAdapter
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class BuildsFragment : Fragment(R.layout.fragment_builds) {
     private val binding: FragmentBuildsBinding by viewBinding(FragmentBuildsBinding::bind)
-
     private val mainViewModel: MainViewModel by activityViewModels { factory }
-
     private val viewModel: BuildsViewModel by viewModels { factory }
-
-    @Inject
-    lateinit var factory: ViewModelProvider.Factory
+    @Inject lateinit var factory: ViewModelProvider.Factory
 
     private val adapter: BuildsAdapter by lazy {
         BuildsAdapter(
@@ -72,16 +68,13 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
 
     private fun initAdapter() =
         with(binding) {
-            buildsRV.layoutManager = LinearLayoutManager(requireContext())
-            buildsRV.adapter = adapter
+            buildsRecyclerView.adapter = adapter
         }
 
     private fun setData() {
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.builds.collect { pcList ->
-                    adapter.submitList(pcList)
-                }
+            viewModel.builds.collect { pcList ->
+                adapter.submitList(pcList)
             }
         }
     }
@@ -96,7 +89,7 @@ class BuildsFragment : Fragment(R.layout.fragment_builds) {
         }
     }
 
-     class Screen(): FragmentScreen {
-         override fun createFragment(factory: FragmentFactory): Fragment = BuildsFragment()
-     }
+    class Screen() : FragmentScreen {
+        override fun createFragment(factory: FragmentFactory): Fragment = BuildsFragment()
+    }
 }

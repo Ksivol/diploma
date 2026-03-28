@@ -14,31 +14,24 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.pcconfigurator.FragmentNavigator
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentMainContainerBinding
 import com.example.pcconfigurator.di.component
 import com.example.pcconfigurator.features.favoritesfeature.favorites.FavoritesFragment
 import com.example.pcconfigurator.features.pcbuildsfeature.builds.BuildsFragment
+import com.example.pcconfigurator.utils.FragmentNavigator
 import com.github.terrakok.cicerone.NavigatorHolder
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
     private val binding: FragmentMainContainerBinding by viewBinding(FragmentMainContainerBinding::bind)
-
-    @Inject
-    lateinit var factory: ViewModelProvider.Factory
-
-    @Inject
-    lateinit var navigatorHolder: NavigatorHolder
-
+    @Inject lateinit var factory: ViewModelProvider.Factory
+    @Inject lateinit var navigatorHolder: NavigatorHolder
     private val mainViewModel: MainViewModel by activityViewModels { factory }
-
     private val mainContainerViewModel: MainContainerViewModel by viewModels { factory }
-
     private val fragmentNavigator: FragmentNavigator by lazy {
-        FragmentNavigator(R.id.mainContainer, childFragmentManager, this::class.simpleName.toString())
+        FragmentNavigator(R.id.mainContainer,this::class.simpleName.toString(), childFragmentManager,)
     }
 
     override fun onAttach(context: Context) {

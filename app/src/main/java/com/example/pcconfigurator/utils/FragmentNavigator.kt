@@ -1,4 +1,4 @@
-package com.example.pcconfigurator
+package com.example.pcconfigurator.utils
 
 import android.util.Log
 import androidx.fragment.app.FragmentFactory
@@ -15,8 +15,8 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 class FragmentNavigator(
     private val containerId: Int,
-    private val fragmentManager: FragmentManager,
     private val tag: String,
+    private val fragmentManager: FragmentManager,
     private val fragmentFactory: FragmentFactory = fragmentManager.fragmentFactory
 ) : Navigator {
     private val localBackStack: MutableList<String> = mutableListOf()
@@ -72,8 +72,8 @@ class FragmentNavigator(
     }
 
     private fun FragmentTransaction.replace(command: Replace) {
-        val screen = command.screen
-        replace(containerId, createFragment(screen as FragmentScreen))
+        val screen: FragmentScreen = command.screen as FragmentScreen
+        replace(containerId, createFragment(screen))
         if (localBackStack.isEmpty()) {
             localBackStack.add(screen.screenKey)
         } else {

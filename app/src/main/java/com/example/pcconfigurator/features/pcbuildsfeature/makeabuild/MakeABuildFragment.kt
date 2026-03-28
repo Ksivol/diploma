@@ -18,12 +18,7 @@ import javax.inject.Inject
 
 class MakeABuildFragment : Fragment(R.layout.fragment_make_a_build) {
     private val binding: FragmentMakeABuildBinding by viewBinding(FragmentMakeABuildBinding::bind)
-
-    private val mainViewModel: MainViewModel by activityViewModels { factory }
-
-    @Inject
-    lateinit var factory: ViewModelProvider.Factory
-
+    private val mainViewModel: MainViewModel by activityViewModels()
     private val adapter: BuildComponentAdapter = BuildComponentAdapter()
 
     override fun onAttach(context: Context) {

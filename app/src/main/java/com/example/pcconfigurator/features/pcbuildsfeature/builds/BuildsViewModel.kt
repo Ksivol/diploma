@@ -5,8 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.enitities.Pc
 import com.example.domain.usecases.GetBuildsUseCase
 import com.example.pcconfigurator.features.pcbuildsfeature.makeabuild.MakeABuildFragment
-import com.example.pcconfigurator.models.Build
-import com.example.pcconfigurator.utils.toPresentation
+import com.example.pcconfigurator.features.pcbuildsfeature.utils.toPresentation
+import com.example.pcconfigurator.features.pcbuildsfeature.models.Build
 import com.github.terrakok.cicerone.Router
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharedFlow

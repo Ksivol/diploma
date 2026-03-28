@@ -11,21 +11,17 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentFavoritesBinding
 import com.example.pcconfigurator.di.component
+import com.example.pcconfigurator.features.favoritesfeature.utils.FavoritesAdapter
 import com.example.pcconfigurator.main.MainViewModel
-import com.example.pcconfigurator.utils.FavoritesAdapter
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import javax.inject.Inject
 
 class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
     private val binding: FragmentFavoritesBinding by viewBinding(FragmentFavoritesBinding::bind)
-
-    @Inject
-    lateinit var factory: ViewModelProvider.Factory
-
+    @Inject lateinit var factory: ViewModelProvider.Factory
     private val mainViewModel: MainViewModel by activityViewModels {
         factory
     }
-
     private val adapter: FavoritesAdapter by lazy {
         FavoritesAdapter()
     }

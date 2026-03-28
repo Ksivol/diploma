@@ -10,8 +10,8 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentCategoriesBinding
 import com.example.pcconfigurator.di.component
+import com.example.pcconfigurator.features.categoriesfeature.utils.CategoriesAdapter
 import com.example.pcconfigurator.main.MainViewModel
-import com.example.pcconfigurator.utils.CategoriesAdapter
 import javax.inject.Inject
 
 class CategoriesFragment : Fragment(R.layout.fragment_categories) {

@@ -21,6 +21,7 @@ viewbindingpropertydelegateFull = "1.5.9"
 jetbrainsKotlinJvm = "2.0.20"
 junitJupiter = "5.8.1"
 dagger = "2.51.1"
+kotlin-parcelize = "2.0.20"
 
 [libraries]
 androidx-core = { module = "androidx.test:core", version.ref = "core" }
@@ -51,3 +52,4 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin-parcelize" }

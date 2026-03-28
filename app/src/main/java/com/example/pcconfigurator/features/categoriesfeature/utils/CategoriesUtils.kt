@@ -1,4 +1,4 @@
-package com.example.pcconfigurator.utils
+package com.example.pcconfigurator.features.categoriesfeature.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,13 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.pcconfigurator.databinding.CategoryItemBinding
-import com.example.pcconfigurator.models.Category
+import com.example.pcconfigurator.features.categoriesfeature.models.Category
 
-class CategoriesAdapter : ListAdapter<Category, CategoryHolder>(CategoryComparator()) {
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int,
-    ): CategoryHolder {
+class CategoriesAdapter :
+    ListAdapter<Category, CategoryHolder>(CategoryComparator()) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
         return CategoryHolder(
             CategoryItemBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -22,10 +20,7 @@ class CategoriesAdapter : ListAdapter<Category, CategoryHolder>(CategoryComparat
         )
     }
 
-    override fun onBindViewHolder(
-        holder: CategoryHolder,
-        position: Int,
-    ) {
+    override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
         holder.onBind(getItem(position))
     }
 }
@@ -39,13 +34,11 @@ class CategoryHolder(private val binding: CategoryItemBinding) : ViewHolder(bind
 }
 
 class CategoryComparator : DiffUtil.ItemCallback<Category>() {
-    override fun areItemsTheSame(
-        oldItem: Category,
-        newItem: Category,
-    ): Boolean = oldItem.id == newItem.id
+    override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
+        return oldItem.id == newItem.id
+    }
 
-    override fun areContentsTheSame(
-        oldItem: Category,
-        newItem: Category,
-    ): Boolean = oldItem == newItem
+    override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {
+        return oldItem == newItem
+    }
 }
