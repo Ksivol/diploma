@@ -1,10 +1,11 @@
 package com.example.domain.repositories
 
 import com.example.domain.enitities.PSU
+import com.example.domain.entities.PSU
 import kotlinx.coroutines.flow.Flow
 
 interface PsuRepository {
-    fun getPsuList(): Flow<List<PSU>>
+    fun getPsus(): Flow<List<PSU>>
 
     fun getPsu(id: Int): PSU
 

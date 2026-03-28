@@ -4,7 +4,7 @@ import com.example.data.dao.PcCaseDAO
 import com.example.data.entities.PcCaseEntity
 import com.example.data.utils.toData
 import com.example.data.utils.toDomain
-import com.example.domain.enitities.PcCase
+import com.example.domain.entities.PcCase
 import com.example.domain.repositories.PcCaseRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

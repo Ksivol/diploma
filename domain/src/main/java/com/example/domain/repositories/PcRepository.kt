@@ -1,7 +1,6 @@
 package com.example.domain.repositories
 
-import com.example.domain.enitities.Pc
-import com.example.domain.enitities.PcCase
+import com.example.domain.entities.Pc
 import kotlinx.coroutines.flow.Flow
 
 interface PcRepository {

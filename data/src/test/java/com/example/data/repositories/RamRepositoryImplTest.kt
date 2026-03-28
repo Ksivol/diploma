@@ -2,7 +2,7 @@ package com.example.data.repositories
 
 import com.example.data.dao.RamDAO
 import com.example.data.entities.RAMEntity
-import com.example.domain.enitities.RAM
+import com.example.domain.entities.RAM
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking

@@ -1,6 +1,6 @@
 package com.example.domain.repositories
 
-import com.example.domain.enitities.Cooler
+import com.example.domain.entities.Cooler
 import kotlinx.coroutines.flow.Flow
 
 interface CoolerRepository {

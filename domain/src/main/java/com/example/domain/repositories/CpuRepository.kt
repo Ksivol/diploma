@@ -1,6 +1,6 @@
 package com.example.domain.repositories
 
-import com.example.domain.enitities.CPU
+import com.example.domain.entities.CPU
 import kotlinx.coroutines.flow.Flow
 
 interface CpuRepository {

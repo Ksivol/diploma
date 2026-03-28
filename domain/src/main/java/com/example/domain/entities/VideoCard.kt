@@ -1,4 +1,4 @@
-package com.example.domain.enitities
+package com.example.domain.entities
 
 import java.math.BigDecimal
 

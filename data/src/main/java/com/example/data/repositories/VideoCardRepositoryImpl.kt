@@ -4,7 +4,7 @@ import com.example.data.dao.VideoCardDAO
 import com.example.data.entities.VideoCardEntity
 import com.example.data.utils.toData
 import com.example.data.utils.toDomain
-import com.example.domain.enitities.VideoCard
+import com.example.domain.entities.VideoCard
 import com.example.domain.repositories.VideoCardRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

@@ -2,7 +2,7 @@ package com.example.data.repositories
 
 import com.example.data.dao.CpuDAO
 import com.example.data.entities.CPUEntity
-import com.example.domain.enitities.CPU
+import com.example.domain.entities.CPU
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking

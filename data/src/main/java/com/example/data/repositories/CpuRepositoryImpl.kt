@@ -4,7 +4,7 @@ import com.example.data.dao.CpuDAO
 import com.example.data.entities.CPUEntity
 import com.example.data.utils.toData
 import com.example.data.utils.toDomain
-import com.example.domain.enitities.CPU
+import com.example.domain.entities.CPU
 import com.example.domain.repositories.CpuRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

@@ -1,6 +1,6 @@
 package com.example.domain.repositories
 
-import com.example.domain.enitities.Motherboard
+import com.example.domain.entities.Motherboard
 import kotlinx.coroutines.flow.Flow
 
 interface MotherboardRepository {
