@@ -8,18 +8,27 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.pcconfigurator.databinding.CategoryItemBinding
 import com.example.pcconfigurator.models.Category
 
-class CategoriesAdapter : ListAdapter<Category, CategoryHolder>(CategoryComparator()) {
+class CategoriesAdapter(
+    private val onItemClick: (Category) -> Unit
+) : ListAdapter<Category, CategoryHolder>(CategoryComparator()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder =
-        CategoryHolder(CategoryItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        CategoryHolder(
+            CategoryItemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            onItemClick
+        )
 
     override fun onBindViewHolder(holder: CategoryHolder, position: Int): Unit =
         holder.onBind(getItem(position))
 }
 
-class CategoryHolder(private val binding: CategoryItemBinding) : ViewHolder(binding.root) {
+class CategoryHolder(
+    private val binding: CategoryItemBinding,
+    private val onItemClick: (Category) -> Unit
+) : ViewHolder(binding.root) {
     fun onBind(category: Category) = with(binding) {
         categoryItemIV.setImageResource(category.image)
         categoryItemTV.text = category.title
+        root.setOnClickListener { onItemClick(category) }
     }
 }
 

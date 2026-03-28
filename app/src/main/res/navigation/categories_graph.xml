@@ -9,5 +9,15 @@
         android:id="@+id/categoriesFragment"
         android:name="com.example.pcconfigurator.features.categories.CategoriesFragment"
         android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories">
+        <action
+            android:id="@+id/action_categoriesFragment_to_coolerListFragment"
+            app:destination="@id/coolerListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/coolerListFragment"
+        android:name="com.example.pcconfigurator.features.categories.CoolerListFragment"
+        android:label="Cooler List"
+        tools:layout="@layout/fragment_cooler_list" />
 </navigation>

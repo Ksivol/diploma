@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
@@ -16,7 +17,11 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     private val binding: FragmentCategoriesBinding by viewBinding(FragmentCategoriesBinding::bind)
 
     private val adapter: CategoriesAdapter by lazy {
-        CategoriesAdapter()
+        CategoriesAdapter { category ->
+            if (category.id == 1) { // 1 - это ID категории "Охлаждение"
+                findNavController().navigate(R.id.action_categoriesFragment_to_coolerListFragment)
+            }
+        }
     }
 
     override fun onAttach(context: Context) {

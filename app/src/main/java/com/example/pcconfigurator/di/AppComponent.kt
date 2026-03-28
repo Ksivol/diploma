@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.data.di.DataModule
 import com.example.data.di.RepositoryBindModule
 import com.example.pcconfigurator.features.categories.CategoriesFragment
+import com.example.pcconfigurator.features.categories.CoolerListFragment
 import com.example.pcconfigurator.features.favorites.FavoritesFragment
 import com.example.pcconfigurator.features.pcBuilds.BuildsFragment
 import com.example.pcconfigurator.features.profile.ProfileFragment
@@ -22,6 +23,9 @@ interface AppComponent {
     fun inject(profileFragment: ProfileFragment)
 
     fun inject(mainContainerFragment: MainContainerFragment)
+
+    fun inject(coolerListFragment: CoolerListFragment)
+
 
     @Component.Builder
     interface Builder {
