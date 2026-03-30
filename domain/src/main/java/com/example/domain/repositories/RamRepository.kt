@@ -8,9 +8,5 @@ interface RamRepository {
 
     fun getRam(id: Int): RAM
 
-    fun insertRam(ram: RAM)
-
     fun updateRam(ram: RAM)
-
-    fun deleteRam(ram: RAM)
 }

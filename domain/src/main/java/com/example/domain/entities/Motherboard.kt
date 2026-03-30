@@ -10,6 +10,7 @@ import java.math.BigDecimal
  * @param price цена
  * @param size размер
  * @param socket сокет
+ * @param favorite избранное
  * @param photo фото
  */
 data class Motherboard(
@@ -18,5 +19,6 @@ data class Motherboard(
     val price: BigDecimal,
     val size: String,
     val socket: String,
+    val favorite: Boolean,
     val photo: String
 )

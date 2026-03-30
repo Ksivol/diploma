@@ -9,8 +9,9 @@ import java.math.BigDecimal
  * @param name имя модели
  * @param price цена
  * @param wattage мощность
- * @param pin_CPU пины для процессора
- * @param pin_PCI_E пины для видеокарты
+ * @param pinCPU пины для процессора
+ * @param pinPCIE пины для видеокарты
+ * @param favorite избранное
  * @param photo фото
  */
 data class PSU(
@@ -20,5 +21,6 @@ data class PSU(
     val wattage: String,
     val pinCPU: String,
     val pinPCIE: String,
+    val favorite: Boolean,
     val photo: String,
 )

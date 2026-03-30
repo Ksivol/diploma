@@ -8,9 +8,5 @@ interface MotherboardRepository {
 
     fun getMotherboard(id: Int): Motherboard
 
-    fun insertMotherboard(motherboard: Motherboard)
-
     fun updateMotherboard(motherboard: Motherboard)
-
-    fun deleteMotherboard(motherboard: Motherboard)
 }

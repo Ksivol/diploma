@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.pcconfigurator.databinding.CategoryItemBinding
-import com.example.pcconfigurator.models.Category
+import com.example.pcconfigurator.features.categoriesfeature.models.Category
 
 class CategoriesAdapter(
     private val onItemClick: (Category) -> Unit

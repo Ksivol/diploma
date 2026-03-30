@@ -10,24 +10,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class CpuRepositoryImpl
-    @Inject
-    constructor(
-        private val cpuDAO: CpuDAO,
-    ) : CpuRepository {
-        override fun getCpus(): Flow<List<CPU>> = cpuDAO.getCpus().map { it.map(CPUEntity::toDomain) }
+class CpuRepositoryImpl @Inject constructor(private val cpuDAO: CpuDAO) : CpuRepository {
+    override fun getCpus(): Flow<List<CPU>> =
+        cpuDAO.getCpus().map { it.map(CPUEntity::toDomain) }
 
-        override fun getCpu(id: Int): CPU = cpuDAO.getCpu(id).toDomain()
+    override fun getCpu(id: Int): CPU =
+        cpuDAO.getCpu(id).toDomain()
 
-        override fun insertCpu(cpu: CPU) {
-            cpuDAO.insertCpu(cpu.toData())
-        }
-
-        override fun updateCpu(cpu: CPU) {
-            cpuDAO.updateCpu(cpu.toData())
-        }
-
-        override fun deleteCpu(cpu: CPU) {
-            cpuDAO.deleteCpu(cpu.toData())
-        }
+    override fun updateCpu(cpu: CPU) {
+        cpuDAO.updateCpu(cpu.toData())
     }
+}

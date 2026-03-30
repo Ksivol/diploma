@@ -17,8 +17,10 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentMainContainerBinding
 import com.example.pcconfigurator.di.component
+import com.example.pcconfigurator.features.categoriesfeature.categories.CategoriesFragment
 import com.example.pcconfigurator.features.favoritesfeature.favorites.FavoritesFragment
 import com.example.pcconfigurator.features.pcbuildsfeature.builds.BuildsFragment
+import com.example.pcconfigurator.features.profile.ProfileFragment
 import com.example.pcconfigurator.utils.FragmentNavigator
 import com.github.terrakok.cicerone.NavigatorHolder
 import kotlinx.coroutines.launch
@@ -97,8 +99,15 @@ class MainContainerFragment : Fragment(R.layout.fragment_main_container) {
                     true
                 }
 
-                R.id.profile -> true
-                R.id.categories -> true
+                R.id.profile -> {
+                    mainContainerViewModel.navigateTo(ProfileFragment.Screen())
+                    true
+                }
+                
+                R.id.categories -> {
+                    mainContainerViewModel.navigateTo(CategoriesFragment.Screen())
+                    true
+                }
                 else -> false
             }
 

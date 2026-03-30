@@ -58,18 +58,42 @@
             tools:text="TDP: 150W" />
 
         <TextView
+            android:id="@+id/coolerSizeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/favoriteBtn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/coolerNameTV"
+            app:layout_constraintTop_toBottomOf="@id/coolerHeatSinkTV"
+            tools:text="Size: 120mm" />
+
+        <TextView
             android:id="@+id/coolerPriceTV"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/favoriteBtn"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/coolerNameTV"
-            app:layout_constraintTop_toBottomOf="@id/coolerHeatSinkTV"
-            tools:text="Price: 2000" />
+            app:layout_constraintTop_toBottomOf="@id/coolerSizeTV"
+            tools:text="Price: 2000 ₽" />
+
+        <ImageButton
+            android:id="@+id/favoriteBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Add to favorites"
+            android:src="@drawable/ic_favorite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@android:color/darker_gray" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

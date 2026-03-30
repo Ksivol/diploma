@@ -13,7 +13,6 @@ import com.example.data.entities.interlayer.ICoolerEntity
  * @param id уникальный id
  * @param name имя модели
  * @param price цена
- * @param photo: видео карта
  */
 @Entity(
     tableName = "pc",
@@ -21,6 +20,5 @@ import com.example.data.entities.interlayer.ICoolerEntity
 data class PcEntity(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
-    @ColumnInfo(name = "price") val price: String,
-    @ColumnInfo(name = "photo") val photo: String
+    @ColumnInfo(name = "price") val price: String
 )

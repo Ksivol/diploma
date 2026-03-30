@@ -12,7 +12,8 @@ import androidx.room.PrimaryKey
  * @param price цена
  * @param clockRate тактовая частота
  * @param type тип памяти
- * @param quantity тип количество плашек
+ * @param quantity конфигурация модулей
+ * @param favorite избранное
  * @param photo фото
  */
 @Entity(tableName = "ram")
@@ -23,5 +24,6 @@ data class RAMEntity(
     @ColumnInfo(name = "clockRate") val clockRate: Int,
     @ColumnInfo(name = "type") val type: String,
     @ColumnInfo(name = "quantity") val quantity: String,
+    @ColumnInfo(name = "favorite") val favorite: Int,
     @ColumnInfo(name = "photo") val photo: String,
 )

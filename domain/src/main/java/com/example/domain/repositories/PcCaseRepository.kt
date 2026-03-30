@@ -8,9 +8,5 @@ interface PcCaseRepository {
 
     fun getPcCase(id: Int): PcCase
 
-    fun insertPcCase(pcCase: PcCase)
-
     fun updatePcCase(pcCase: PcCase)
-
-    fun deletePcCase(pcCase: PcCase)
 }

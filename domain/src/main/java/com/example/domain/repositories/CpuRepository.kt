@@ -8,9 +8,5 @@ interface CpuRepository {
 
     fun getCpu(id: Int): CPU
 
-    fun insertCpu(cpu: CPU)
-
     fun updateCpu(cpu: CPU)
-
-    fun deleteCpu(cpu: CPU)
 }

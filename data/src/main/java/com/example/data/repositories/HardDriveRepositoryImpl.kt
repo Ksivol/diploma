@@ -10,24 +10,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class HardDriveRepositoryImpl
-    @Inject
-    constructor(
-        private val hardDriveDAO: HardDriveDAO,
-    ) : HardDriveRepository {
-        override fun getHardDrives(): Flow<List<HardDrive>> = hardDriveDAO.getHardDrives().map { it.map(HardDriveEntity::toDomain) }
+class HardDriveRepositoryImpl @Inject constructor(private val hardDriveDAO: HardDriveDAO) : HardDriveRepository {
+    override fun getHardDrives(): Flow<List<HardDrive>> =
+        hardDriveDAO.getHardDrives().map { it.map(HardDriveEntity::toDomain) }
 
-        override fun getHardDrive(id: Int): HardDrive = hardDriveDAO.getHardDrive(id).toDomain()
+    override fun getHardDrive(id: Int): HardDrive =
+        hardDriveDAO.getHardDrive(id).toDomain()
 
-        override fun insertHardDrive(hardDrive: HardDrive) {
-            hardDriveDAO.insertHardDrive(hardDrive.toData())
-        }
-
-        override fun updateHardDrive(hardDrive: HardDrive) {
-            hardDriveDAO.updateHardDrive(hardDrive.toData())
-        }
-
-        override fun deleteHardDrive(hardDrive: HardDrive) {
-            hardDriveDAO.deleteHardDrive(hardDrive.toData())
-        }
+    override fun updateHardDrive(hardDrive: HardDrive) {
+        hardDriveDAO.updateHardDrive(hardDrive.toData())
     }
+}

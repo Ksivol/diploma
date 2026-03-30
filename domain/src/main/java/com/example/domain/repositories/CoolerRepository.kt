@@ -8,9 +8,5 @@ interface CoolerRepository {
 
     fun getCooler(id: Int): Cooler
 
-    fun insertCooler(cooler: Cooler)
-
     fun updateCooler(cooler: Cooler)
-
-    fun deleteCooler(cooler: Cooler)
 }

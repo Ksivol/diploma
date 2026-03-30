@@ -17,15 +17,7 @@ class PcRepositoryImpl @Inject constructor(private val pcDAO: PcDAO) : PcReposit
     override fun getPc(id: Int): Pc =
         pcDAO.getPc(id).toDomain()
 
-    override fun insertPc(pc: Pc) {
-        pcDAO.insertPc(pc.toData())
-    }
-
     override fun updatePc(pc: Pc) {
         pcDAO.updatePc(pc.toData())
-    }
-
-    override fun deletePc(pc: Pc) {
-        pcDAO.deletePc(pc.toData())
     }
 }

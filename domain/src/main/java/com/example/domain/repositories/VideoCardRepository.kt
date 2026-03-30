@@ -8,9 +8,5 @@ interface VideoCardRepository {
 
     fun getVideoCard(id: Int): VideoCard
 
-    fun insertVideoCard(videoCard: VideoCard)
-
     fun updateVideoCard(videoCard: VideoCard)
-
-    fun deleteVideoCard(videoCard: VideoCard)
 }

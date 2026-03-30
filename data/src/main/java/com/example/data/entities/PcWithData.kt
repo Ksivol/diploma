@@ -6,5 +6,4 @@ data class PcWithData(
     val id: Int,
     val name: String,
     val price: String,
-    val photo: String,
 )

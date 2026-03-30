@@ -10,6 +10,8 @@ import java.math.BigDecimal
  * @param price цена
  * @param clockRate тактовая частота
  * @param type тип памяти
+ * @param quantity конфигурация модулей
+ * @param favorite избранное
  * @param photo фото
  */
 data class RAM(
@@ -19,5 +21,6 @@ data class RAM(
     val clockRate: Int,
     val type: String,
     val quantity: String,
+    val favorite: Boolean,
     val photo: String
 )

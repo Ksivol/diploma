@@ -10,8 +10,8 @@ import java.math.BigDecimal
  * @param price цена
  * @param capacity объем памяти
  * @param type тип (SSD SATA, SSD M2, HDD)
- * @param size размер жесткого диска?
  * @param overwrite кол-во перезаписей
+ * @param favorite избранное
  * @param photo фото
  */
 data class HardDrive(
@@ -21,5 +21,6 @@ data class HardDrive(
     val capacity: String,
     val type: String,
     val overwrite: String,
+    val favorite: Boolean,
     val photo: String
 )

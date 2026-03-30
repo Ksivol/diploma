@@ -11,6 +11,7 @@ import java.math.BigDecimal
  * @param socket сокет
  * @param clockRate тактовая частота
  * @param wattage потребляемая мощность
+ * @param favorite избранное
  * @param photo фото
  */
 data class CPU(
@@ -20,5 +21,6 @@ data class CPU(
     val socket: String,
     val clockRate: String,
     val wattage: Int,
+    val favorite: Boolean,
     val photo: String,
 )

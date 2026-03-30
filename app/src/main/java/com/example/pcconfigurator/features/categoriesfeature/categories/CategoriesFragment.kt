@@ -4,20 +4,20 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentCategoriesBinding
 import com.example.pcconfigurator.di.component
+import com.example.pcconfigurator.features.categoriesfeature.models.Category
 import com.example.pcconfigurator.features.categoriesfeature.utils.CategoriesAdapter
+import com.example.pcconfigurator.main.MainContainerViewModel
 import com.example.pcconfigurator.main.MainViewModel
+import com.github.terrakok.cicerone.androidx.FragmentScreen
 import javax.inject.Inject
-import com.example.pcconfigurator.di.appComponent
-import com.example.pcconfigurator.models.Category
-import com.example.pcconfigurator.utils.CategoriesAdapter
 
 class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     private val binding: FragmentCategoriesBinding by viewBinding(FragmentCategoriesBinding::bind)
@@ -28,9 +28,26 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     private val mainViewModel: MainViewModel by activityViewModels {
         factory
     }
+    
+    private val containerViewModel: MainContainerViewModel by activityViewModels {
+        factory
+    }
 
     private val adapter: CategoriesAdapter by lazy {
-        CategoriesAdapter()
+        CategoriesAdapter { category ->
+            val screen = when (category.id) {
+                1 -> CoolerListFragment.Screen()
+                2 -> PcCaseListFragment.Screen()
+                3 -> HardDriveListFragment.Screen()
+                4 -> PsuListFragment.Screen()
+                5 -> VideoCardListFragment.Screen()
+                6 -> MotherboardListFragment.Screen()
+                7 -> RamListFragment.Screen()
+                8 -> CpuListFragment.Screen()
+                else -> null
+            }
+            screen?.let { containerViewModel.navigateTo(it) }
+        }
     }
 
     override fun onAttach(context: Context) {
@@ -44,12 +61,12 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     ) {
         super.onViewCreated(view, savedInstanceState)
         setTitle()
+        setupRecyclerView()
+        loadCategories()
     }
 
     private fun setTitle() {
         mainViewModel.setTitle(requireContext().getString(R.string.categories))
-        setupRecyclerView()
-        loadCategories()
     }
 
     private fun setupRecyclerView() {
@@ -71,5 +88,9 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
             Category(8, R.drawable.cpu_ic, "Процессоры")
         )
         adapter.submitList(categories)
+    }
+
+    class Screen : FragmentScreen {
+        override fun createFragment(factory: FragmentFactory): Fragment = CategoriesFragment()
     }
 }

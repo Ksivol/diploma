@@ -10,24 +10,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class CoolerRepositoryImpl
-    @Inject
-    constructor(
-        private val coolerDAO: CoolerDAO,
-    ) : CoolerRepository {
-        override fun getCoolers(): Flow<List<Cooler>> = coolerDAO.getCoolers().map { it.map(CoolerEntity::toDomain) }
+class CoolerRepositoryImpl @Inject constructor(private val coolerDAO: CoolerDAO) : CoolerRepository {
+    override fun getCoolers(): Flow<List<Cooler>> =
+        coolerDAO.getCoolers().map { it.map(CoolerEntity::toDomain) }
 
-        override fun getCooler(id: Int): Cooler = coolerDAO.getCooler(id).toDomain()
+    override fun getCooler(id: Int): Cooler =
+        coolerDAO.getCooler(id).toDomain()
 
-        override fun insertCooler(cooler: Cooler) {
-            coolerDAO.insertCooler(cooler.toData())
-        }
-
-        override fun updateCooler(cooler: Cooler) {
-            coolerDAO.updateCooler(cooler.toData())
-        }
-
-        override fun deleteCooler(cooler: Cooler) {
-            coolerDAO.deleteCooler(cooler.toData())
-        }
+    override fun updateCooler(cooler: Cooler) {
+        coolerDAO.updateCooler(cooler.toData())
     }
+}

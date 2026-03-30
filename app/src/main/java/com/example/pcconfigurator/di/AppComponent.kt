@@ -4,13 +4,17 @@ import android.content.Context
 import com.example.data.di.DataModule
 import com.example.data.di.RepositoryBindModule
 import com.example.pcconfigurator.features.categoriesfeature.categories.CategoriesFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.CoolerListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.CpuListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.HardDriveListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.MotherboardListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.PcCaseListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.PsuListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.RamListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.VideoCardListFragment
 import com.example.pcconfigurator.features.favoritesfeature.favorites.FavoritesFragment
 import com.example.pcconfigurator.features.pcbuildsfeature.builds.BuildsFragment
 import com.example.pcconfigurator.features.pcbuildsfeature.makeabuild.MakeABuildFragment
-import com.example.pcconfigurator.features.categories.CategoriesFragment
-import com.example.pcconfigurator.features.categories.CoolerListFragment
-import com.example.pcconfigurator.features.favorites.FavoritesFragment
-import com.example.pcconfigurator.features.pcBuilds.BuildsFragment
 import com.example.pcconfigurator.features.profile.ProfileFragment
 import com.example.pcconfigurator.main.MainActivity
 import com.example.pcconfigurator.main.MainContainerFragment
@@ -36,6 +40,20 @@ interface AppComponent {
     fun inject(mainActivity: MainActivity)
 
     fun inject(coolerListFragment: CoolerListFragment)
+
+    fun inject(cpuListFragment: CpuListFragment)
+
+    fun inject(motherboardListFragment: MotherboardListFragment)
+
+    fun inject(pcCaseListFragment: PcCaseListFragment)
+
+    fun inject(hardDriveListFragment: HardDriveListFragment)
+
+    fun inject(psuListFragment: PsuListFragment)
+
+    fun inject(ramListFragment: RamListFragment)
+
+    fun inject(videoCardListFragment: VideoCardListFragment)
 
 
     @Component.Builder

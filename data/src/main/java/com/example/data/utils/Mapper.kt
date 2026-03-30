@@ -26,7 +26,7 @@ import java.math.BigDecimal
  * @return [Cooler]
  */
 fun CoolerEntity.toDomain(): Cooler {
-    return Cooler(id, name, price.bigDecimal, heatSink, size, socket, photo)
+    return Cooler(id, name, price.bigDecimal, heatSink, size, socket, favorite == 1, photo)
 }
 
 /**
@@ -34,15 +34,24 @@ fun CoolerEntity.toDomain(): Cooler {
  * @return [CoolerEntity]
  */
 fun Cooler.toData(): CoolerEntity {
-    return CoolerEntity(id, name, price.string, heatSink, size, socket, photo)
+    return CoolerEntity(
+        id,
+        name,
+        price.string,
+        heatSink,
+        size,
+        socket,
+        if (favorite) 1 else 0,
+        photo
+    )
 }
 
 /**
  * Маппит [CPUEntity] (моделька из Data слоя) к [CPU] (моделька из Domain слоя)
- * @return [CPUEntity]
+ * @return [CPU]
  */
 fun CPUEntity.toDomain(): CPU {
-    return CPU(id, name, price.bigDecimal, socket, clockRate, wattage, photo)
+    return CPU(id, name, price.bigDecimal, socket, clockRate, wattage, favorite == 1, photo)
 }
 
 /**
@@ -50,7 +59,16 @@ fun CPUEntity.toDomain(): CPU {
  * @return [CPUEntity]
  */
 fun CPU.toData(): CPUEntity {
-    return CPUEntity(id, name, price.string, socket, clockRate, wattage, photo)
+    return CPUEntity(
+        id,
+        name,
+        price.string,
+        socket,
+        clockRate,
+        wattage,
+        if (favorite) 1 else 0,
+        photo
+    )
 }
 
 /**
@@ -58,7 +76,7 @@ fun CPU.toData(): CPUEntity {
  * @return [HardDrive]
  */
 fun HardDriveEntity.toDomain(): HardDrive {
-    return HardDrive(id, name, price.bigDecimal, capacity, type, overwrite, photo)
+    return HardDrive(id, name, price.bigDecimal, capacity, type, overwrite, favorite == 1, photo)
 }
 
 /**
@@ -66,7 +84,16 @@ fun HardDriveEntity.toDomain(): HardDrive {
  * @return [HardDriveEntity]
  */
 fun HardDrive.toData(): HardDriveEntity {
-    return HardDriveEntity(id, name, price.string, capacity, type, overwrite, photo)
+    return HardDriveEntity(
+        id,
+        name,
+        price.string,
+        capacity,
+        type,
+        overwrite,
+        if (favorite) 1 else 0,
+        photo
+    )
 }
 
 /**
@@ -74,7 +101,7 @@ fun HardDrive.toData(): HardDriveEntity {
  * @return [Motherboard]
  */
 fun MotherboardEntity.toDomain(): Motherboard {
-    return Motherboard(id, name, price.bigDecimal, size, socket, photo)
+    return Motherboard(id, name, price.bigDecimal, size, socket, favorite == 1, photo)
 }
 
 /**
@@ -82,7 +109,7 @@ fun MotherboardEntity.toDomain(): Motherboard {
  * @return [MotherboardEntity]
  */
 fun Motherboard.toData(): MotherboardEntity {
-    return MotherboardEntity(id, name, price.string, size, socket, photo)
+    return MotherboardEntity(id, name, price.string, size, socket, if (favorite) 1 else 0, photo)
 }
 
 /**
@@ -90,7 +117,7 @@ fun Motherboard.toData(): MotherboardEntity {
  * @return [PcCase]
  */
 fun PcCaseEntity.toDomain(): PcCase {
-    return PcCase(id, name, price.bigDecimal, size, photo)
+    return PcCase(id, name, price.bigDecimal, size, favorite == 1, photo)
 }
 
 /**
@@ -98,7 +125,7 @@ fun PcCaseEntity.toDomain(): PcCase {
  * @return [PcCaseEntity]
  */
 fun PcCase.toData(): PcCaseEntity {
-    return PcCaseEntity(id, name, price.string, size, photo)
+    return PcCaseEntity(id, name, price.string, size, if (favorite) 1 else 0, photo)
 }
 
 /**
@@ -106,7 +133,7 @@ fun PcCase.toData(): PcCaseEntity {
  * @return [PSU]
  */
 fun PSUEntity.toDomain(): PSU {
-    return PSU(id, name, price.bigDecimal, wattage, pinCPU, pinPCIE, photo)
+    return PSU(id, name, price.bigDecimal, wattage, pinCPU, pinPCIE, favorite == 1, photo)
 }
 
 /**
@@ -114,7 +141,16 @@ fun PSUEntity.toDomain(): PSU {
  * @return [PSUEntity]
  */
 fun PSU.toData(): PSUEntity {
-    return PSUEntity(id, name, price.string, wattage, pinCPU, pinPCIE, photo)
+    return PSUEntity(
+        id,
+        name,
+        price.string,
+        wattage,
+        pinCPU,
+        pinPCIE,
+        if (favorite) 1 else 0,
+        photo
+    )
 }
 
 /**
@@ -122,7 +158,7 @@ fun PSU.toData(): PSUEntity {
  * @return [RAM]
  */
 fun RAMEntity.toDomain(): RAM {
-    return RAM(id, name, price.bigDecimal, clockRate, type, quantity, photo)
+    return RAM(id, name, price.bigDecimal, clockRate, type, quantity, favorite == 1, photo)
 }
 
 /**
@@ -130,7 +166,16 @@ fun RAMEntity.toDomain(): RAM {
  * @return [RAMEntity]
  */
 fun RAM.toData(): RAMEntity {
-    return RAMEntity(id, name, price.string, clockRate, type, quantity, photo)
+    return RAMEntity(
+        id,
+        name,
+        price.string,
+        clockRate,
+        type,
+        quantity,
+        if (favorite) 1 else 0,
+        photo
+    )
 }
 
 /**
@@ -142,11 +187,12 @@ fun VideoCardEntity.toDomain(): VideoCard {
         id,
         name,
         price.bigDecimal,
-        size,
         clockRate,
+        size,
         wattage,
         videoMemory,
         typeVideoMemory,
+        favorite == 1,
         photo
     )
 }
@@ -160,11 +206,12 @@ fun VideoCard.toData(): VideoCardEntity {
         id,
         name,
         price.string,
-        size,
         clockRate,
+        size,
         wattage,
         videoMemory,
         typeVideoMemory,
+        if (favorite) 1 else 0,
         photo
     )
 }
@@ -175,7 +222,7 @@ fun VideoCard.toData(): VideoCardEntity {
  */
 fun PcWithData.toDomain(
 ): Pc {
-    return Pc(id, name, price.bigDecimal, photo)
+    return Pc(id, name, price.bigDecimal)
 }
 
 /**
@@ -187,12 +234,15 @@ fun Pc.toData(): PcEntity {
         id,
         name,
         price.string,
-        photo
     )
 }
 
 val String.bigDecimal: BigDecimal
-    get() = BigDecimal(this)
+    get() = try {
+        BigDecimal(this)
+    } catch (e: Exception) {
+        BigDecimal.ZERO
+    }
 
 val BigDecimal.string: String
     get() = this.toString()

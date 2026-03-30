@@ -8,9 +8,5 @@ interface PcRepository {
 
     fun getPc(id: Int): Pc
 
-    fun insertPc(pc: Pc)
-
     fun updatePc(pc: Pc)
-
-    fun deletePc(pc: Pc)
 }

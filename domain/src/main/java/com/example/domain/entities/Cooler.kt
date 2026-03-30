@@ -9,6 +9,7 @@ import java.math.BigDecimal
  * @param name имя модели
  * @param price цена
  * @param heatSink теплопроводность
+ * @param favorite избранное
  * @param photo фото
  */
 data class Cooler(
@@ -18,5 +19,6 @@ data class Cooler(
     val heatSink: Int,
     val size: Int,
     val socket: String,
+    val favorite: Boolean,
     val photo: String
 )

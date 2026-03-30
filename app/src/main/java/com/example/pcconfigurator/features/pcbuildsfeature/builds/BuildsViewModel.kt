@@ -2,7 +2,7 @@ package com.example.pcconfigurator.features.pcbuildsfeature.builds
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.enitities.Pc
+import com.example.domain.entities.Pc
 import com.example.domain.usecases.GetBuildsUseCase
 import com.example.pcconfigurator.features.pcbuildsfeature.makeabuild.MakeABuildFragment
 import com.example.pcconfigurator.features.pcbuildsfeature.utils.toPresentation

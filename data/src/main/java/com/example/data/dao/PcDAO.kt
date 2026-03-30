@@ -16,7 +16,6 @@ interface PcDAO {
     pc.id,
     pc.name,
     pc.price,
-    pc.photo,
     -- Кулеры: ID, названия, количества
     GROUP_CONCAT(DISTINCT cooler.id) AS clr_id,
     GROUP_CONCAT(DISTINCT cooler.name) AS clr_name,
@@ -76,14 +75,13 @@ LEFT JOIN cpu ON q_cpu.cpu_id = cpu.id
 LEFT JOIN q_psu ON pc.id = q_psu.pc_id
 LEFT JOIN psu ON q_psu.psu_id = psu.id
 
-GROUP BY pc.id, pc.name, pc.price, pc.photo;""")
+GROUP BY pc.id, pc.name, pc.price;""")
     fun getPc(): Flow<List<PcWithData>>
 
     @Query("""SELECT 
     pc.id,
     pc.name,
     pc.price,
-    pc.photo,
     -- Кулеры: ID, названия, количества
     GROUP_CONCAT(DISTINCT cooler.id) AS clr_id,
     GROUP_CONCAT(DISTINCT cooler.name) AS clr_name,
@@ -143,7 +141,7 @@ LEFT JOIN cpu ON q_cpu.cpu_id = cpu.id
 LEFT JOIN q_psu ON pc.id = q_psu.pc_id
 LEFT JOIN psu ON q_psu.psu_id = psu.id
 WHERE Pc.id = :id
-GROUP BY pc.id, pc.name, pc.price, pc.photo;
+GROUP BY pc.id, pc.name, pc.price;
             """)
     fun getPc(id : Int): PcWithData
 

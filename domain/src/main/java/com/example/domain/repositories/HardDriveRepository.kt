@@ -8,9 +8,5 @@ interface HardDriveRepository {
 
     fun getHardDrive(id: Int): HardDrive
 
-    fun insertHardDrive(hardDrive: HardDrive)
-
     fun updateHardDrive(hardDrive: HardDrive)
-
-    fun deleteHardDrive(hardDrive: HardDrive)
 }
