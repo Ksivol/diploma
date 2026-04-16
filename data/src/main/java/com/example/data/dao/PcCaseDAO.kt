@@ -15,14 +15,14 @@ interface PcCaseDAO {
     fun getPcCases(): Flow<List<PcCaseEntity>>
 
     @Query("SELECT * FROM pc_case WHERE id = :id")
-    fun getPcCase(id : Int): PcCaseEntity
+    suspend fun getPcCase(id : Int): PcCaseEntity
 
     @Insert
-    fun insertPcCase(pcCase: PcCaseEntity)
+    suspend fun insertPcCase(pcCase: PcCaseEntity)
 
     @Update
-    fun updatePcCase(pcCase: PcCaseEntity)
+    suspend fun updatePcCase(pcCase: PcCaseEntity)
 
     @Delete
-    fun deletePcCase(pcCase: PcCaseEntity)
+    suspend fun deletePcCase(pcCase: PcCaseEntity)
 }

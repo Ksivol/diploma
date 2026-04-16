@@ -15,14 +15,14 @@ interface CpuDAO {
     fun getCpus(): Flow<List<CPUEntity>>
 
     @Query("SELECT * FROM cpu WHERE id = :id")
-    fun getCpu(id : Int): CPUEntity
+    suspend fun getCpu(id : Int): CPUEntity
 
     @Insert
-    fun insertCpu(cpu: CPUEntity)
+    suspend fun insertCpu(cpu: CPUEntity)
 
     @Update
-    fun updateCpu(cpu: CPUEntity)
+    suspend fun updateCpu(cpu: CPUEntity)
 
     @Delete
-    fun deleteCpu(cpu: CPUEntity)
+    suspend fun deleteCpu(cpu: CPUEntity)
 }

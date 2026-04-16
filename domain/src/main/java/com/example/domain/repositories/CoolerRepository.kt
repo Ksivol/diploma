@@ -3,10 +3,10 @@ package com.example.domain.repositories
 import com.example.domain.entities.Cooler
 import kotlinx.coroutines.flow.Flow
 
-interface CoolerRepository {
+interface CoolerRepository: BaseRepository<Cooler> {
     fun getCoolers(): Flow<List<Cooler>>
 
-    fun getCooler(id: Int): Cooler
+    suspend fun getCooler(id: Int): Cooler
 
-    fun updateCooler(cooler: Cooler)
+    suspend fun updateCooler(cooler: Cooler)
 }

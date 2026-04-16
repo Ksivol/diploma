@@ -14,10 +14,14 @@ class RamRepositoryImpl @Inject constructor(private val ramDAO: RamDAO) : RamRep
     override fun getRams(): Flow<List<RAM>> =
         ramDAO.getRams().map { it.map(RAMEntity::toDomain) }
 
-    override fun getRam(id: Int): RAM =
+    override suspend fun getRam(id: Int): RAM =
         ramDAO.getRam(id).toDomain()
 
-    override fun updateRam(ram: RAM) {
+    override suspend fun updateRam(ram: RAM) {
         ramDAO.updateRam(ram.toData())
+    }
+
+    override suspend fun toggleFavorite(item: RAM) {
+        ramDAO.updateRam(item.toData())
     }
 }

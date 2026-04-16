@@ -1,12 +1,13 @@
 package com.example.domain.repositories
 
+import com.example.domain.entities.CPU
 import com.example.domain.entities.PSU
 import kotlinx.coroutines.flow.Flow
 
-interface PsuRepository {
+interface PsuRepository: BaseRepository<PSU> {
     fun getPsus(): Flow<List<PSU>>
 
-    fun getPsu(id: Int): PSU
+    suspend fun getPsu(id: Int): PSU
 
-    fun updatePsu(psu: PSU)
+    suspend fun updatePsu(psu: PSU)
 }

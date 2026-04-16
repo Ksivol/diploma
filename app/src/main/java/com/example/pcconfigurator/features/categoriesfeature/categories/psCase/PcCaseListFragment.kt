@@ -1,9 +1,10 @@
-package com.example.pcconfigurator.features.categoriesfeature.categories
+package com.example.pcconfigurator.features.categoriesfeature.categories.psCase
 
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -12,20 +13,20 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentCoolerListBinding
 import com.example.pcconfigurator.di.component
-import com.example.pcconfigurator.utils.HardDriveAdapter
+import com.example.pcconfigurator.utils.PcCaseAdapter
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
-class HardDriveListFragment : Fragment(R.layout.fragment_cooler_list) {
+class PcCaseListFragment : Fragment(R.layout.fragment_cooler_list) {
     private val binding: FragmentCoolerListBinding by viewBinding(FragmentCoolerListBinding::bind)
-    private val adapter: HardDriveAdapter by lazy { HardDriveAdapter{} }
+    private val adapter: PcCaseAdapter by lazy { PcCaseAdapter{item -> viewModel.onFavoriteClick(item)} }
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
     
-    private val viewModel: HardDriveViewModel by viewModels { factory }
+    private val viewModel: PcCaseListViewModel by viewModels { factory }
 
     override fun onAttach(context: Context) {
         component.inject(this)
@@ -40,20 +41,20 @@ class HardDriveListFragment : Fragment(R.layout.fragment_cooler_list) {
 
     private fun setupRecyclerView() {
         binding.coolerRecyclerView.apply {
-            adapter = this@HardDriveListFragment.adapter
+            adapter = this@PcCaseListFragment.adapter
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
 
     private fun observeViewModel() {
-        viewModel.hardDrives
-            .onEach { hardDrives ->
-                adapter.submitList(hardDrives)
+        viewModel.pcCases
+            .onEach { pcCases ->
+                adapter.submitList(pcCases)
             }
             .launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
     class Screen : FragmentScreen {
-        override fun createFragment(factory: androidx.fragment.app.FragmentFactory): Fragment = HardDriveListFragment()
+        override fun createFragment(factory: FragmentFactory): Fragment = PcCaseListFragment()
     }
 }

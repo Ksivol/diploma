@@ -14,10 +14,14 @@ class PsuRepositoryImpl @Inject constructor(private val psuDAO: PsuDAO) : PsuRep
     override fun getPsus(): Flow<List<PSU>> =
         psuDAO.getPsu().map { it.map(PSUEntity::toDomain) }
 
-    override fun getPsu(id: Int): PSU =
+    override suspend fun getPsu(id: Int): PSU =
         psuDAO.getPsu(id).toDomain()
 
-    override fun updatePsu(psu: PSU) {
+    override suspend fun updatePsu(psu: PSU) {
         psuDAO.updatePsu(psu.toData())
+    }
+
+    override suspend fun toggleFavorite(item: PSU) {
+        psuDAO.updatePsu(item.toData())
     }
 }

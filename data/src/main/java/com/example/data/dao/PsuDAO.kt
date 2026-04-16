@@ -14,14 +14,14 @@ interface PsuDAO {
     fun getPsu(): Flow<List<PSUEntity>>
 
     @Query("SELECT * FROM psu WHERE id = :id")
-    fun getPsu(id: Int): PSUEntity
+    suspend fun getPsu(id: Int): PSUEntity
 
     @Insert
-    fun insertPsu(psu: PSUEntity)
+    suspend fun insertPsu(psu: PSUEntity)
 
     @Update
-    fun updatePsu(psu: PSUEntity)
+    suspend fun updatePsu(psu: PSUEntity)
 
     @Delete
-    fun deletePsu(psu: PSUEntity)
+    suspend fun deletePsu(psu: PSUEntity)
 }

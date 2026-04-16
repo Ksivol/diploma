@@ -13,10 +13,14 @@ class MotherboardRepositoryImpl @Inject constructor(private val motherboardDAO: 
     override fun getMotherboards(): Flow<List<Motherboard>> =
         motherboardDAO.getMotherboards().map { it.map { it.toDomain() } }
 
-    override fun getMotherboard(id: Int): Motherboard =
+    override suspend fun getMotherboard(id: Int): Motherboard =
         motherboardDAO.getMotherboard(id).toDomain()
 
-    override fun updateMotherboard(motherboard: Motherboard) {
+    override suspend fun updateMotherboard(motherboard: Motherboard) {
         motherboardDAO.updateMotherboard(motherboard.toData())
+    }
+
+    override suspend fun toggleFavorite(item: Motherboard) {
+        motherboardDAO.updateMotherboard(item.toData())
     }
 }

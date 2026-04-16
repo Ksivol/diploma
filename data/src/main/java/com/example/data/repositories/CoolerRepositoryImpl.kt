@@ -14,10 +14,14 @@ class CoolerRepositoryImpl @Inject constructor(private val coolerDAO: CoolerDAO)
     override fun getCoolers(): Flow<List<Cooler>> =
         coolerDAO.getCoolers().map { it.map(CoolerEntity::toDomain) }
 
-    override fun getCooler(id: Int): Cooler =
+    override suspend fun getCooler(id: Int): Cooler =
         coolerDAO.getCooler(id).toDomain()
 
-    override fun updateCooler(cooler: Cooler) {
+    override suspend fun updateCooler(cooler: Cooler) {
         coolerDAO.updateCooler(cooler.toData())
+    }
+
+    override suspend fun toggleFavorite(item: Cooler) {
+        coolerDAO.updateCooler(item.toData())
     }
 }

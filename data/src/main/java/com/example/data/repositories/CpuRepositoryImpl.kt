@@ -14,10 +14,14 @@ class CpuRepositoryImpl @Inject constructor(private val cpuDAO: CpuDAO) : CpuRep
     override fun getCpus(): Flow<List<CPU>> =
         cpuDAO.getCpus().map { it.map(CPUEntity::toDomain) }
 
-    override fun getCpu(id: Int): CPU =
+    override suspend fun getCpu(id: Int): CPU =
         cpuDAO.getCpu(id).toDomain()
 
-    override fun updateCpu(cpu: CPU) {
+    override suspend fun updateCpu(cpu: CPU) {
         cpuDAO.updateCpu(cpu.toData())
+    }
+
+    override suspend fun toggleFavorite(item: CPU) {
+        cpuDAO.updateCpu(item.toData())
     }
 }

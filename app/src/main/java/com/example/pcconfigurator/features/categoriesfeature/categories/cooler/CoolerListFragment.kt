@@ -1,9 +1,10 @@
-package com.example.pcconfigurator.features.categoriesfeature.categories
+package com.example.pcconfigurator.features.categoriesfeature.categories.cooler
 
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -20,12 +21,12 @@ import javax.inject.Inject
 
 class CoolerListFragment : Fragment(R.layout.fragment_cooler_list) {
     private val binding: FragmentCoolerListBinding by viewBinding(FragmentCoolerListBinding::bind)
-    private val adapter: CoolerAdapter by lazy { CoolerAdapter{} }
+    private val adapter: CoolerAdapter by lazy { CoolerAdapter{ item -> viewModel.onFavoriteClick(item)} }
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
     
-    private val viewModel: CoolerViewModel by viewModels { factory }
+    private val viewModel: CoolerListViewModel by viewModels { factory }
 
     override fun onAttach(context: Context) {
         component.inject(this)
@@ -55,6 +56,6 @@ class CoolerListFragment : Fragment(R.layout.fragment_cooler_list) {
     }
 
     class Screen : FragmentScreen {
-        override fun createFragment(factory: androidx.fragment.app.FragmentFactory): Fragment = CoolerListFragment()
+        override fun createFragment(factory: FragmentFactory): Fragment = CoolerListFragment()
     }
 }

@@ -8,5 +8,6 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class GetVideoCardsUseCase @Inject constructor(private val repository: VideoCardRepository) {
-    suspend operator fun invoke(): Flow<List<VideoCard>> = withContext(Dispatchers.IO) { repository.getVideoCards() }
+    suspend operator fun invoke(): Flow<List<VideoCard>> =
+        withContext(Dispatchers.IO) { repository.getVideoCards() }
 }

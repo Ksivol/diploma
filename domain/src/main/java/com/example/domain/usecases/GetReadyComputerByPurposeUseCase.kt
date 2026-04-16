@@ -1,4 +1,6 @@
 package com.example.domain.usecases
 
-class GetReadyComputerByPurposeUseCase {
+import javax.inject.Inject
+
+class GetReadyComputerByPurposeUseCase @Inject constructor() {
 }

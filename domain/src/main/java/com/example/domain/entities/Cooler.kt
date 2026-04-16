@@ -13,12 +13,16 @@ import java.math.BigDecimal
  * @param photo фото
  */
 data class Cooler(
-    val id: Int,
+    override val id: Int,
     val name: String,
     val price: BigDecimal,
     val heatSink: Int,
     val size: Int,
     val socket: String,
-    val favorite: Boolean,
+    override val favorite: Boolean,
     val photo: String
-)
+): Favorite {
+    override fun update(favorite: Boolean): Favorite {
+        return this.copy(favorite = favorite)
+    }
+}

@@ -9,6 +9,15 @@ import com.example.data.repositories.PcRepositoryImpl
 import com.example.data.repositories.PsuRepositoryImpl
 import com.example.data.repositories.RamRepositoryImpl
 import com.example.data.repositories.VideoCardRepositoryImpl
+import com.example.domain.entities.CPU
+import com.example.domain.entities.Cooler
+import com.example.domain.entities.HardDrive
+import com.example.domain.entities.Motherboard
+import com.example.domain.entities.PSU
+import com.example.domain.entities.PcCase
+import com.example.domain.entities.RAM
+import com.example.domain.entities.VideoCard
+import com.example.domain.repositories.BaseRepository
 import com.example.domain.repositories.CoolerRepository
 import com.example.domain.repositories.CpuRepository
 import com.example.domain.repositories.HardDriveRepository
@@ -49,4 +58,28 @@ interface RepositoryBindModule {
 
     @Binds
     fun bindVideoCardRepository(videoCardRepositoryImpl: VideoCardRepositoryImpl): VideoCardRepository
+
+    @Binds
+    fun bindCoolerRepositoryToBaseRepository(coolerRepositoryImpl: CoolerRepositoryImpl): BaseRepository<Cooler>
+
+    @Binds
+    fun bindCpuRepositoryToBaseRepository(cpuRepositoryImpl: CpuRepositoryImpl): BaseRepository<CPU>
+
+    @Binds
+    fun bindHardDriveRepositoryToBaseRepository(dardDriveRepositoryImpl: HardDriveRepositoryImpl): BaseRepository<HardDrive>
+
+    @Binds
+    fun bindMotherboardRepositoryToBaseRepository(motherboardRepositoryImpl: MotherboardRepositoryImpl): BaseRepository<Motherboard>
+
+    @Binds
+    fun bindPcCaseRepositoryToBaseRepository(pcCaseRepositoryImpl: PcCaseRepositoryImpl): BaseRepository<PcCase>
+
+    @Binds
+    fun bindPsuRepositoryToBaseRepository(psuRepositoryImpl: PsuRepositoryImpl): BaseRepository<PSU>
+
+    @Binds
+    fun bindRamRepositoryToBaseRepository(ramRepositoryImpl: RamRepositoryImpl): BaseRepository<RAM>
+
+    @Binds
+    fun bindVideoCardRepositoryToBaseRepository(videoCardRepositoryImpl: VideoCardRepositoryImpl): BaseRepository<VideoCard>
 }

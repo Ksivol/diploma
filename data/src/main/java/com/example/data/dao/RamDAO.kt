@@ -15,14 +15,14 @@ interface RamDAO {
     fun getRams(): Flow<List<RAMEntity>>
 
     @Query("SELECT * FROM ram WHERE id = :id")
-    fun getRam(id : Int): RAMEntity
+    suspend fun getRam(id : Int): RAMEntity
 
     @Insert
-    fun insertRam(ram: RAMEntity)
+    suspend fun insertRam(ram: RAMEntity)
 
     @Update
-    fun updateRam(ram: RAMEntity)
+    suspend fun updateRam(ram: RAMEntity)
 
     @Delete
-    fun deleteRam(ram: RAMEntity)
+    suspend fun deleteRam(ram: RAMEntity)
 }

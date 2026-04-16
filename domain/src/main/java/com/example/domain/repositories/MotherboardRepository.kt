@@ -1,12 +1,13 @@
 package com.example.domain.repositories
 
+import com.example.domain.entities.CPU
 import com.example.domain.entities.Motherboard
 import kotlinx.coroutines.flow.Flow
 
-interface MotherboardRepository {
+interface MotherboardRepository: BaseRepository<Motherboard> {
     fun getMotherboards(): Flow<List<Motherboard>>
 
-    fun getMotherboard(id: Int): Motherboard
+    suspend fun getMotherboard(id: Int): Motherboard
 
-    fun updateMotherboard(motherboard: Motherboard)
+    suspend fun updateMotherboard(motherboard: Motherboard)
 }

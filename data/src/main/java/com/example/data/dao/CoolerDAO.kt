@@ -14,14 +14,15 @@ interface CoolerDAO {
     fun getCoolers(): Flow<List<CoolerEntity>>
 
     @Query("SELECT * FROM cooler WHERE id = :id")
-    fun getCooler(id : Int): CoolerEntity
+    suspend fun getCooler(id : Int): CoolerEntity
 
     @Insert
-    fun insertCooler(cooler: CoolerEntity)
+    suspend fun insertCooler(cooler: CoolerEntity)
 
     @Update
-    fun updateCooler(cooler: CoolerEntity)
+    suspend fun updateCooler(cooler: CoolerEntity)
 
     @Delete
-    fun deleteCooler(cooler: CoolerEntity)
+    suspend fun deleteCooler(cooler: CoolerEntity)
+
 }

@@ -14,10 +14,10 @@ class PcRepositoryImpl @Inject constructor(private val pcDAO: PcDAO) : PcReposit
     override fun getPc(): Flow<List<Pc>> =
         pcDAO.getPc().map { it.map(PcWithData::toDomain) }
 
-    override fun getPc(id: Int): Pc =
+    override suspend fun getPc(id: Int): Pc =
         pcDAO.getPc(id).toDomain()
 
-    override fun updatePc(pc: Pc) {
+    override suspend fun updatePc(pc: Pc) {
         pcDAO.updatePc(pc.toData())
     }
 }

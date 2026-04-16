@@ -1,4 +1,6 @@
 package com.example.domain.usecases
 
-class BuildWithMoneyDistributedUseCase {
+import javax.inject.Inject
+
+class BuildWithMoneyDistributedUseCase @Inject constructor() {
 }

@@ -7,6 +7,15 @@
     <string name="profile">Профиль</string>
     <string name="make_a_build">Сделать сборку</string>
 
+    <string name="cooler">Охлаждение</string>
+    <string name="ps_case">Корпуса</string>
+    <string name="hard_drive">Накопители</string>
+    <string name="psu">Блоки питания</string>
+    <string name="video_card">Видеокарты</string>
+    <string name="motherboard">Материнские платы</string>
+    <string name="ram">Оперативная память</string>
+    <string name="cpu">Процессоры</string>
+
     <!-- fragment_make_a_build -->
     <string name="empty_component_list">Нет компонентов\nНажмите\n+\nчтобы добавить компонент</string>
     <string name="component_name">Название</string>

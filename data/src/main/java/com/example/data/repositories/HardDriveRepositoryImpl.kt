@@ -14,10 +14,14 @@ class HardDriveRepositoryImpl @Inject constructor(private val hardDriveDAO: Hard
     override fun getHardDrives(): Flow<List<HardDrive>> =
         hardDriveDAO.getHardDrives().map { it.map(HardDriveEntity::toDomain) }
 
-    override fun getHardDrive(id: Int): HardDrive =
+    override suspend fun getHardDrive(id: Int): HardDrive =
         hardDriveDAO.getHardDrive(id).toDomain()
 
-    override fun updateHardDrive(hardDrive: HardDrive) {
+    override suspend fun updateHardDrive(hardDrive: HardDrive) {
         hardDriveDAO.updateHardDrive(hardDrive.toData())
+    }
+
+    override suspend fun toggleFavorite(item: HardDrive) {
+        hardDriveDAO.updateHardDrive(item.toData())
     }
 }

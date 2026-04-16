@@ -15,14 +15,14 @@ interface MotherboardDAO {
     fun getMotherboards(): Flow<List<MotherboardEntity>>
 
     @Query("SELECT * FROM motherboard WHERE id = :id")
-    fun getMotherboard(id : Int): MotherboardEntity
+    suspend fun getMotherboard(id : Int): MotherboardEntity
 
     @Insert
-    fun insertMotherboard(motherboard: MotherboardEntity)
+    suspend fun insertMotherboard(motherboard: MotherboardEntity)
 
     @Update
-    fun updateMotherboard(motherboard: MotherboardEntity)
+    suspend fun updateMotherboard(motherboard: MotherboardEntity)
 
     @Delete
-    fun deleteMotherboard(motherboard: MotherboardEntity)
+    suspend fun deleteMotherboard(motherboard: MotherboardEntity)
 }

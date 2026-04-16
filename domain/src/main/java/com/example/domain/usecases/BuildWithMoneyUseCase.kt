@@ -1,4 +1,6 @@
 package com.example.domain.usecases
 
-class BuildWithMoneyUseCase {
+import javax.inject.Inject
+
+class BuildWithMoneyUseCase @Inject constructor() {
 }

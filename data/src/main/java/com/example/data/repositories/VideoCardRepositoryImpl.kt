@@ -14,10 +14,14 @@ class VideoCardRepositoryImpl @Inject constructor(private val videoCardDAO: Vide
     override fun getVideoCards(): Flow<List<VideoCard>> =
         videoCardDAO.getVideoCards().map { it.map(VideoCardEntity::toDomain) }
 
-    override fun getVideoCard(id: Int): VideoCard =
+    override suspend fun getVideoCard(id: Int): VideoCard =
         videoCardDAO.getVideoCard(id).toDomain()
 
-    override fun updateVideoCard(videoCard: VideoCard) {
+    override suspend fun updateVideoCard(videoCard: VideoCard) {
         videoCardDAO.updateVideoCard(videoCard.toData())
+    }
+
+    override suspend fun toggleFavorite(item: VideoCard) {
+        videoCardDAO.updateVideoCard(item.toData())
     }
 }

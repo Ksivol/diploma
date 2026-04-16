@@ -1,4 +1,6 @@
 package com.example.domain.usecases
 
-class GetPriceUseCase {
+import javax.inject.Inject
+
+class GetPriceUseCase @Inject constructor() {
 }

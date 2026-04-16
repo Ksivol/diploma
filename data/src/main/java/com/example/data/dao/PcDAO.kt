@@ -143,14 +143,14 @@ LEFT JOIN psu ON q_psu.psu_id = psu.id
 WHERE Pc.id = :id
 GROUP BY pc.id, pc.name, pc.price;
             """)
-    fun getPc(id : Int): PcWithData
+    suspend fun getPc(id : Int): PcWithData
 
     @Insert
-    fun insertPc(pc: PcEntity)
+    suspend fun insertPc(pc: PcEntity)
 
     @Update
-    fun updatePc(pc: PcEntity)
+    suspend fun updatePc(pc: PcEntity)
 
     @Delete
-    fun deletePc(pc: PcEntity)
+    suspend fun deletePc(pc: PcEntity)
 }

@@ -1,9 +1,10 @@
-package com.example.pcconfigurator.features.categoriesfeature.categories
+package com.example.pcconfigurator.features.categoriesfeature.categories.mothervoard
 
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -20,12 +21,12 @@ import javax.inject.Inject
 
 class MotherboardListFragment : Fragment(R.layout.fragment_cooler_list) {
     private val binding: FragmentCoolerListBinding by viewBinding(FragmentCoolerListBinding::bind)
-    private val adapter: MotherboardAdapter by lazy { MotherboardAdapter{} }
+    private val adapter: MotherboardAdapter by lazy { MotherboardAdapter{item -> viewModel.onFavoriteClick(item)} }
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
     
-    private val viewModel: MotherboardViewModel by viewModels { factory }
+    private val viewModel: MotherboardListViewModel by viewModels { factory }
 
     override fun onAttach(context: Context) {
         component.inject(this)
@@ -54,6 +55,6 @@ class MotherboardListFragment : Fragment(R.layout.fragment_cooler_list) {
     }
 
     class Screen : FragmentScreen {
-        override fun createFragment(factory: androidx.fragment.app.FragmentFactory): Fragment = MotherboardListFragment()
+        override fun createFragment(factory: FragmentFactory): Fragment = MotherboardListFragment()
     }
 }

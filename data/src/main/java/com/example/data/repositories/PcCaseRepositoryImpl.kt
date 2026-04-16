@@ -14,10 +14,14 @@ class PcCaseRepositoryImpl @Inject constructor(private val pcCaseDAO: PcCaseDAO)
     override fun getPcCases(): Flow<List<PcCase>> =
         pcCaseDAO.getPcCases().map { it.map(PcCaseEntity::toDomain) }
 
-    override fun getPcCase(id: Int): PcCase =
+    override suspend fun getPcCase(id: Int): PcCase =
         pcCaseDAO.getPcCase(id).toDomain()
 
-    override fun updatePcCase(pcCase: PcCase) {
+    override suspend fun updatePcCase(pcCase: PcCase) {
         pcCaseDAO.updatePcCase(pcCase.toData())
+    }
+
+    override suspend fun toggleFavorite(item: PcCase) {
+        pcCaseDAO.updatePcCase(item.toData())
     }
 }

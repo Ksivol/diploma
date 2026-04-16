@@ -1,9 +1,10 @@
-package com.example.pcconfigurator.features.categoriesfeature.categories
+package com.example.pcconfigurator.features.categoriesfeature.categories.ram
 
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -12,20 +13,20 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentCoolerListBinding
 import com.example.pcconfigurator.di.component
-import com.example.pcconfigurator.utils.PsuAdapter
+import com.example.pcconfigurator.utils.RamAdapter
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
-class PsuListFragment : Fragment(R.layout.fragment_cooler_list) {
+class RamListFragment : Fragment(R.layout.fragment_cooler_list) {
     private val binding: FragmentCoolerListBinding by viewBinding(FragmentCoolerListBinding::bind)
-    private val adapter: PsuAdapter by lazy { PsuAdapter{} }
+    private val adapter: RamAdapter by lazy { RamAdapter{item -> viewModel.onFavoriteClick(item)} }
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
     
-    private val viewModel: PsuViewModel by viewModels { factory }
+    private val viewModel: RamListViewModel by viewModels { factory }
 
     override fun onAttach(context: Context) {
         component.inject(this)
@@ -40,20 +41,20 @@ class PsuListFragment : Fragment(R.layout.fragment_cooler_list) {
 
     private fun setupRecyclerView() {
         binding.coolerRecyclerView.apply {
-            adapter = this@PsuListFragment.adapter
+            adapter = this@RamListFragment.adapter
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
 
     private fun observeViewModel() {
-        viewModel.psus
-            .onEach { psus ->
-                adapter.submitList(psus)
+        viewModel.rams
+            .onEach { rams ->
+                adapter.submitList(rams)
             }
             .launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
     class Screen : FragmentScreen {
-        override fun createFragment(factory: androidx.fragment.app.FragmentFactory): Fragment = PsuListFragment()
+        override fun createFragment(factory: FragmentFactory): Fragment = RamListFragment()
     }
 }

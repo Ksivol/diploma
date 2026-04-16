@@ -2,14 +2,14 @@ package com.example.pcconfigurator.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.pcconfigurator.features.categoriesfeature.categories.CoolerViewModel
-import com.example.pcconfigurator.features.categoriesfeature.categories.CpuViewModel
-import com.example.pcconfigurator.features.categoriesfeature.categories.HardDriveViewModel
-import com.example.pcconfigurator.features.categoriesfeature.categories.MotherboardViewModel
-import com.example.pcconfigurator.features.categoriesfeature.categories.PcCaseViewModel
-import com.example.pcconfigurator.features.categoriesfeature.categories.PsuViewModel
-import com.example.pcconfigurator.features.categoriesfeature.categories.RamViewModel
-import com.example.pcconfigurator.features.categoriesfeature.categories.VideoCardViewModel
+import com.example.pcconfigurator.features.categoriesfeature.categories.cooler.CoolerListViewModel
+import com.example.pcconfigurator.features.categoriesfeature.categories.cpu.CpuListViewModel
+import com.example.pcconfigurator.features.categoriesfeature.categories.hardDrive.HardDriveListViewModel
+import com.example.pcconfigurator.features.categoriesfeature.categories.mothervoard.MotherboardListViewModel
+import com.example.pcconfigurator.features.categoriesfeature.categories.psCase.PcCaseListViewModel
+import com.example.pcconfigurator.features.categoriesfeature.categories.psu.PsuListViewModel
+import com.example.pcconfigurator.features.categoriesfeature.categories.ram.RamListViewModel
+import com.example.pcconfigurator.features.categoriesfeature.categories.videoCard.VideoCardListViewModel
 import com.example.pcconfigurator.features.pcbuildsfeature.builds.BuildsViewModel
 import com.example.pcconfigurator.main.MainContainerViewModel
 import com.example.pcconfigurator.main.MainViewModel
@@ -35,34 +35,34 @@ interface ViewModelModule {
     fun bindMainContainerViewModel(mainContainerViewModel: MainContainerViewModel): ViewModel
 
     @Binds
-    @[IntoMap ViewModelKey(CoolerViewModel::class)]
-    fun bindCoolerViewModel(coolerViewModel: CoolerViewModel): ViewModel
+    @[IntoMap ViewModelKey(CoolerListViewModel::class)]
+    fun bindCoolerViewModel(coolerListViewModel: CoolerListViewModel): ViewModel
 
     @Binds
-    @[IntoMap ViewModelKey(CpuViewModel::class)]
-    fun bindCpuViewModel(cpuViewModel: CpuViewModel): ViewModel
+    @[IntoMap ViewModelKey(CpuListViewModel::class)]
+    fun bindCpuViewModel(cpuListViewModel: CpuListViewModel): ViewModel
 
     @Binds
-    @[IntoMap ViewModelKey(HardDriveViewModel::class)]
-    fun bindHardDriveViewModel(hardDriveViewModel: HardDriveViewModel): ViewModel
+    @[IntoMap ViewModelKey(HardDriveListViewModel::class)]
+    fun bindHardDriveViewModel(hardDriveListViewModel: HardDriveListViewModel): ViewModel
 
     @Binds
-    @[IntoMap ViewModelKey(MotherboardViewModel::class)]
-    fun bindMotherboardViewModel(motherboardViewModel: MotherboardViewModel): ViewModel
+    @[IntoMap ViewModelKey(MotherboardListViewModel::class)]
+    fun bindMotherboardViewModel(motherboardListViewModel: MotherboardListViewModel): ViewModel
 
     @Binds
-    @[IntoMap ViewModelKey(PcCaseViewModel::class)]
-    fun bindPcCaseViewModel(pcCaseViewModel: PcCaseViewModel): ViewModel
+    @[IntoMap ViewModelKey(PcCaseListViewModel::class)]
+    fun bindPcCaseViewModel(pcCaseListViewModel: PcCaseListViewModel): ViewModel
 
     @Binds
-    @[IntoMap ViewModelKey(PsuViewModel::class)]
-    fun bindPsuViewModel(psuViewModel: PsuViewModel): ViewModel
+    @[IntoMap ViewModelKey(PsuListViewModel::class)]
+    fun bindPsuViewModel(psuListViewModel: PsuListViewModel): ViewModel
 
     @Binds
-    @[IntoMap ViewModelKey(RamViewModel::class)]
-    fun bindRamViewModel(ramViewModel: RamViewModel): ViewModel
+    @[IntoMap ViewModelKey(RamListViewModel::class)]
+    fun bindRamViewModel(ramListViewModel: RamListViewModel): ViewModel
 
     @Binds
-    @[IntoMap ViewModelKey(VideoCardViewModel::class)]
-    fun bindVideoCardViewModel(videoCardViewModel: VideoCardViewModel): ViewModel
+    @[IntoMap ViewModelKey(VideoCardListViewModel::class)]
+    fun bindVideoCardViewModel(videoCardListViewModel: VideoCardListViewModel): ViewModel
 }

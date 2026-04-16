@@ -15,14 +15,14 @@ interface VideoCardDAO {
     fun getVideoCards(): Flow<List<VideoCardEntity>>
 
     @Query("SELECT * FROM video_card WHERE id = :id")
-    fun getVideoCard(id : Int): VideoCardEntity
+    suspend fun getVideoCard(id : Int): VideoCardEntity
 
     @Insert
-    fun insertVideoCard(videoCard: VideoCardEntity)
+    suspend fun insertVideoCard(videoCard: VideoCardEntity)
 
     @Update
-    fun updateVideoCard(videoCard: VideoCardEntity)
+    suspend fun updateVideoCard(videoCard: VideoCardEntity)
 
     @Delete
-    fun deleteVideoCard(videoCard: VideoCardEntity)
+    suspend fun deleteVideoCard(videoCard: VideoCardEntity)
 }

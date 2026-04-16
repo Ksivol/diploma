@@ -15,14 +15,14 @@ interface HardDriveDAO {
     fun getHardDrives(): Flow<List<HardDriveEntity>>
 
     @Query("SELECT * FROM hard_drive WHERE id = :id")
-    fun getHardDrive(id : Int): HardDriveEntity
+    suspend fun getHardDrive(id : Int): HardDriveEntity
 
     @Insert
-    fun insertHardDrive(hardDrive: HardDriveEntity)
+    suspend fun insertHardDrive(hardDrive: HardDriveEntity)
 
     @Update
-    fun updateHardDrive(hardDrive: HardDriveEntity)
+    suspend fun updateHardDrive(hardDrive: HardDriveEntity)
 
     @Delete
-    fun deleteHardDrive(hardDrive: HardDriveEntity)
+    suspend fun deleteHardDrive(hardDrive: HardDriveEntity)
 }

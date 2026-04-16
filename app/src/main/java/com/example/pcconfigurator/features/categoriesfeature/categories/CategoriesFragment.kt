@@ -12,6 +12,14 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.pcconfigurator.R
 import com.example.pcconfigurator.databinding.FragmentCategoriesBinding
 import com.example.pcconfigurator.di.component
+import com.example.pcconfigurator.features.categoriesfeature.categories.cooler.CoolerListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.cpu.CpuListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.hardDrive.HardDriveListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.mothervoard.MotherboardListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.psCase.PcCaseListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.psu.PsuListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.ram.RamListFragment
+import com.example.pcconfigurator.features.categoriesfeature.categories.videoCard.VideoCardListFragment
 import com.example.pcconfigurator.features.categoriesfeature.models.Category
 import com.example.pcconfigurator.features.categoriesfeature.utils.CategoriesAdapter
 import com.example.pcconfigurator.main.MainContainerViewModel
@@ -28,7 +36,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     private val mainViewModel: MainViewModel by activityViewModels {
         factory
     }
-    
+
     private val containerViewModel: MainContainerViewModel by activityViewModels {
         factory
     }
@@ -36,14 +44,46 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     private val adapter: CategoriesAdapter by lazy {
         CategoriesAdapter { category ->
             val screen = when (category.id) {
-                1 -> CoolerListFragment.Screen()
-                2 -> PcCaseListFragment.Screen()
-                3 -> HardDriveListFragment.Screen()
-                4 -> PsuListFragment.Screen()
-                5 -> VideoCardListFragment.Screen()
-                6 -> MotherboardListFragment.Screen()
-                7 -> RamListFragment.Screen()
-                8 -> CpuListFragment.Screen()
+                1 -> {
+                    mainViewModel.setTitle(requireContext().getString(R.string.cooler))
+                    CoolerListFragment.Screen()
+                }
+
+                2 -> {
+                    mainViewModel.setTitle(requireContext().getString(R.string.ps_case))
+                    PcCaseListFragment.Screen()
+                }
+
+                3 -> {
+                    mainViewModel.setTitle(requireContext().getString(R.string.hard_drive))
+                    HardDriveListFragment.Screen()
+                }
+
+                4 -> {
+                    mainViewModel.setTitle(requireContext().getString(R.string.psu))
+                    PsuListFragment.Screen()
+                }
+
+                5 -> {
+                    mainViewModel.setTitle(requireContext().getString(R.string.video_card))
+                    VideoCardListFragment.Screen()
+                }
+
+                6 -> {
+                    mainViewModel.setTitle(requireContext().getString(R.string.motherboard))
+                    MotherboardListFragment.Screen()
+                }
+
+                7 -> {
+                    mainViewModel.setTitle(requireContext().getString(R.string.ram))
+                    RamListFragment.Screen()
+                }
+
+                8 -> {
+                    mainViewModel.setTitle(requireContext().getString(R.string.cpu))
+                    CpuListFragment.Screen()
+                }
+
                 else -> null
             }
             screen?.let { containerViewModel.navigateTo(it) }

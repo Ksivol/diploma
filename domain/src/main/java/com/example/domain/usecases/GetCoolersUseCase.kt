@@ -8,5 +8,6 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class GetCoolersUseCase @Inject constructor(private val repository: CoolerRepository) {
-    suspend operator fun invoke(): Flow<List<Cooler>> = withContext(Dispatchers.IO) {repository.getCoolers()}
+    suspend operator fun invoke(): Flow<List<Cooler>> =
+        withContext(Dispatchers.IO) { repository.getCoolers() }
 }

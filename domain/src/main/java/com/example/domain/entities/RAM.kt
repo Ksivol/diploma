@@ -15,12 +15,16 @@ import java.math.BigDecimal
  * @param photo фото
  */
 data class RAM(
-    val id: Int,
+    override val id: Int,
     val name: String,
     val price: BigDecimal,
     val clockRate: Int,
     val type: String,
     val quantity: String,
-    val favorite: Boolean,
+    override val favorite: Boolean,
     val photo: String
-)
+) : Favorite {
+    override fun update(favorite: Boolean): Favorite {
+        return this.copy(favorite = favorite)
+    }
+}
